@@ -14,6 +14,16 @@ if (!$product) {
     die('Товар не найден');
 }
 
+// Формируем SEO-заголовок
+$page_title = "Усиление сотовой связи | " . $product['name'];
+
+// Формируем SEO-описание
+$meta_description = "Купить " . $product['name'] . " по выгодной цене. " 
+    . "Характеристики, описание, фото. Доставка по всей России.";
+
+// Формируем ключевые слова
+$meta_keywords = "усиление сотовой связи, " . $product['name'] . ", купить, цена, характеристики";
+
 $similar_products = [];
 if (!empty($product['categories'])) {
     $category_ids = array_column($product['categories'], 'id');
@@ -37,17 +47,27 @@ require_once 'includes/header.php';
 ?>
 
 <div class="container mt-4">
-    <nav aria-label="breadcrumb" class="mb-4">
+    <!-- Хлебные крошки с микроразметкой Schema.org -->
+    <nav aria-label="breadcrumb" class="mb-4" itemscope itemtype="https://schema.org/BreadcrumbList">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php">Каталог</a></li>
-            <?php if (!empty($product['categories'])): ?>
-            <li class="breadcrumb-item">
-                <a href="index.php?category=<?= $product['categories'][0]['id'] ?>">
-                    <?= escape($product['categories'][0]['name']) ?>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="index.php" itemprop="item">
+                    <span itemprop="name">Каталог</span>
                 </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <?php if (!empty($product['categories'])): ?>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="index.php?category=<?= $product['categories'][0]['id'] ?>" itemprop="item">
+                    <span itemprop="name"><?= escape($product['categories'][0]['name']) ?></span>
+                </a>
+                <meta itemprop="position" content="2" />
             </li>
             <?php endif; ?>
-            <li class="breadcrumb-item active" aria-current="page"><?= escape($product['name']) ?></li>
+            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name"><?= escape($product['name']) ?></span>
+                <meta itemprop="position" content="3" />
+            </li>
         </ol>
     </nav>
     
@@ -56,7 +76,7 @@ require_once 'includes/header.php';
     <?php unset($_SESSION['message']); ?>
     <?php endif; ?>
     
-    <div class="row">
+    <div class="row" itemscope itemtype="https://schema.org/Product">
         <div class="col-lg-6">
             <div class="product-gallery">
                 <?php if (!empty($product['images'])): ?>
@@ -65,7 +85,8 @@ require_once 'includes/header.php';
                          class="img-fluid rounded" 
                          alt="<?= escape($product['name']) ?>"
                          id="mainProductImage"
-                         style="max-height: 400px; object-fit: contain;">
+                         style="max-height: 400px; object-fit: contain;"
+                         itemprop="image">
                 </div>
                 
                 <div class="thumbnail-container d-flex flex-wrap gap-2 justify-content-center">
@@ -74,7 +95,8 @@ require_once 'includes/header.php';
                         <img src="/catalog/uploads/<?= escape($image['image_path']) ?>" 
                              class="img-thumbnail <?= $image['is_main'] ? 'border-primary' : '' ?>"
                              style="width: 100%; height: 80px; object-fit: cover;"
-                             onclick="document.getElementById('mainProductImage').src = this.src">
+                             onclick="document.getElementById('mainProductImage').src = this.src"
+                             alt="<?= escape($product['name']) ?> - фото <?= $loop->iteration ?>">
                     </div>
                     <?php endforeach; ?>
                 </div>
@@ -87,11 +109,15 @@ require_once 'includes/header.php';
         </div>
         
         <div class="col-lg-6">
-            <h1 class="mb-3"><?= escape($product['name']) ?></h1>
-            <p class="text-muted">Артикул: <?= escape($product['sku']) ?></p>
+            <h1 class="mb-3" itemprop="name"><?= escape($product['name']) ?></h1>
+            <p class="text-muted">Артикул: <span itemprop="sku"><?= escape($product['sku']) ?></span></p>
             
-            <div class="price-block mb-4">
-                <h2 class="text-primary"><?= number_format($product['price'], 2, '.', ' ') ?> ₽</h2>
+            <div class="price-block mb-4" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="RUB" />
+                <meta itemprop="availability" content="https://schema.org/InStock" />
+                <h2 class="text-primary" itemprop="price" content="<?= $product['price'] ?>">
+                    <?= number_format($product['price'], 2, '.', ' ') ?> ₽
+                </h2>
                 <?php if ($product['old_price'] > 0): ?>
                 <del class="text-muted"><?= number_format($product['old_price'], 2, '.', ' ') ?> ₽</del>
                 <?php endif; ?>
@@ -111,7 +137,7 @@ require_once 'includes/header.php';
                 </form>
             </div>
             
-            <div class="description mb-4">
+            <div class="description mb-4" itemprop="description">
                 <h3>Описание</h3>
                 <div class="product-description">
                     <?= nl2br(escape($product['description'])) ?>
@@ -124,9 +150,9 @@ require_once 'includes/header.php';
                 <table class="table table-striped">
                     <tbody>
                         <?php foreach ($product['specifications'] as $spec): ?>
-                        <tr>
-                            <th style="width: 40%"><?= escape($spec['name']) ?></th>
-                            <td><?= escape($spec['value']) ?></td>
+                        <tr itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
+                            <th style="width: 40%" itemprop="name"><?= escape($spec['name']) ?></th>
+                            <td itemprop="value"><?= escape($spec['value']) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -139,45 +165,48 @@ require_once 'includes/header.php';
     </div>
     
     <?php if (!empty($similar_products)): ?>
-    <div class="row mt-5">
-        <div class="col-12">
-            <h2 class="mb-4">Похожие товары</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                <?php foreach ($similar_products as $similar): ?>
-                <div class="col">
-                    <div class="card h-100">
-                        <?php if (!empty($similar['main_image'])): ?>
-                        <img src="<?= escape($similar['main_image']) ?>" class="card-img-top p-3" alt="<?= escape($similar['name']) ?>">
-                        <?php else: ?>
-                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 150px;">
-                            <span class="text-muted">Нет изображения</span>
-                        </div>
-                        <?php endif; ?>
-                        
-                        <div class="card-body">
-                            <h5 class="card-title"><?= escape($similar['name']) ?></h5>
-                            <p class="text-primary"><?= number_format($similar['price'], 2, '.', ' ') ?> ₽</p>
-                        </div>
-                        
-                        <div class="card-footer bg-transparent">
-                            <div class="d-flex gap-2">
-                                <a href="product.php?id=<?= $similar['id'] ?>" class="btn btn-outline-primary flex-grow-1">Подробнее</a>
-                                <form action="cart_handler.php" method="post" class="d-inline">
-                                    <input type="hidden" name="product_id" value="<?= $similar['id'] ?>">
-                                    <input type="hidden" name="quantity" value="1">
-                                    <button type="submit" name="add_to_cart" class="btn btn-primary">
-                                        <i class="bi bi-cart-plus"></i>
-                                    </button>
-                                </form>
-                            </div>
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="mb-4">Похожие товары</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <?php foreach ($similar_products as $similar): ?>
+            <div class="col">
+                <div class="card h-100">
+                    <?php if (!empty($similar['main_image'])): ?>
+                    <img src="/catalog/uploads/<?= escape($similar['main_image']) ?>" 
+                         class="card-img-top p-3" 
+                         alt="<?= escape($similar['name']) ?>"
+                         style="height: 200px; object-fit: contain;">
+                    <?php else: ?>
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <span class="text-muted">Нет изображения</span>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <div class="card-body">
+                        <h5 class="card-title"><?= escape($similar['name']) ?></h5>
+                        <p class="text-primary"><?= number_format($similar['price'], 2, '.', ' ') ?> ₽</p>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex gap-2">
+                            <a href="product.php?id=<?= $similar['id'] ?>" class="btn btn-outline-primary flex-grow-1">Подробнее</a>
+                            <form action="cart_handler.php" method="post" class="d-inline">
+                                <input type="hidden" name="product_id" value="<?= $similar['id'] ?>">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" name="add_to_cart" class="btn btn-primary">
+                                    <i class="bi bi-cart-plus"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
-    <?php endif; ?>
+</div>
+<?php endif; ?>
 </div>
 
 <?php require_once 'includes/footer.php'; ?>
