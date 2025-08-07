@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги - Группа Интегра | Слаботочные системы в Москве и СПб</title>
-    <meta name="description" content="Полный спектр услуг по проектированию и монтажу слаботочных систем: СКС, видеонаблюдение, СКУД, пожарная безопасность, умный дом. Профессиональное оборудование и гарантия качества.">
-    <meta name="keywords" content="услуги, слаботочные системы, СКС, видеонаблюдение, СКУД, пожарная сигнализация, умный дом, BMS, проектирование, монтаж">
-    <meta property="og:title" content="Услуги - Группа Интегра | Профессиональные слаботочные системы">
-    <meta property="og:description" content="Комплексные решения для современного бизнеса: от проектирования до технической поддержки">
+    <title>Услуги усиления сотовой связи - Группа Интегра | GSM репитеры в Москве и СПб</title>
+    <meta name="description" content="Профессиональные услуги по усилению сотовой связи: замеры сигнала, проектирование, монтаж репитеров GSM. Комплексные решения от Группы Интегра с 2007 года.">
+    <meta name="keywords" content="усиление сотовой связи, GSM репитеры, замеры сигнала, проектирование связи, монтаж репитеров, усилители сигнала, Москва, Санкт-Петербург">
+    <meta property="og:title" content="Услуги усиления сотовой связи - Группа Интегра">
+    <meta property="og:description" content="Профессиональное усиление сотовой связи и интернета любой сложности с гарантией 5 лет">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://groupintegra.ru/services.php">
-    <meta property="og:image" content="/images/img30.jpg">
+    <meta property="og:url" content="https://groupintegra.ru/gsm-services.php">
+    <meta property="og:image" content="/images/gsm-services-hero.jpg">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://groupintegra.ru/services.php">
+    <link rel="canonical" href="https://groupintegra.ru/gsm-services.php">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -168,7 +168,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                    url('/images/img30.jpg') no-repeat center center/cover;
+                    url('/images/gsm-hero.jpg') no-repeat center center/cover;
             filter: brightness(0.3) contrast(1.1);
             z-index: -1;
         }
@@ -351,87 +351,9 @@
             font-size: 0.9rem;
         }
 
-        /* Целевые отрасли */
-        .target-industries {
-            background: var(--bg-color);
-        }
-
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .industry-card {
-            background: var(--light);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-
-        .industry-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-        }
-
-        .industry-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .industry-content {
-            padding: 35px;
-        }
-
-        .industry-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
-
-        .industry-description {
-            color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .industry-benefits {
-            margin-bottom: 25px;
-        }
-
-        .industry-benefits h5 {
-            color: var(--main-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .industry-benefits ul {
-            list-style: none;
-        }
-
-        .industry-benefits li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-
-        .industry-benefits li::before {
-            content: '▶';
-            color: var(--accent-color);
-            margin-right: 10px;
-            margin-top: 2px;
-            font-size: 0.8rem;
-        }
-
         /* Преимущества */
         .advantages {
-            background: var(--light);
+            background: var(--bg-color);
         }
 
         .advantages-grid {
@@ -477,7 +399,7 @@
 
         /* Процесс работы */
         .process {
-            background: var(--bg-color);
+            background: var(--light);
         }
 
         .process-steps {
@@ -488,7 +410,7 @@
         }
 
         .process-step {
-            background: var(--light);
+            background: var(--bg-color);
             padding: 30px 25px;
             border-radius: 8px;
             text-align: center;
@@ -631,10 +553,6 @@
             .process-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .industries-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 768px) {
@@ -659,8 +577,7 @@
             .services-grid,
             .additional-services-grid,
             .advantages-grid,
-            .process-steps,
-            .industries-grid {
+            .process-steps {
                 grid-template-columns: 1fr;
             }
 
@@ -714,8 +631,8 @@
 <section class="hero" id="hero">
     <div class="container">
         <div class="hero-content">
-            <h1 data-aos="fade-up">Наши услуги</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Комплексные решения для современного бизнеса с цифровым контролем качества</p>
+            <h1 data-aos="fade-up">Услуги усиления сотовой связи</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Профессиональные решения для качественной связи в любом месте</p>
         </div>
     </div>
 </section>
@@ -726,99 +643,99 @@
         <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Основные услуги</h2>
         <div class="services-grid">
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="/images/sks.jpg" alt="СКС - Структурированные кабельные системы" class="service-image">
-                <h3>Структурированные кабельные системы (СКС)</h3>
-                <p>Проектирование и монтаж современных СКС для передачи данных, голоса и видео с использованием медных и оптоволоконных линий связи.</p>
+                <img src="/images/signal-measurement.jpg" alt="Замеры сигнала сотовой связи" class="service-image">
+                <h3>Замеры сигнала</h3>
+                <p>Профессиональные замеры качества сотовой связи с помощью специализированного оборудования для определения оптимальных решений усиления.</p>
                 <div class="service-features">
                     <ul>
-                        <li>Проектирование под требования заказчика</li>
-                        <li>Монтаж медных и оптических линий</li>
-                        <li>Сертификационные измерения</li>
-                        <li>Гарантия на систему 25 лет</li>
-                        <li>Поддержка скоростей до 40 Гбит/с</li>
+                        <li>Измерение уровня сигнала всех операторов</li>
+                        <li>Анализ качества связи по частотам</li>
+                        <li>Детальная карта покрытия объекта</li>
+                        <li>Рекомендации по размещению оборудования</li>
+                        <li>Протокол измерений с гарантиями</li>
                     </ul>
                 </div>
-                <button class="btn btn-secondary" onclick="openModal('СКС - Структурированные кабельные системы')">Заказать расчет</button>
+                <button class="btn btn-secondary" onclick="openModal('Замеры сигнала сотовой связи')">Заказать замеры</button>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="/images/svn.jpg" alt="CCTV - Системы видеонаблюдения" class="service-image">
-                <h3>Системы видеонаблюдения (CCTV)</h3>
-                <p>Комплексные решения видеонаблюдения: от простых систем до интеллектуальных комплексов с аналитикой и распознаванием.</p>
+                <img src="/images/gsm-design.jpg" alt="Проектирование систем усиления связи" class="service-image">
+                <h3>Проектирование систем</h3>
+                <p>Индивидуальное проектирование систем усиления сотовой связи с учетом архитектурных особенностей и требований объекта.</p>
                 <div class="service-features">
                     <ul>
-                        <li>IP и аналоговые камеры высокого разрешения</li>
-                        <li>Видеоаналитика и распознавание лиц</li>
-                        <li>Удаленный доступ через мобильные приложения</li>
-                        <li>Интеграция с системами безопасности</li>
-                        <li>Архивирование до 1 года</li>
+                        <li>3D-моделирование покрытия</li>
+                        <li>Расчет мощности оборудования</li>
+                        <li>Схемы размещения антенн и усилителей</li>
+                        <li>Техническое задание для монтажа</li>
+                        <li>Спецификация оборудования</li>
                     </ul>
                 </div>
-                <button class="btn btn-secondary" onclick="openModal('CCTV - Системы видеонаблюдения')">Заказать расчет</button>
+                <button class="btn btn-secondary" onclick="openModal('Проектирование систем усиления связи')">Заказать проектирование</button>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <img src="/images/skud.jpg" alt="СКУД - Системы контроля доступа" class="service-image">
-                <h3>Системы контроля и управления доступом (СКУД)</h3>
-                <p>Современные СКУД для контроля проходов сотрудников и посетителей с использованием карт, биометрии и мобильных приложений.</p>
+                <img src="/images/gsm-installation.jpg" alt="Монтаж репитеров GSM" class="service-image">
+                <h3>Монтаж и настройка</h3>
+                <p>Профессиональный монтаж репитеров, усилителей и антенных систем с последующей настройкой для оптимальной работы.</p>
                 <div class="service-features">
                     <ul>
-                        <li>Карточные и биометрические считыватели</li>
-                        <li>Турникеты и электромагнитные замки</li>
-                        <li>Интеграция с системами учета рабочего времени</li>
-                        <li>Мобильные приложения для доступа</li>
-                        <li>Отчетность и аналитика посещений</li>
+                        <li>Монтаж репитеров всех частот</li>
+                        <li>Установка внутренних и внешних антенн</li>
+                        <li>Прокладка коаксиальных кабелей</li>
+                        <li>Настройка и балансировка системы</li>
+                        <li>Тестирование и сдача в эксплуатацию</li>
                     </ul>
                 </div>
-                <button class="btn btn-secondary" onclick="openModal('СКУД - Системы контроля доступа')">Заказать расчет</button>
+                <button class="btn btn-secondary" onclick="openModal('Монтаж репитеров GSM')">Заказать монтаж</button>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <img src="/images/sps.jpg" alt="Системы пожарной сигнализации" class="service-image">
-                <h3>Системы пожарной сигнализации</h3>
-                <p>Проектирование и монтаж автоматических систем пожарной сигнализации в соответствии с требованиями пожарной безопасности.</p>
+                <img src="/images/gsm-audit.jpg" alt="Аудит систем связи" class="service-image">
+                <h3>Аудит и оптимизация</h3>
+                <p>Комплексный аудит существующих систем усиления связи с выявлением проблем и предложением решений по оптимизации.</p>
                 <div class="service-features">
                     <ul>
-                        <li>Адресно-аналоговые системы</li>
-                        <li>Дымовые, тепловые, газовые датчики</li>
-                        <li>Системы оповещения и управления эвакуацией</li>
-                        <li>Интеграция с системами дымоудаления</li>
-                        <li>Соответствие нормам пожарной безопасности</li>
+                        <li>Диагностика работающих систем</li>
+                        <li>Выявление причин плохого покрытия</li>
+                        <li>Анализ интерференции и помех</li>
+                        <li>Рекомендации по модернизации</li>
+                        <li>План поэтапного улучшения</li>
                     </ul>
                 </div>
-                <button class="btn btn-secondary" onclick="openModal('Пожарная сигнализация')">Заказать расчет</button>
+                <button class="btn btn-secondary" onclick="openModal('Аудит систем связи')">Заказать аудит</button>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                <img src="/images/wifi.jpg" alt="Wi-Fi - Беспроводные сети" class="service-image">
-                <h3>Корпоративные Wi-Fi сети</h3>
-                <p>Проектирование и развертывание профессиональных беспроводных сетей для офисов, торговых центров и промышленных объектов.</p>
+                <img src="/images/gsm-adaptation.jpg" alt="Адаптация оборудования GSM" class="service-image">
+                <h3>Адаптация под интерьер</h3>
+                <p>Интеграция оборудования усиления связи в интерьер с учетом дизайна проекта и архитектурных требований.</p>
                 <div class="service-features">
                     <ul>
-                        <li>Покрытие любой площади и сложности</li>
-                        <li>Поддержка стандартов Wi-Fi 6/6E</li>
-                        <li>Гостевые сети и сегментация</li>
-                        <li>Централизованное управление</li>
-                        <li>Поддержка тысяч одновременных подключений</li>
+                        <li>Скрытая прокладка кабелей</li>
+                        <li>Маскировка антенн под декор</li>
+                        <li>Встраивание в подвесные потолки</li>
+                        <li>Покраска оборудования в цвет интерьера</li>
+                        <li>Минимальное воздействие на дизайн</li>
                     </ul>
                 </div>
-                <button class="btn btn-secondary" onclick="openModal('Wi-Fi - Беспроводные сети')">Заказать расчет</button>
+                <button class="btn btn-secondary" onclick="openModal('Адаптация под интерьер')">Заказать адаптацию</button>
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                <img src="/images/bms.jpg" alt="BMS - Автоматизация зданий" class="service-image">
-                <h3>Системы автоматизации зданий (BMS)</h3>
-                <p>Интеллектуальное управление инженерными системами здания: освещение, климат, безопасность в единой экосистеме.</p>
+                <img src="/images/gsm-maintenance.jpg" alt="Обслуживание систем GSM" class="service-image">
+                <h3>Техническое обслуживание</h3>
+                <p>Регулярное техническое обслуживание систем усиления связи для поддержания оптимальных параметров работы.</p>
                 <div class="service-features">
                     <ul>
-                        <li>Управление освещением и климатом</li>
-                        <li>Мониторинг энергопотребления</li>
-                        <li>Интеграция всех инженерных систем</li>
-                        <li>Удаленное управление через приложения</li>
-                        <li>Экономия энергоресурсов до 30%</li>
+                        <li>Плановые проверки оборудования</li>
+                        <li>Мониторинг качества сигнала</li>
+                        <li>Профилактическое обслуживание</li>
+                        <li>Устранение неисправностей 24/7</li>
+                        <li>Обновление программного обеспечения</li>
                     </ul>
                 </div>
-                <button class="btn btn-secondary" onclick="openModal('BMS - Автоматизация зданий')">Заказать расчет</button>
+                <button class="btn btn-secondary" onclick="openModal('Техническое обслуживание GSM')">Заказать обслуживание</button>
             </div>
         </div>
     </div>
@@ -832,15 +749,25 @@
             <div class="additional-service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="additional-service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                </div>
+                <h3>Радиочастотное планирование</h3>
+                <p>Профессиональное планирование частотного ресурса для исключения интерференции</p>
+            </div>
+
+            <div class="additional-service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="additional-service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                         <polyline points="14,2 14,8 20,8"></polyline>
                     </svg>
                 </div>
-                <h3>Проектирование</h3>
-                <p>Разработка проектной документации по всем видам слаботочных систем с учетом действующих стандартов</p>
+                <h3>Согласование с операторами</h3>
+                <p>Получение разрешений и согласований с мобильными операторами связи</p>
             </div>
 
-            <div class="additional-service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="additional-service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="additional-service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="3"></circle>
@@ -849,19 +776,8 @@
                         <path d="m8.86 8.86-4.24-4.24m0 11.31 4.24-4.24"></path>
                     </svg>
                 </div>
-                <h3>Техническое обслуживание</h3>
-                <p>Регулярное ТО систем, профилактические работы, мониторинг состояния оборудования 24/7</p>
-            </div>
-
-            <div class="additional-service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="additional-service-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 9V5a3 3 0 0 0-6 0v4"></path>
-                        <rect x="2" y="9" width="20" height="11" rx="2" ry="2"></rect>
-                    </svg>
-                </div>
-                <h3>Аудит безопасности</h3>
-                <p>Комплексный анализ существующих систем безопасности, выявление уязвимостей и рекомендации</p>
+                <h3>Удаленный мониторинг</h3>
+                <p>Система онлайн-мониторинга работы репитеров с оповещениями о сбоях</p>
             </div>
 
             <div class="additional-service-card" data-aos="fade-up" data-aos-delay="400">
@@ -873,7 +789,7 @@
                     </svg>
                 </div>
                 <h3>Модернизация систем</h3>
-                <p>Upgrade существующих систем, внедрение новых технологий, интеграция с современными решениями</p>
+                <p>Upgrade существующих систем под новые стандарты связи 4G/5G</p>
             </div>
 
             <div class="additional-service-card" data-aos="fade-up" data-aos-delay="500">
@@ -885,101 +801,18 @@
                     </svg>
                 </div>
                 <h3>Обучение персонала</h3>
-                <p>Подготовка специалистов заказчика для работы с установленными системами</p>
+                <p>Подготовка технических специалистов заказчика для обслуживания систем</p>
             </div>
 
             <div class="additional-service-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="additional-service-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        <path d="M14 9V5a3 3 0 0 0-6 0v4"></path>
+                        <rect x="2" y="9" width="20" height="11" rx="2" ry="2"></rect>
                     </svg>
                 </div>
-                <h3>Цифровой контроль</h3>
-                <p>Онлайн-платформа для мониторинга выполнения работ и состояния систем в реальном времени</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Целевые отрасли -->
-<section class="target-industries" id="industries">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Отрасли применения</h2>
-        <div class="industries-grid">
-            <div class="industry-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="/images/office2.jpg" alt="Бизнес-центры и офисные комплексы" class="industry-image">
-                <div class="industry-content">
-                    <h3 class="industry-title">Бизнес-центры и офисные комплексы</h3>
-                    <p class="industry-description">Современные офисные здания требуют безупречной IT-инфраструктуры для обеспечения комфортной работы арендаторов и высокого класса объекта.</p>
-                    <div class="industry-benefits">
-                        <h5>Почему это критически важно:</h5>
-                        <ul>
-                            <li>Привлечение и удержание премиальных арендаторов</li>
-                            <li>Соответствие стандартам класса A и B+</li>
-                            <li>Безопасность персонала и имущества</li>
-                            <li>Энергоэффективность и снижение эксплуатационных расходов</li>
-                            <li>Цифровой контроль позволяет управляющим компаниям отслеживать состояние систем в режиме 24/7</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-secondary" onclick="openModal('Решения для бизнес-центров')">Получить решение</button>
-                </div>
-            </div>
-
-            <div class="industry-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="/images/tc.jpg" alt="Торговые центры и ритейл" class="industry-image">
-                <div class="industry-content">
-                    <h3 class="industry-title">Торговые центры и ритейл</h3>
-                    <p class="industry-description">Розничная торговля зависит от бесперебойной работы IT-систем, безопасности покупателей и эффективного управления большими пространствами.</p>
-                    <div class="industry-benefits">
-                        <h5>Почему это критически важно:</h5>
-                        <ul>
-                            <li>Безопасность посетителей и предотвращение потерь</li>
-                            <li>Стабильная работа кассовых систем и эквайринга</li>
-                            <li>Контроль доступа в служебные помещения</li>
-                            <li>Системы оповещения при эвакуации</li>
-                            <li>Онлайн-мониторинг позволяет оперативно реагировать на инциденты</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-secondary" onclick="openModal('Решения для ритейла')">Получить решение</button>
-                </div>
-            </div>
-
-            <div class="industry-card" data-aos="fade-up" data-aos-delay="300">
-                <img src="/images/gsmprom.jpg" alt="Промышленные предприятия" class="industry-image">
-                <div class="industry-content">
-                    <h3 class="industry-title">Промышленные предприятия</h3>
-                    <p class="industry-description">Производственные объекты требуют надежных систем безопасности, контроля доступа и промышленной автоматизации для обеспечения непрерывности процессов.</p>
-                    <div class="industry-benefits">
-                        <h5>Почему это критически важно:</h5>
-                        <ul>
-                            <li>Промышленная безопасность и защита персонала</li>
-                            <li>Контроль доступа в опасные зоны</li>
-                            <li>Интеграция с системами промышленной автоматизации</li>
-                            <li>Соответствие требованиям охраны труда</li>
-                            <li>Удаленный контроль систем безопасности экономит время и ресурсы</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-secondary" onclick="openModal('Решения для промышленности')">Получить решение</button>
-                </div>
-            </div>
-
-            <div class="industry-card" data-aos="fade-up" data-aos-delay="400">
-                <img src="/images/horeca.jpg" alt="Гостиничный бизнес и HoReCa" class="industry-image">
-                <div class="industry-content">
-                    <h3 class="industry-title">Гостиничный бизнес и HoReCa</h3>
-                    <p class="industry-description">Отели и рестораны нуждаются в современных системах для обеспечения комфорта гостей, безопасности и эффективного управления.</p>
-                    <div class="industry-benefits">
-                        <h5>Почему это критически важно:</h5>
-                        <ul>
-                            <li>Безопасность гостей и защита их имущества</li>
-                            <li>Современные системы управления номерным фондом</li>
-                            <li>Качественный Wi-Fi как обязательный сервис</li>
-                            <li>Автоматизация инженерных систем для экономии</li>
-                            <li>Цифровой мониторинг помогает поддерживать высокие стандарты сервиса</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-secondary" onclick="openModal('Решения для гостиниц')">Получить решение</button>
-                </div>
+                <h3>Экспертиза помех</h3>
+                <p>Выявление и устранение источников радиочастотных помех</p>
             </div>
         </div>
     </div>
@@ -988,7 +821,7 @@
 <!-- Преимущества -->
 <section class="advantages" id="advantages">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Почему выбирают нас</h2>
+        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Наши преимущества</h2>
         <div class="advantages-grid">
             <div class="advantage-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="advantage-icon">
@@ -997,8 +830,8 @@
                         <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.35 0 4.5.9 6.1 2.4"></path>
                     </svg>
                 </div>
-                <h3>15+ лет опыта</h3>
-                <p>Успешно реализовали более 500 проектов различной сложности по всей России</p>
+                <h3>Опыт 15+ лет</h3>
+                <p>Большой опыт в проектировании и монтаже систем усиления сотовой связи</p>
             </div>
 
             <div class="advantage-card" data-aos="fade-up" data-aos-delay="200">
@@ -1009,8 +842,8 @@
                         <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
                 </div>
-                <h3>Цифровизация процессов</h3>
-                <p>Собственная платформа онлайн-контроля работ — вы видите прогресс в режиме реального времени</p>
+                <h3>Цифровой контроль</h3>
+                <p>Онлайн-мониторинг всех этапов работ и состояния оборудования</p>
             </div>
 
             <div class="advantage-card" data-aos="fade-up" data-aos-delay="300">
@@ -1020,7 +853,7 @@
                     </svg>
                 </div>
                 <h3>Гарантия 5 лет</h3>
-                <p>Предоставляем расширенную гарантию на все виды работ и оборудование</p>
+                <p>Расширенная гарантия на все работы и установленное оборудование</p>
             </div>
 
             <div class="advantage-card" data-aos="fade-up" data-aos-delay="400">
@@ -1032,7 +865,7 @@
                         <path d="m8.86 8.86-4.24-4.24m0 11.31 4.24-4.24"></path>
                     </svg>
                 </div>
-                <h3>24/7 поддержка</h3>
+                <h3>Поддержка 24/7</h3>
                 <p>Круглосуточная техническая поддержка и оперативное устранение неисправностей</p>
             </div>
         </div>
@@ -1042,30 +875,30 @@
 <!-- Процесс работы -->
 <section class="process" id="process">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Этапы работы над проектом</h2>
+        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Этапы работы</h2>
         <div class="process-steps">
             <div class="process-step" data-aos="fade-up" data-aos-delay="100">
                 <div class="step-number">1</div>
-                <h3>Техническое обследование</h3>
-                <p>Выезд инженера, анализ объекта, определение требований и составление технического задания</p>
+                <h3>Обследование объекта</h3>
+                <p>Выезд специалиста, замеры сигнала, анализ особенностей объекта и составление ТЗ</p>
             </div>
 
             <div class="process-step" data-aos="fade-up" data-aos-delay="200">
                 <div class="step-number">2</div>
                 <h3>Проектирование</h3>
-                <p>Разработка проектной документации, подбор оборудования, согласование с заказчиком</p>
+                <p>Разработка проекта системы усиления, подбор оборудования, согласование</p>
             </div>
 
             <div class="process-step" data-aos="fade-up" data-aos-delay="300">
                 <div class="step-number">3</div>
-                <h3>Монтажные работы</h3>
-                <p>Профессиональный монтаж системы нашими сертифицированными специалистами</p>
+                <h3>Монтаж и настройка</h3>
+                <p>Установка репитеров и антенн, прокладка кабелей, настройка системы</p>
             </div>
 
             <div class="process-step" data-aos="fade-up" data-aos-delay="400">
                 <div class="step-number">4</div>
-                <h3>Пуско-наладка и сдача</h3>
-                <p>Настройка системы, тестирование, обучение персонала и передача документации</p>
+                <h3>Тестирование и сдача</h3>
+                <p>Контрольные замеры, оптимизация параметров, сдача системы заказчику</p>
             </div>
         </div>
     </div>
@@ -1074,10 +907,10 @@
 <!-- CTA секция -->
 <section class="cta" id="contact">
     <div class="container">
-        <h2 data-aos="fade-up">Готовы реализовать ваш проект?</h2>
-        <p data-aos="fade-up" data-aos-delay="100">Получите бесплатную консультацию и коммерческое предложение от наших экспертов с онлайн-контролем выполнения работ</p>
+        <h2 data-aos="fade-up">Нужна качественная сотовая связь?</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Получите бесплатную консультацию и профессиональное решение проблем со связью</p>
         <div data-aos="fade-up" data-aos-delay="200">
-            <button class="btn btn-secondary" onclick="openModal('Бесплатная консультация')">Получить консультацию</button>
+            <button class="btn btn-secondary" onclick="openModal('Консультация по усилению сотовой связи')">Получить консультацию</button>
         </div>
     </div>
 </section>
@@ -1094,7 +927,7 @@
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
-            <textarea name="message" placeholder="Опишите ваш проект (тип объекта, площадь, требования)"></textarea>
+            <textarea name="message" placeholder="Опишите ваш объект и проблемы со связью"></textarea>
             <input type="hidden" name="form_type" id="modalFormType">
             <input type="text" name="website" style="display: none;">
             <button type="submit" class="btn">Отправить заявку</button>
@@ -1131,7 +964,7 @@
         const formType = document.getElementById('modalFormType');
         
         modalTitle.textContent = 'Заказать: ' + serviceType;
-        formType.value = 'Services: ' + serviceType;
+        formType.value = 'GSM Services: ' + serviceType;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -1190,8 +1023,8 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Услуги по слаботочным системам",
-    "description": "Полный спектр услуг по проектированию и монтажу слаботочных систем: СКС, видеонаблюдение, СКУД, пожарная сигнализация, Wi-Fi, BMS с цифровым контролем качества",
+    "name": "Услуги усиления сотовой связи",
+    "description": "Профессиональные услуги по усилению сотовой связи: замеры сигнала, проектирование, монтаж репитеров GSM с гарантией качества",
     "provider": {
         "@type": "Organization",
         "name": "Группа Интегра",
@@ -1207,21 +1040,17 @@
         }
     },
     "serviceType": [
-        "Структурированные кабельные системы",
-        "Системы видеонаблюдения",
-        "Системы контроля доступа",
-        "Пожарная сигнализация",
-        "Wi-Fi сети",
-        "Автоматизация зданий",
-        "Проектирование",
-        "Техническое обслуживание",
-        "Аудит безопасности",
-        "Модернизация систем"
+        "Замеры сигнала сотовой связи",
+        "Проектирование систем усиления",
+        "Монтаж репитеров GSM",
+        "Аудит и оптимизация",
+        "Адаптация под интерьер",
+        "Техническое обслуживание"
     ],
     "areaServed": ["Москва", "Санкт-Петербург", "Россия"],
     "offers": {
         "@type": "Offer",
-        "description": "Комплексные услуги с гарантией 5 лет и круглосуточной поддержкой"
+        "description": "Комплексные решения по усилению сотовой связи с гарантией 5 лет"
     }
 }
 </script>

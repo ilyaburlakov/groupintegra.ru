@@ -1,4 +1,3 @@
-<!-- index.php -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,10 +13,10 @@
 
     <style>
         :root {
-            --main-color: #4A90E2; /* Основной синий */
-            --accent-color: #FF6F61; /* Акцентный коралловый */
-            --bg-color: #F8F9FA; /* Светлый фон */
-            --text-color: #2D2D2D; /* Темный текст */
+            --main-color: #4A90E2;
+            --accent-color: #FF6F61;
+            --bg-color: #F8F9FA;
+            --text-color: #2D2D2D;
             --light: #FFFFFF;
             --gray: #6C757D;
             --white: #FFFFFF;
@@ -46,40 +45,23 @@
         /* Прелоадер */
         .preloader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: var(--white);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s;
         }
-
-        .preloader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(var(--main-color), 0.2);
-            border-top-color: var(--main-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+        .preloader-logo {
+            width: 300px;
+            max-width: 80vw;
+            transition: transform 1.2s cubic-bezier(.4,0,.2,1);
+            transform: scale(1);
         }
-
-        .preloader-text {
-            font-size: 1rem;
-            color: var(--gray);
-            font-weight: 500;
+        .preloader.grow .preloader-logo {
+            transform: scale(2);
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .preloader.hidden {
             opacity: 0;
             pointer-events: none;
@@ -126,7 +108,7 @@
             background: var(--main-color);
             color: var(--white);
             border: none;
-            border-radius: 3px; /* Радиус углов 3px */
+            border-radius: 3px;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
@@ -150,7 +132,7 @@
             background: transparent;
             border: 2px solid var(--main-color);
             color: var(--main-color);
-            border-radius: 3px; /* Радиус углов 3px */
+            border-radius: 3px;
         }
 
         .btn-outline:hover {
@@ -241,87 +223,344 @@
             }
         }
 
-        /* Секция преимуществ */
-        .benefits {
-            background: var(--bg-color);
-        }
+/* Секция компетенций - СИММЕТРИЧНАЯ ВЕРСИЯ */
+.benefits {
+    background: var(--bg-color);
+}
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px;
-            justify-items: center;
-        }
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
 
-        .benefit-card {
-            background: var(--white);
-            border-radius: 0;
-            padding: 40px 20px;
-            box-shadow: none;
-            transition: var(--transition);
-            text-align: center;
+.benefit-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    height: 580px; /* Фиксированная высота для симметрии */
+    display: flex;
+    flex-direction: column;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--main-color), var(--accent-color));
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--main-color), #3A7BD5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: var(--transition);
+}
+
+.benefit-card:hover .benefit-icon::after {
+    transform: translateX(100%);
+}
+
+.benefit-icon svg {
+    width: 36px;
+    height: 36px;
+    z-index: 1;
+}
+
+.benefit-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    height: 60px; /* Фиксированная высота заголовка */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-card p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    height: 80px; /* Фиксированная высота описания */
+    display: flex;
+    align-items: center;
+}
+
+.benefit-features {
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.benefit-features ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.benefit-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.benefit-features li::before {
+    content: '✓';
+    color: var(--main-color);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1rem;
+    min-width: 16px;
+}
+
+.benefit-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--bg-color);
+    border-radius: 6px;
+}
+
+.benefit-stat {
+    text-align: center;
+}
+
+.benefit-stat-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--main-color);
+    display: block;
+}
+
+.benefit-stat-label {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+/* Адаптивность для симметричной сетки */
+@media (max-width: 1200px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .benefit-card {
+        height: auto; /* Убираем фиксированную высоту на меньших экранах */
+    }
+    
+    .benefit-card h3 {
+        height: auto;
+    }
+    
+    .benefit-card p {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+        /* Секция процесса - ПЕРЕРАБОТАННАЯ */
+        .process {
+            background: var(--light);
             position: relative;
-            overflow: hidden;
-            z-index: 1;
-            width: 100%;
-            max-width: 250px;
-            height: 450px;
+        }
+
+        .process-timeline {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--main-color), var(--accent-color));
+            transform: translateX(-50%);
+        }
+
+        .process-step {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
         }
 
-        .benefit-card:hover {
-            transform: translateY(-10px);
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
         }
 
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(var(--main-color), 0.1);
+        .process-step:nth-child(even) .process-content {
+            text-align: right;
+        }
+
+        .process-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--main-color), var(--accent-color));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+            z-index: 2;
         }
 
-        .benefit-icon svg {
-            width: 40px;
-            height: 40px;
-            color: var(--main-color);
+        .process-content {
+            width: calc(50% - 40px);
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+            transition: var(--transition);
         }
 
-        .benefit-card h3 {
+        .process-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+        }
+
+        .process-step:nth-child(odd) .process-content::before {
+            right: -30px;
+            border-left-color: var(--white);
+            transform: translateY(-50%);
+        }
+
+        .process-step:nth-child(even) .process-content::before {
+            left: -30px;
+            border-right-color: var(--white);
+            transform: translateY(-50%);
+        }
+
+        .process-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+
+        .process-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--main-color), #3A7BD5);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .process-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .process-content h3 {
             font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 15px;
             color: var(--text-color);
-            line-height: 1.3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
         }
 
-        .benefit-card p {
+        .process-content p {
             color: var(--gray);
+            line-height: 1.6;
             margin-bottom: 20px;
-            flex-grow: 1;
-            line-height: 1.5;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 5;
-            -webkit-box-orient: vertical;
         }
 
-        .benefit-card a {
-            margin-top: auto;
-            width: 100%;
-            text-align: center;
+        .process-details {
+            margin-top: 20px;
         }
 
+        .process-details ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .process-details li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .process-details li::before {
+            content: '→';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .process-duration {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--bg-color);
+            color: var(--main-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-top: 15px;
+        }
+
+        /* Адаптивность для новых секций */
         @media (max-width: 1200px) {
             .benefits-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -333,151 +572,40 @@
                 grid-template-columns: 1fr;
             }
 
-            .benefit-card {
-                max-width: 100%;
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .benefit-card {
-                height: 350px;
+            .benefit-stats {
+                flex-direction: column;
+                gap: 10px;
             }
 
-            .benefit-card h3 {
+            .process-timeline::before {
+                left: 30px;
+            }
+
+            .process-step,
+            .process-step:nth-child(even) {
+                flex-direction: row;
+                padding-left: 70px;
+            }
+
+            .process-number {
+                left: 30px;
+                width: 50px;
+                height: 50px;
                 font-size: 1.2rem;
             }
 
-            .benefit-card p {
-                font-size: 0.95rem;
-                -webkit-line-clamp: 4;
-            }
-        }
-
-        /* Секция процесса */
-        .process {
-            background: transparent;
-            padding: 80px 0;
-        }
-
-        .accordion {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .accordion-item {
-            border-bottom: 1px solid #E5E7EB;
-        }
-
-        .accordion-header {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            padding: 20px 0;
-            background: transparent;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .accordion-icon {
-            margin-right: 15px;
-        }
-
-        .accordion-icon svg {
-            width: 24px;
-            height: 24px;
-            color: var(--main-color);
-            transition: var(--transition);
-        }
-
-        .accordion-header:hover .accordion-icon svg {
-            color: var(--accent-color);
-            transform: scale(1.1);
-        }
-
-        .accordion-header h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-color);
-            flex-grow: 1;
-        }
-
-        .accordion-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .accordion-toggle svg {
-            width: 20px;
-            height: 20px;
-            color: var(--gray);
-            transition: var(--transition);
-        }
-
-        .accordion-item.active .accordion-toggle svg {
-            transform: rotate(180deg);
-            color: var(--main-color);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 20px;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .accordion-content p {
-            font-size: 1rem;
-            color: var(--gray);
-            line-height: 1.6;
-            padding-bottom: 20px;
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 200px;
-            padding: 10px 20px;
-        }
-
-        .accordion-cta {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .accordion {
-                max-width: 100%;
-                padding: 0 20px;
+            .process-content,
+            .process-step:nth-child(even) .process-content {
+                width: 100%;
+                text-align: left;
             }
 
-            .accordion-header h3 {
-                font-size: 1.2rem;
-            }
-
-            .accordion-content p {
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .accordion-header {
-                padding: 15px 0;
-            }
-
-            .accordion-header h3 {
-                font-size: 1.1rem;
-            }
-
-            .accordion-icon svg {
-                width: 20px;
-                height: 20px;
-            }
-
-            .accordion-toggle svg {
-                width: 18px;
-                height: 18px;
+            .process-content::before,
+            .process-step:nth-child(even) .process-content::before {
+                left: -30px;
+                right: auto;
+                border-right-color: var(--white);
+                border-left-color: transparent;
             }
         }
 
@@ -808,7 +936,7 @@
         .cta-form input {
             padding: 15px 20px;
             border: none;
-            border-radius: 3px; /* Радиус углов 3px */
+            border-radius: 3px;
             font-size: 1rem;
         }
 
@@ -931,7 +1059,7 @@
         .modal-form textarea {
             padding: 12px 15px;
             border: 1px solid #ddd;
-            border-radius: 3px; /* Радиус углов 3px */
+            border-radius: 3px;
             font-size: 1rem;
         }
 
@@ -957,8 +1085,6 @@
 
         /* Адаптивность */
         @media (max-width: 1200px) {
-            .benefits-grid,
-            .solutions-grid,
             .recommendations-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -982,8 +1108,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .benefits-grid,
-            .solutions-grid,
             .recommendations-grid {
                 grid-template-columns: 1fr;
             }
@@ -1014,44 +1138,6 @@
                 font-size: 1rem;
             }
         }
-        /* Прелоадер */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease;
-}
-
-.preloader-logo {
-    width: 200px;
-    height: auto;
-    animation: zoomIn 2s ease-in-out forwards;
-}
-
-@keyframes zoomIn {
-    0% {
-        transform: scale(0.5);
-        filter: blur(10px);
-        opacity: 0.3;
-    }
-    100% {
-        transform: scale(1);
-        filter: blur(0);
-        opacity: 1;
-    }
-}
-
-.preloader.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
     </style>
 </head>
 <body class="loading">
@@ -1079,7 +1165,7 @@
     </div>
 </section>
 
-<!-- Секция преимуществ -->
+<!-- Секция компетенций - СИММЕТРИЧНАЯ ВЕРСИЯ -->
 <section class="benefits" id="benefits">
     <div class="container">
         <h2 class="section-title" data-aos="fade-up">Наши ключевые компетенции</h2>
@@ -1087,166 +1173,365 @@
             <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="benefit-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10,9 9,9 8,9"></polyline>
                     </svg>
                 </div>
-                <h3>Проектирование</h3>
-                <p>Выполним проектирование уже на этапе "котлована" согласно архитектурным планам объекта, подготовим гибкие решения, учтем возможные изменения в будущем.</p>
+                <h3>Комплексное проектирование</h3>
+                <p>Полный цикл проектирования систем усиления связи от концепции до рабочих чертежей с учетом архитектурных особенностей объекта.</p>
+                <div class="benefit-features">
+                    <ul>
+                        <li>Анализ радиочастотной обстановки</li>
+                        <li>3D моделирование покрытия</li>
+                        <li>Расчет бюджета линии связи</li>
+                        <li>Подбор оптимального оборудования</li>
+                    </ul>
+                </div>
+                <div class="benefit-stats">
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">500+</span>
+                        <span class="benefit-stat-label">проектов</span>
+                    </div>
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">15</span>
+                        <span class="benefit-stat-label">лет опыта</span>
+                    </div>
+                </div>
                 <a href="/services/design.php" class="btn btn-outline">Подробнее</a>
             </div>
+
             <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="benefit-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                        <line x1="17" y1="2" x2="17" y2="22"></line>
                         <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        <line x1="2" y1="7" x2="7" y2="7"></line>
+                        <line x1="2" y1="17" x2="7" y2="17"></line>
+                        <line x1="17" y1="17" x2="22" y2="17"></line>
+                        <line x1="17" y1="7" x2="22" y2="7"></line>
                     </svg>
                 </div>
-                <h3>Адаптация</h3>
-                <p>Проведем адаптацию оборудования и комплектующих под требования дизайна объекта. Гармонично впишемся в ваш дизайн, не нарушая его эстетики.</p>
+                <h3>Интеграция в архитектуру</h3>
+                <p>Гармоничное встраивание оборудования в дизайн интерьера без ущерба эстетике и функциональности пространства.</p>
+                <div class="benefit-features">
+                    <ul>
+                        <li>Скрытое размещение антенн</li>
+                        <li>Дизайнерские решения</li>
+                        <li>Минимальное воздействие на интерьер</li>
+                        <li>Согласование с архитекторами</li>
+                    </ul>
+                </div>
+                <div class="benefit-stats">
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">100%</span>
+                        <span class="benefit-stat-label">интеграция</span>
+                    </div>
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">0</span>
+                        <span class="benefit-stat-label">видимых антенн</span>
+                    </div>
+                </div>
                 <a href="/services/adaptation.php" class="btn btn-outline">Подробнее</a>
             </div>
+
             <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="benefit-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-10 5L2 7"></path>
                     </svg>
                 </div>
-                <h3>Монтаж</h3>
-                <p>Собственный штат инженерно-технических работников, монтажников и проектировщиков позволяет строить качественные системы любой сложности.</p>
+                <h3>Профессиональный монтаж</h3>
+                <p>Высококвалифицированная команда инженеров с опытом работы на сложных объектах любой конфигурации.</p>
+                <div class="benefit-features">
+                    <ul>
+                        <li>Сертифицированные специалисты</li>
+                        <li>Соблюдение стандартов безопасности</li>
+                        <li>Минимальные сроки установки</li>
+                        <li>Контроль качества на каждом этапе</li>
+                    </ul>
+                </div>
+                <div class="benefit-stats">
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">50+</span>
+                        <span class="benefit-stat-label">специалистов</span>
+                    </div>
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">24/7</span>
+                        <span class="benefit-stat-label">поддержка</span>
+                    </div>
+                </div>
                 <a href="/services/installation.php" class="btn btn-outline">Подробнее</a>
             </div>
+
             <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="benefit-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6"></path>
+                        <path d="m15.14 8.86 4.24-4.24m0 11.31-4.24-4.24"></path>
+                        <path d="m8.86 8.86-4.24-4.24m0 11.31 4.24-4.24"></path>
                     </svg>
                 </div>
-                <h3>Аудит</h3>
-                <p>Регулярная проверка и аудит систем усиления GSM необходимы для обеспечения надежной связи в различных помещениях и объектах.</p>
-                <a href="/services/audit.php" class="btn btn-outline">Подробнее</a>
+                <h3>Техническое сопровождение</h3>
+                <p>Полный спектр услуг по обслуживанию и модернизации установленных систем с гарантийной поддержкой.</p>
+                <div class="benefit-features">
+                    <ul>
+                        <li>Регулярная диагностика</li>
+                        <li>Плановое обслуживание</li>
+                        <li>Оперативное устранение неисправностей</li>
+                        <li>Модернизация и расширение систем</li>
+                    </ul>
+                </div>
+                <div class="benefit-stats">
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">5</span>
+                        <span class="benefit-stat-label">лет гарантии</span>
+                    </div>
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">99%</span>
+                        <span class="benefit-stat-label">надежность</span>
+                    </div>
+                </div>
+                <a href="/services/support.php" class="btn btn-outline">Подробнее</a>
             </div>
+
             <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="benefit-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        <path d="M9 12l2 2 4-4"></path>
+                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.35 0 4.5.9 6.1 2.4"></path>
                     </svg>
                 </div>
-                <h3>Сопровождение</h3>
-                <p>Бескомпромиссная поддержка во время и после гарантийного срока. Оперативное решение любых вопросов в сжатые сроки.</p>
+                <h3>Комплексный аудит</h3>
+                <p>Регулярная проверка и оптимизация систем усиления связи для обеспечения максимальной эффективности работы.</p>
+                <div class="benefit-features">
+                    <ul>
+                        <li>Анализ качества покрытия</li>
+                        <li>Оценка производительности</li>
+                        <li>Выявление слабых мест</li>
+                        <li>Рекомендации по улучшению</li>
+                    </ul>
+                </div>
+                <div class="benefit-stats">
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">100+</span>
+                        <span class="benefit-stat-label">аудитов</span>
+                    </div>
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">95%</span>
+                        <span class="benefit-stat-label">улучшений</span>
+                    </div>
+                </div>
+                <a href="/services/audit.php" class="btn btn-outline">Подробнее</a>
+            </div>
+
+            <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="benefit-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M12 7v5l3 3"></path>
+                    </svg>
+                </div>
+                <h3>Долгосрочная поддержка</h3>
+                <p>Бескомпромиссная поддержка во время и после гарантийного срока с оперативным решением любых вопросов.</p>
+                <div class="benefit-features">
+                    <ul>
+                        <li>Круглосуточная техническая поддержка</li>
+                        <li>Выездное обслуживание</li>
+                        <li>Обновление программного обеспечения</li>
+                        <li>Консультации по эксплуатации</li>
+                    </ul>
+                </div>
+                <div class="benefit-stats">
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">2ч</span>
+                        <span class="benefit-stat-label">время отклика</span>
+                    </div>
+                    <div class="benefit-stat">
+                        <span class="benefit-stat-number">10+</span>
+                        <span class="benefit-stat-label">лет поддержки</span>
+                    </div>
+                </div>
                 <a href="/services/support.php" class="btn btn-outline">Подробнее</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Секция процесса -->
+
+<!-- Секция процесса работы - ПЕРЕРАБОТАННАЯ -->
 <section class="process" id="process">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Этапы работы по усилению сотовой связи</h2>
-        <div class="accordion" data-aos="fade-up" data-aos-delay="100">
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="accordion-icon">
+        <h2 class="section-title" data-aos="fade-up">Этапы реализации проекта усиления связи</h2>
+        <div class="process-timeline">
+            <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                <div class="process-content">
+                    <div class="process-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                     </div>
-                    <h3>Анализ объекта</h3>
-                    <span class="accordion-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </span>
-                </button>
-                <div class="accordion-content">
-                    <p>Проводим обследование объекта, измеряем уровень сигнала и определяем потребности.</p>
+                    <h3>Техническое обследование</h3>
+                    <p>Комплексный анализ объекта с измерением уровня сигнала всех операторов связи и определением оптимальных точек размещения оборудования.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>Радиочастотные измерения</li>
+                            <li>Анализ строительных планов</li>
+                            <li>Определение источников помех</li>
+                            <li>Расчет зон покрытия</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">1-3 дня</span>
                 </div>
+                <div class="process-number">1</div>
             </div>
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="accordion-icon">
+
+            <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+                <div class="process-content">
+                    <div class="process-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
                         </svg>
                     </div>
-                    <h3>Проектирование</h3>
-                    <span class="accordion-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </span>
-                </button>
-                <div class="accordion-content">
-                    <p>Разрабатываем индивидуальный проект системы усиления связи (СУСС).</p>
+                    <h3>Разработка проекта</h3>
+                    <p>Создание детального проекта системы усиления с учетом архитектурных особенностей объекта и требований заказчика.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>3D моделирование покрытия</li>
+                            <li>Выбор оборудования</li>
+                            <li>Схемы размещения</li>
+                            <li>Сметная документация</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">14-30 дней</span>
                 </div>
+                <div class="process-number">2</div>
             </div>
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="accordion-icon">
+
+            <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                <div class="process-content">
+                    <div class="process-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.35 0 4.5.9 6.1 2.4"></path>
                         </svg>
                     </div>
-                    <h3>Монтаж</h3>
-                    <span class="accordion-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </span>
-                </button>
-                <div class="accordion-content">
-                    <p>Устанавливаем оборудование с минимальными помехами для вашего бизнеса.</p>
+                    <h3>Согласование решений</h3>
+                    <p>Презентация проекта заказчику, внесение корректировок и получение финального одобрения всех технических решений.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>Презентация проекта</li>
+                            <li>Обсуждение деталей</li>
+                            <li>Внесение изменений</li>
+                            <li>Финальное утверждение</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">1-3 дня</span>
                 </div>
+                <div class="process-number">3</div>
             </div>
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="accordion-icon">
+
+            <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+                <div class="process-content">
+                    <div class="process-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                            <path d="M3 6h18"></path>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            <rect x="2" y="6" width="20" height="8" rx="1"></rect>
+                            <path d="m17 14-5 5-5-5"></path>
                         </svg>
                     </div>
-                    <h3>Настройка и тестирование</h3>
-                    <span class="accordion-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </span>
-                </button>
-                <div class="accordion-content">
-                    <p>Проводим настройку системы и тестируем качество сигнала.</p>
+                    <h3>Поставка оборудования</h3>
+                    <p>Закупка и доставка всего необходимого оборудования от ведущих мировых производителей с гарантией качества.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>Заказ оборудования</li>
+                            <li>Контроль качества</li>
+                            <li>Логистика доставки</li>
+                            <li>Подготовка к монтажу</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">14-60 дней</span>
                 </div>
+                <div class="process-number">4</div>
             </div>
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="accordion-icon">
+
+            <div class="process-step" data-aos="fade-right" data-aos-delay="500">
+                <div class="process-content">
+                    <div class="process-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Монтажные работы</h3>
+                    <p>Профессиональная установка системы усиления связи с соблюдением всех технических требований и стандартов безопасности.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>Прокладка кабельных трасс</li>
+                            <li>Установка оборудования</li>
+                            <li>Подключение системы</li>
+                            <li>Первичная настройка</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">от 10 дней</span>
+                </div>
+                <div class="process-number">5</div>
+            </div>
+
+            <div class="process-step" data-aos="fade-left" data-aos-delay="600">
+                <div class="process-content">
+                    <div class="process-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3>Настройка и оптимизация</h3>
+                    <p>Точная настройка параметров системы, оптимизация покрытия и проведение комплексного тестирования работоспособности.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>Настройка усилителей</li>
+                            <li>Оптимизация мощности</li>
+                            <li>Тестирование покрытия</li>
+                            <li>Устранение интерференций</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">1-2 дня</span>
+                </div>
+                <div class="process-number">6</div>
+            </div>
+
+            <div class="process-step" data-aos="fade-right" data-aos-delay="700">
+                <div class="process-content">
+                    <div class="process-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                     </div>
-                    <h3>Сдача проекта</h3>
-                    <span class="accordion-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </span>
-                </button>
-                <div class="accordion-content">
-                    <p>Передаём готовую систему с гарантией и инструкциями по эксплуатации.</p>
+                    <h3>Сдача объекта</h3>
+                    <p>Передача готовой системы заказчику с полным комплектом документации, обучением персонала и предоставлением гарантийных обязательств.</p>
+                    <div class="process-details">
+                        <ul>
+                            <li>Приемо-сдаточные испытания</li>
+                            <li>Передача документации</li>
+                            <li>Обучение персонала</li>
+                            <li>Гарантийные обязательства</li>
+                        </ul>
+                    </div>
+                    <span class="process-duration">1 день</span>
                 </div>
+                <div class="process-number">7</div>
             </div>
         </div>
-        <div class="accordion-cta" data-aos="fade-up" data-aos-delay="200">
-            <button class="btn btn-secondary" onclick="openModal('Консультация по этапам работы')">Заказать консультацию</button>
+        <div style="text-align: center; margin-top: 50px;" data-aos="fade-up" data-aos-delay="800">
+            <button class="btn btn-secondary" onclick="openModal('Консультация по этапам работы')">Получить консультацию по проекту</button>
         </div>
     </div>
 </section>
@@ -1426,14 +1711,18 @@
         easing: 'ease-in-out'
     });
 
-window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    const body = document.body;
-    setTimeout(function() {
-        preloader.classList.add('hidden');
-        body.classList.remove('loading');
-    }, 2000);
-});
+    // Прелоадер: увеличение логотипа
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.getElementById('preloader').classList.add('grow');
+        }, 200);
+    });
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('preloader').classList.add('hidden');
+            document.body.classList.remove('loading');
+        }, 1200);
+    });
 
     // Обработка формы CTA
     document.getElementById('ctaForm').addEventListener('submit', function(e) {
@@ -1528,19 +1817,6 @@ window.addEventListener('load', function() {
         if (event.target === modal) {
             closeModal();
         }
-    });
-
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion-header');
-        header.addEventListener('click', () => {
-            accordionItems.forEach(i => {
-                if (i !== item) {
-                    i.classList.remove('active');
-                }
-            });
-            item.classList.toggle('active');
-        });
     });
 
     function openPdf(pdfFile) {
