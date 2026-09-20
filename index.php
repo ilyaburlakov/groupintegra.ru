@@ -51,8 +51,7 @@
       "description": "Усиление сотовой связи (СУСС), проектирование и монтаж слаботочных систем, биржа проектов для подрядчиков в Москве и Санкт-Петербурге. Цифровизация строительства с онлайн-контролем с 2007 года.",
       "contactPoint": [{
         "@type": "ContactPoint",
-        "telephone": "+7-812-443-0123",
-        "contactType": "customer service",
+                "contactType": "customer service",
         "areaServed": "RU",
         "availableLanguage": "Russian"
       }],
