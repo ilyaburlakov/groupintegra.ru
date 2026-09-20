@@ -12,7 +12,6 @@
                     <h5>Контакты</h5>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-geo-alt"></i> Адрес: г. Москва, ул. Промышленная, 15</li>
-                        <li><i class="bi bi-telephone"></i> Телефон: +7 (495) 123-45-67</li>
                         <li><i class="bi bi-envelope"></i> Email: info@example.com</li>
                     </ul>
                 </div>
