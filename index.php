@@ -2,45 +2,38 @@
 <html lang="ru">
 <head>
     <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(97138737, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ecommerce:"dataLayer"});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/97138737" style="position:absolute;left:-9999px" alt=""></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
-   ym(97138737, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true,
-        ecommerce:"dataLayer"
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/97138737" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Группа Интегра – Усиление сотовой связи, слаботочные системы и биржа проектов</title>
-    <meta name="description" content="Группа Интегра: усиление сотовой связи (СУСС), проектирование и монтаж слаботочных систем, биржа проектов для подрядчиков в Москве и Санкт-Петербурге. Цифровизация строительства с онлайн-контролем с 2007 года.">
-    <meta name="keywords" content="усиление сотовой связи, СУСС, слаботочные системы, видеонаблюдение, СКУД, IT-инфраструктура, цифровизация строительства, биржа проектов, поиск заказов, подрядчики, Санкт-Петербург, Москва, Россия">
+    <title>Группа Интегра — слаботочные системы и усиление связи для строительных объектов</title>
+    <meta name="description" content="Группа Интегра с 2007 года проектирует и реализует системы усиления сотовой связи и слаботочные системы для строительных объектов в Москве и Санкт-Петербурге.">
+    <meta name="keywords" content="слаботочные системы, усиление сотовой связи, СУСС, СКС, СКУД, видеонаблюдение, АПС, СОУЭ, инженерные системы, строительство, Москва, Санкт-Петербург">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Группа Интегра – Усиление связи, слаботочные системы и биржа проектов">
-    <meta property="og:description" content="Цифровизация строительства, усиление сотовой связи (СУСС), монтаж слаботочных систем и биржа проектов для подрядчиков в Москве и Санкт-Петербурге с 2007 года.">
-    <meta property="og:image" content="https://groupintegra.ru/images/logo.png">
-    <meta property="og:url" content="https://groupintegra.ru">
+    <meta property="og:title" content="Группа Интегра — инженерные решения для строительных объектов">
+    <meta property="og:description" content="Проектирование, монтаж и технический контроль систем усиления связи и слаботочных систем. Работаем с 2007 года.">
+    <meta property="og:image" content="https://groupintegra.ru/images/ostankino.jpg">
+    <meta property="og:url" content="https://groupintegra.ru/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Группа Интегра – Усиление связи, слаботочные системы и биржа проектов">
-    <meta name="twitter:description" content="Цифровизация строительства, слаботочные системы и биржа проектов в Москве и Санкт-Петербурге.">
-    <meta name="twitter:image" content="https://groupintegra.ru/images/logo.png">
+    <meta name="twitter:title" content="Группа Интегра — инженерные решения для строительных объектов">
+    <meta name="twitter:description" content="Слаботочные системы, усиление связи, аудит проектов и цифровой контроль реализации.">
+    <meta name="twitter:image" content="https://groupintegra.ru/images/ostankino.jpg">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="https://groupintegra.ru/">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.rel='stylesheet'">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Schema.org JSON-LD -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -48,691 +41,636 @@
       "name": "Группа Интегра",
       "url": "https://groupintegra.ru",
       "logo": "https://groupintegra.ru/images/logo.png",
-      "description": "Усиление сотовой связи (СУСС), проектирование и монтаж слаботочных систем, биржа проектов для подрядчиков в Москве и Санкт-Петербурге. Цифровизация строительства с онлайн-контролем с 2007 года.",
+      "description": "Проектирование и реализация систем усиления сотовой связи и слаботочных систем для строительных объектов.",
+      "areaServed": ["Москва", "Санкт-Петербург", "Россия"],
       "contactPoint": [{
         "@type": "ContactPoint",
-                "contactType": "customer service",
+        "contactType": "customer service",
         "areaServed": "RU",
         "availableLanguage": "Russian"
       }],
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "Санкт-Петербург",
-          "addressCountry": "RU"
-        },
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "Москва",
-          "addressCountry": "RU"
-        }
-      ],
       "sameAs": [
         "https://vk.com/integragroup",
         "https://t.me/integragroup"
       ]
     }
     </script>
+
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --blue: #1E3A8A;
-            --red: #E53935;
-            --green: #10B981;
-            --light-blue: #2A52BE;
-            --white: #ffffff;
-            --gray: #F9FAFB;
-            --text-primary: #1a1a1a;
-            --text-secondary: #6b7280;
-            --border: #e5e7eb;
-            --shadow-light: 0 8px 32px rgba(30, 58, 138, 0.08);
-            --shadow-medium: 0 20px 60px rgba(30, 58, 138, 0.12);
-            --shadow-heavy: 0 25px 80px rgba(30, 58, 138, 0.18);
-            --border-radius: 24px;
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --navy: #0B1220;
+            --navy-2: #111A2B;
+            --blue: #2563EB;
+            --blue-dark: #1D4ED8;
+            --red: #EF4444;
+            --text: #172033;
+            --muted: #64748B;
+            --line: #E2E8F0;
+            --bg: #F7F8FA;
+            --white: #FFFFFF;
+            --container: 1240px;
+            --radius: 20px;
+            --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            overflow-x: hidden;
-        }
-
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            color: var(--text);
             background: var(--white);
-            color: var(--text-primary);
-            line-height: 1.7;
-            position: relative;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
+        a { color: inherit; }
+        img { max-width: 100%; }
 
-        /* Subtle background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(229, 57, 53, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Floating particles - адаптированы для белого фона */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(102, 126, 234, 0.4);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .particle:nth-child(odd) {
-            background: rgba(229, 57, 53, 0.3);
-        }
-
-        .particle:nth-child(3n) {
-            background: rgba(16, 185, 129, 0.3);
-        }
-
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 0.5s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 1.5s; }
-        .particle:nth-child(9) { left: 90%; animation-delay: 2.5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            50% { transform: translateY(-10px) rotate(180deg); }
-        }
-
-        /* Оригинальный прелоадер */
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s;
-        }
-
-        .preloader-logo {
-            width: 300px;
-            max-width: 80vw;
-            transition: transform 1.2s cubic-bezier(.4,0,.2,1);
-            transform: scale(1);
-        }
-
-        .preloader.grow .preloader-logo {
-            transform: scale(2);
-        }
-
-        .preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Header */
-        header {
-            position: relative;
-            text-align: center;
-            padding: 80px 20px 60px;
-            z-index: 2;
-        }
-
-        .logo {
-            width: 380px;
-            max-width: 90vw;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 15px 35px rgba(30, 58, 138, 0.15));
-            transition: var(--transition);
-            animation: logoFloat 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes logoFloat {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-10px); }
-        }
-
-        .main-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            color: var(--blue);
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-            position: relative;
-        }
-
-        .main-desc {
-            color: var(--text-secondary);
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            font-weight: 400;
-            max-width: 800px;
+        .home-container {
+            width: min(var(--container), calc(100% - 40px));
             margin: 0 auto;
-            line-height: 1.6;
         }
 
-        /* Main Content */
-        main {
-            position: relative;
-            z-index: 2;
-        }
-
-        .sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-        }
-
-        .section-card {
-            background: var(--white);
-            border: 2px solid var(--border);
-            border-radius: var(--border-radius);
-            padding: 48px 40px;
-            transition: var(--transition);
+        .hero {
+            background: var(--navy);
+            color: var(--white);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-            box-shadow: var(--shadow-light);
         }
-
-        .section-card::before {
-            content: '';
+        .hero::after {
+            content: "";
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.05), transparent);
-            transition: left 0.5s;
+            width: 560px;
+            height: 560px;
+            right: -200px;
+            top: -260px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.08);
+            box-shadow: 0 0 0 80px rgba(255,255,255,.02), 0 0 0 160px rgba(255,255,255,.015);
+            pointer-events: none;
         }
-
-        .section-card:hover::before {
-            left: 100%;
+        .hero-inner {
+            min-height: 670px;
+            display: grid;
+            grid-template-columns: 1.02fr .98fr;
+            gap: 64px;
+            align-items: center;
+            padding: 74px 0 82px;
         }
-
-        .section-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .section-card:nth-child(1):hover {
-            border-color: var(--blue);
-            box-shadow: 0 25px 80px rgba(30, 58, 138, 0.2);
-        }
-
-        .section-card:nth-child(2):hover {
-            border-color: var(--red);
-            box-shadow: 0 25px 80px rgba(229, 57, 53, 0.2);
-        }
-
-        .section-card:nth-child(3):hover {
-            border-color: var(--green);
-            box-shadow: 0 25px 80px rgba(16, 185, 129, 0.2);
-        }
-
-.section-title {
-    font-size: clamp(1.4rem, 2.2vw, 1.9rem); /* Уменьшенный размер */
-    font-weight: 800;
-    margin-bottom: 24px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    line-height: 1.2;
-    height: 50px; /* Фиксированная высота */
-}
-
-
-        .section-card:nth-child(1) .section-title {
-            color: var(--blue);
-        }
-
-        .section-card:nth-child(2) .section-title {
-            color: var(--red);
-        }
-
-        .section-card:nth-child(3) .section-title {
-            color: var(--green);
-        }
-
-        .section-title::before {
-            content: '';
-            width: 6px;
-            height: 40px;
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        .section-card:nth-child(1) .section-title::before {
-            background: var(--blue);
-        }
-
-        .section-card:nth-child(2) .section-title::before {
-            background: var(--red);
-        }
-
-        .section-card:nth-child(3) .section-title::before {
-            background: var(--green);
-        }
-
-        .section-card:hover .section-title::before {
-            height: 50px;
-            box-shadow: 0 0 20px currentColor;
-        }
-
-        .section-desc {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 36px;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .section-link {
+        .eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
+            gap: 10px;
+            color: #BFDBFE;
+            font-size: .88rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: var(--red);
+        }
+        .hero h1 {
+            margin: 0 0 24px;
+            max-width: 760px;
+            font-size: clamp(2.6rem, 5vw, 4.7rem);
+            line-height: 1.02;
+            letter-spacing: -.045em;
+        }
+        .hero h1 span { color: #93C5FD; }
+        .hero-lead {
+            max-width: 650px;
+            margin: 0 0 34px;
+            color: #CBD5E1;
+            font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+        }
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 38px;
+        }
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 22px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font-weight: 700;
             text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: .2s ease;
+        }
+        .home-btn.primary { background: var(--blue); color: var(--white); }
+        .home-btn.primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+        .home-btn.secondary {
+            border-color: rgba(255,255,255,.22);
+            color: var(--white);
+            background: rgba(255,255,255,.04);
+        }
+        .home-btn.secondary:hover { background: rgba(255,255,255,.09); }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 690px;
+        }
+        .hero-stat {
+            border-top: 1px solid rgba(255,255,255,.14);
+            padding-top: 15px;
+        }
+        .hero-stat strong {
+            display: block;
+            font-size: 1.55rem;
+            line-height: 1.1;
+        }
+        .hero-stat span {
+            display: block;
+            color: #94A3B8;
+            font-size: .86rem;
+            margin-top: 5px;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            align-items: stretch;
+        }
+        .hero-image {
+            width: 100%;
+            min-height: 480px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 30px 80px rgba(0,0,0,.28);
+        }
+        .hero-card {
+            position: absolute;
+            left: -28px;
+            bottom: 28px;
+            max-width: 310px;
+            padding: 22px;
+            border-radius: 16px;
+            background: rgba(255,255,255,.97);
+            color: var(--text);
+            box-shadow: var(--shadow);
+        }
+        .hero-card-label {
+            color: var(--blue);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .hero-card strong {
+            display: block;
+            font-size: 1.08rem;
+            line-height: 1.35;
+        }
+
+        .trust-strip {
+            border-bottom: 1px solid var(--line);
+            background: var(--white);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .trust-item {
+            padding: 24px 22px;
+            border-left: 1px solid var(--line);
+        }
+        .trust-item:first-child { border-left: 0; }
+        .trust-item strong {
+            display: block;
+            font-size: 1.35rem;
+            line-height: 1.2;
+        }
+        .trust-item span {
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        .home-section { padding: 96px 0; }
+        .home-section.alt { background: var(--bg); }
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 35px;
+            align-items: flex-end;
+            margin-bottom: 44px;
+        }
+        .section-kicker {
+            color: var(--blue);
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .section-head h2 {
+            margin: 0;
+            max-width: 720px;
+            font-size: clamp(2rem, 3.4vw, 3rem);
+            line-height: 1.08;
+            letter-spacing: -.035em;
+        }
+        .section-head p {
+            max-width: 460px;
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .service-card {
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            transition: .2s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: #CBD5E1;
+        }
+        .service-number {
+            color: var(--red);
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            margin-bottom: 30px;
+        }
+        .service-card h3 {
+            margin: 0 0 12px;
+            font-size: 1.28rem;
+        }
+        .service-card p {
+            margin: 0 0 24px;
+            color: var(--muted);
+            font-size: .96rem;
+        }
+        .service-card a {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr 1fr;
+            gap: 20px;
+        }
+        .case-card {
+            min-height: 360px;
             position: relative;
             overflow: hidden;
+            border-radius: 18px;
+            background: var(--navy);
         }
-
-        .section-card:nth-child(1) .section-link {
-            background: var(--blue);
-            color: var(--white);
-        }
-
-        .section-card:nth-child(2) .section-link {
-            background: var(--red);
-            color: var(--white);
-        }
-
-        .section-card:nth-child(3) .section-link {
-            background: var(--green);
-            color: var(--white);
-        }
-
-        .section-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .case-card img {
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
+            min-height: 360px;
+            object-fit: cover;
+            display: block;
+            opacity: .8;
+        }
+        .case-card::after {
+            content: "";
+            position: absolute;
+            inset: 35% 0 0;
+            background: linear-gradient(180deg, transparent, rgba(11,18,32,.93));
+        }
+        .case-info {
+            position: absolute;
+            inset: auto 24px 22px;
+            z-index: 2;
+            color: var(--white);
+        }
+        .case-info small {
+            display: block;
+            color: #BFDBFE;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .case-info strong {
+            display: block;
+            font-size: 1.2rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--line);
+        }
+        .process-item {
+            padding: 26px 28px 12px 0;
+            margin-right: 28px;
+            border-right: 1px solid var(--line);
+        }
+        .process-item:last-child { border-right: 0; margin-right: 0; }
+        .process-item span {
+            color: var(--blue);
+            font-weight: 800;
+            font-size: .82rem;
+        }
+        .process-item h3 {
+            margin: 12px 0 8px;
+            font-size: 1.08rem;
+        }
+        .process-item p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .cta-panel {
+            display: grid;
+            grid-template-columns: 1.35fr .65fr;
+            gap: 32px;
+            align-items: center;
+            padding: 46px;
+            border-radius: 22px;
+            background: var(--navy);
+            color: var(--white);
+            overflow: hidden;
+            position: relative;
+        }
+        .cta-panel::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -80px;
+            top: -120px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.1);
+        }
+        .cta-panel h2 {
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            line-height: 1.08;
+            letter-spacing: -.03em;
+        }
+        .cta-panel p {
+            margin: 0;
+            color: #CBD5E1;
+            max-width: 680px;
+        }
+        .cta-actions {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
             z-index: 1;
         }
 
-        .section-link:hover::before {
-            left: 0;
-        }
-
-        .section-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-card:nth-child(1) .section-link:hover {
-            box-shadow: 0 15px 40px rgba(30, 58, 138, 0.4);
-        }
-
-        .section-card:nth-child(2) .section-link:hover {
-            box-shadow: 0 15px 40px rgba(229, 57, 53, 0.4);
-        }
-
-        .section-card:nth-child(3) .section-link:hover {
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
-        }
-
-        .section-link::after {
-            content: '→';
-            font-size: 1.3rem;
-            transition: var(--transition);
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-link:hover::after {
-            transform: translateX(5px);
-        }
-
-        /* Cookie Modal */
         .cookie-modal {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            right: 24px;
+            bottom: 24px;
             z-index: 10000;
+            width: min(400px, calc(100% - 32px));
+            padding: 20px;
             background: var(--white);
-            border: 2px solid var(--border);
-            border-radius: var(--border-radius);
-            padding: 24px;
-            max-width: 400px;
-            box-shadow: var(--shadow-medium);
-            animation: slideIn 0.5s ease-out;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(15,23,42,.16);
         }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
         .cookie-modal p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            font-size: 0.95rem;
+            color: var(--muted);
+            font-size: .9rem;
+            margin: 0 0 14px;
         }
-
         .cookie-button {
-            background: var(--blue);
+            min-height: 42px;
+            padding: 0 18px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--navy);
             color: var(--white);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
         }
 
-        .cookie-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.4);
-            background: #14306b;
+        @media (max-width: 1000px) {
+            .hero-inner { grid-template-columns: 1fr; padding-top: 52px; }
+            .hero-visual { min-height: 380px; }
+            .hero-image { min-height: 380px; }
+            .hero-card { left: 18px; }
+            .service-grid { grid-template-columns: 1fr 1fr; }
+            .case-grid { grid-template-columns: 1fr 1fr; }
+            .case-card:first-child { grid-column: 1 / -1; }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+            .process-item:nth-child(2) { border-right: 0; }
         }
 
-        /* Footer */
-        footer {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--gray);
-            border-top: 1px solid var(--border);
-        }
-
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .sections {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                max-width: 1200px;
+        @media (max-width: 720px) {
+            .home-container { width: min(100% - 28px, var(--container)); }
+            .hero-inner { min-height: 0; padding: 42px 0 54px; gap: 36px; }
+            .hero h1 { font-size: clamp(2.35rem, 12vw, 3.4rem); }
+            .hero-meta { grid-template-columns: 1fr; gap: 14px; }
+            .hero-visual, .hero-image { min-height: 300px; }
+            .hero-card { position: relative; left: auto; bottom: auto; margin: -45px 16px 0; }
+            .trust-grid { grid-template-columns: 1fr 1fr; }
+            .trust-item { border-bottom: 1px solid var(--line); }
+            .trust-item:nth-child(3) { border-left: 0; }
+            .section-head { display: block; }
+            .section-head p { margin-top: 16px; }
+            .home-section { padding: 68px 0; }
+            .service-grid, .case-grid { grid-template-columns: 1fr; }
+            .case-card, .case-card img { min-height: 300px; }
+            .process-grid { grid-template-columns: 1fr; }
+            .process-item, .process-item:nth-child(2) {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+                margin-right: 0;
+                padding-right: 0;
             }
-        }
-
-        @media (max-width: 768px) {
-            .sections {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 0 16px 60px;
-            }
-
-            .section-card {
-                padding: 36px 28px;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .section-desc {
-                font-size: 1.05rem;
-            }
-
-            .cookie-modal {
-                bottom: 20px;
-                right: 20px;
-                left: 20px;
-                max-width: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 60px 16px 40px;
-            }
-
-            .logo {
-                width: 280px;
-            }
-
-            .section-card {
-                padding: 28px 20px;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-
-            .section-title::before {
-                width: 40px;
-                height: 6px;
-            }
-
-            .section-link {
-                padding: 14px 28px;
-                font-size: 1rem;
-            }
-        }
-
-        /* Advanced animations and effects */
-        @media (prefers-reduced-motion: no-preference) {
-            .section-card {
-                animation: fadeInUp 0.8s ease-out forwards;
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            .section-card:nth-child(1) { animation-delay: 0.2s; }
-            .section-card:nth-child(2) { animation-delay: 0.4s; }
-            .section-card:nth-child(3) { animation-delay: 0.6s; }
-
-            @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        }
-
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            .section-card {
-                border: 3px solid var(--text-primary);
-            }
+            .process-item:last-child { border-bottom: 0; }
+            .cta-panel { grid-template-columns: 1fr; padding: 32px 26px; }
+            .cta-actions { justify-content: flex-start; }
         }
     </style>
 </head>
 <body>
-    <!-- Floating particles -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
 
-    <!-- Прелоадер -->
-    <div class="preloader" id="preloader">
-        <img src="images/logo.png" alt="Группа Интегра" class="preloader-logo" fetchpriority="high" />
-    </div>
+<?php include 'header.php'; ?>
 
-    <header>
-        <img src="images/logo.png" alt="Группа Интегра" class="logo" loading="eager" fetchpriority="high" />
-        <h1 class="main-title">Цифровые решения для строительства</h1>
-        <p class="main-desc">
-            С 2007 года Группа Интегра реализует проекты по усилению сотовой связи, монтажу слаботочных систем и предоставляет биржу проектов для подрядчиков в Москве, Санкт-Петербурге и по всей России.
-        </p>
-    </header>
-
-    <main>
-        <section class="sections" itemscope itemtype="https://schema.org/Service">
-            <div class="section-card" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
-                <div class="section-title" itemprop="name">Усиление связи</div>
-                <div class="section-desc" itemprop="description">
-                    Проектирование и построение систем усиления сотового сигнала (СУСС) для стабильной сотовой связи на объектах любой сложности. Только рабочие решения. Полный цикл работ под ключ для объектов любого масштаба.
+<main>
+    <section class="hero">
+        <div class="home-container hero-inner">
+            <div>
+                <div class="eyebrow">Группа Интегра · с 2007 года</div>
+                <h1>Слаботочные системы и <span>усиление связи</span> для строительных объектов</h1>
+                <p class="hero-lead">
+                    Проектирование, монтаж и технический контроль. Работаем с объектами в Москве и Санкт-Петербурге, подключаясь на стадии проекта или реализации.
+                </p>
+                <div class="hero-actions">
+                    <button class="home-btn primary" type="button" onclick="integraOpenModal(); return false;">Обсудить проект</button>
+                    <a class="home-btn secondary" href="/projects.php">Смотреть проекты</a>
                 </div>
-                <a class="section-link" href="/gsm.php" itemprop="url">Подробнее</a>
-            </div>
-            <div class="section-card" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
-                <div class="section-title" itemprop="name">Слаботочные системы</div>
-                <div class="section-desc" itemprop="description">
-                    Системы пожарной сигнализации, автономное тушение, сигнализация и оповещение, СКС, видеонаблюдение, СКУД, IT-инфраструктура: полный цикл работ под ключ для объектов любого масштаба.
+                <div class="hero-meta">
+                    <div class="hero-stat"><strong>с 2007</strong><span>инженерная практика</span></div>
+                    <div class="hero-stat"><strong>Москва · СПб</strong><span>основные регионы</span></div>
+                    <div class="hero-stat"><strong>Полный цикл</strong><span>от задачи до сдачи</span></div>
                 </div>
-                <a class="section-link" href="/slabotchka.php" itemprop="url">Подробнее</a>
             </div>
-            <div class="section-card" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
-                <div class="section-title" itemprop="name">Биржа проектов</div>
-                <div class="section-desc" itemprop="description">
-                    Платформа для поиска заказов и подрядчиков в сфере слаботочных систем и усиления связи. Найдите подходящие проекты или квалифицированных исполнителей для ваших задач. Прозрачность и безопасность сделок.
-                </div>
-                <a class="section-link" href="/projects.php" itemprop="url">Подробнее</a>
-            </div>
-        </section>
-    </main>
 
-    <!-- Cookie-уведомление -->
-    <div class="cookie-modal" id="cookieModal" style="display:none;">
-        <div class="cookie-modal-content">
-            <p>Мы используем файлы cookie для улучшения работы сайта и персонализации контента.</p>
-            <button id="acceptCookies" class="cookie-button">Принять</button>
+            <div class="hero-visual">
+                <img class="hero-image" src="/images/ostankino.jpg" alt="Реализованный объект Группы Интегра в Москве" fetchpriority="high">
+                <div class="hero-card">
+                    <div class="hero-card-label">Инженерный подход</div>
+                    <strong>Не просто монтаж: решение задачи, координация работ и контроль результата.</strong>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2007–2025 Группа Интегра. Все права защищены.</p>
+    <section class="trust-strip">
+        <div class="home-container trust-grid">
+            <div class="trust-item"><strong>Усиление связи</strong><span>СУСС и инфраструктура связи</span></div>
+            <div class="trust-item"><strong>Слаботочные системы</strong><span>СКС, СКУД, CCTV, АПС, СОУЭ и др.</span></div>
+            <div class="trust-item"><strong>Технический контроль</strong><span>Аудит проектных и монтажных решений</span></div>
+            <div class="trust-item"><strong>Цифровой контроль</strong><span>Документы, задачи и ход проекта</span></div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Скрипты -->
-    <script>
-        // Оригинальный прелоадер
-        window.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.getElementById('preloader').classList.add('grow');
-            }, 200);
-        });
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 1200);
-        });
+    <section class="home-section">
+        <div class="home-container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Что делаем</div>
+                    <h2>Инженерные задачи строительного объекта — в одной связке</h2>
+                </div>
+                <p>Подключаемся к проекту там, где нужен расчёт, организация работ, монтаж или проверка уже принятых решений.</p>
+            </div>
 
-        // Cookie-уведомление
-        document.addEventListener('DOMContentLoaded', () => {
-            const cookieModal = document.getElementById('cookieModal');
-            const acceptCookiesButton = document.getElementById('acceptCookies');
-            
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => {
-                    cookieModal.style.display = 'block';
-                }, 2000);
-            }
-            
-            acceptCookiesButton.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieModal.style.animation = 'slideOut 0.5s ease-in forwards';
-                setTimeout(() => {
-                    cookieModal.style.display = 'none';
-                }, 500);
-            });
-        });
+            <div class="service-grid">
+                <article class="service-card">
+                    <div class="service-number">01 / СВЯЗЬ</div>
+                    <h3>Усиление сотовой связи</h3>
+                    <p>Системы усиления сигнала для объектов разного масштаба: от обследования и расчёта до запуска и сдачи.</p>
+                    <a href="/gsm.php">О направлении →</a>
+                </article>
+                <article class="service-card">
+                    <div class="service-number">02 / СЛАБОТОЧНЫЕ СИСТЕМЫ</div>
+                    <h3>Слаботочные системы</h3>
+                    <p>Проектирование и монтаж СКС, видеонаблюдения, СКУД, пожарной автоматики и других инженерных систем.</p>
+                    <a href="/slabotchka.php">О направлении →</a>
+                </article>
+                <article class="service-card">
+                    <div class="service-number">03 / КОНТРОЛЬ</div>
+                    <h3>Аудит и консультации</h3>
+                    <p>Проверка проектных решений, документации и хода реализации. Помогаем выявить проблемы до приёмки объекта.</p>
+                    <a href="/services.php">Об услугах →</a>
+                </article>
+            </div>
+        </div>
+    </section>
 
-        // Параллакс эффект для частиц (более деликатный)
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            particles.forEach((particle, index) => {
-                const speed = (index + 1) * 0.3;
-                const xPos = (x * speed * 10) - 5;
-                const yPos = (y * speed * 10) - 5;
-                particle.style.transform += ` translate(${xPos}px, ${yPos}px)`;
-            });
-        });
+    <section class="home-section alt">
+        <div class="home-container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Реализованные объекты</div>
+                    <h2>Показываем не только услуги, но и результат</h2>
+                </div>
+                <p>Каждый объект — это конкретная задача, набор систем и требования к результату.</p>
+            </div>
 
-        // Добавляем CSS для slideOut анимации
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+            <div class="case-grid">
+                <a class="case-card" href="/projects/ostankino.php">
+                    <img src="/images/ostankino.jpg" alt="Бизнес-парк Останкино, Москва" loading="lazy">
+                    <div class="case-info"><small>Москва</small><strong>Бизнес-парк Останкино</strong></div>
+                </a>
+                <a class="case-card" href="/projects/yes-technopark.php">
+                    <img src="/images/yes_technopark.jpg" alt="YES Технопарк, Москва" loading="lazy">
+                    <div class="case-info"><small>Москва</small><strong>YES Технопарк</strong></div>
+                </a>
+                <a class="case-card" href="/projects/yes-marata.php">
+                    <img src="/images/yes_marata.jpg" alt="YES Марата, Санкт-Петербург" loading="lazy">
+                    <div class="case-info"><small>Санкт-Петербург</small><strong>YES Марата</strong></div>
+                </a>
+            </div>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-XXXXX-Y');
-    </script>
-    
-    <!-- Yandex.Metrika -->
-    <script>
-      setTimeout(function(){
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-        ym('97138737', "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ecommerce:"dataLayer" });
-      }, 2000);
-    </script>
+            <div style="margin-top:24px;text-align:right;">
+                <a class="home-btn secondary" style="background:var(--navy);border-color:var(--navy);" href="/projects.php">Все проекты</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section">
+        <div class="home-container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Как работаем</div>
+                    <h2>Прозрачный процесс без лишней бюрократии</h2>
+                </div>
+                <p>Фиксируем задачу, состав работ и точки контроля — чтобы заказчик понимал, что происходит на объекте.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-item"><span>01</span><h3>Задача</h3><p>Изучаем объект, требования, документацию и ограничения.</p></div>
+                <div class="process-item"><span>02</span><h3>Решение</h3><p>Предлагаем технический состав работ и согласуем объём.</p></div>
+                <div class="process-item"><span>03</span><h3>Реализация</h3><p>Организуем монтаж и контролируем качество и документацию.</p></div>
+                <div class="process-item"><span>04</span><h3>Результат</h3><p>Подготавливаем материалы к приёмке и передаче заказчику.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section alt" id="contact">
+        <div class="home-container">
+            <div class="cta-panel">
+                <div>
+                    <div class="section-kicker" style="color:#93C5FD;">Следующий шаг</div>
+                    <h2>Есть объект, проект или спорный технический вопрос?</h2>
+                    <p>Опишите задачу — обсудим состав работ, исходные данные и следующий шаг без лишних обещаний.</p>
+                </div>
+                <div class="cta-actions">
+                    <button class="home-btn primary" type="button" onclick="integraOpenModal(); return false;">Отправить заявку</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="cookie-modal" id="cookieModal" style="display:none;">
+    <p>Мы используем файлы cookie для улучшения работы сайта.</p>
+    <button id="acceptCookies" class="cookie-button" type="button">Принять</button>
+</div>
+
+<?php include 'footer.php'; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var cookieModal = document.getElementById('cookieModal');
+    var acceptCookiesButton = document.getElementById('acceptCookies');
+
+    if (!localStorage.getItem('cookiesAccepted')) {
+        setTimeout(function () {
+            cookieModal.style.display = 'block';
+        }, 1200);
+    }
+
+    acceptCookiesButton.addEventListener('click', function () {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieModal.style.display = 'none';
+    });
+});
+</script>
+
 </body>
 </html>
