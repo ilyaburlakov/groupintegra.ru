@@ -861,7 +861,7 @@
         <h2 data-aos="fade-up">Готовы стать частью нашей истории успеха?</h2>
         <p data-aos="fade-up" data-aos-delay="100">Свяжитесь с нами и узнайте, как мы можем помочь реализовать ваш проект</p>
         <div data-aos="fade-up" data-aos-delay="200">
-            <a href="/contacts.php" class="btn btn-secondary">Связаться с нами</a>
+            <a href="/#contact" class="btn btn-secondary">Связаться с нами</a>
         </div>
     </div>
 </section>
@@ -974,8 +974,7 @@
     ],
     "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+7-812-443-0123",
-        "contactType": "Customer Service",
+                "contactType": "Customer Service",
         "email": "info@groupintegra.ru",
         "areaServed": "RU"
     },

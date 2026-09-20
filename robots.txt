@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /catalog/admin/
+Disallow: /catalog/includes/
+Disallow: /vendor/
+Disallow: /PHPMailer/
+
+Sitemap: https://groupintegra.ru/sitemap.xml
