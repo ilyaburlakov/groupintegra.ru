@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "СОУЭ — проектирование и монтаж системы оповещения | Группа Интегра",
     "name": "Система оповещения и управления эвакуацией (СОУЭ)",
     "serviceType": "Проектирование и монтаж СОУЭ",
@@ -98,5 +98,5 @@ $service = {
             "/services/video.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
