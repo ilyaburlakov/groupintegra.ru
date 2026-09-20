@@ -277,7 +277,7 @@ $is_slabotochka = ($current_page == 'slabotochka' || $current_page == 'weak-curr
                     <li><a href="/faq.php">→ Часто задаваемые вопросы</a></li>
                     <li><a href="/documentation.php">→ Документация</a></li>
                     <li><a href="/warranty.php">→ Гарантийное обслуживание</a></li>
-                    <li><a href="/contacts.php">→ Контакты</a></li>
+                    <li><a href="/#contact">→ Контакты</a></li>
                 </ul>
             </div>
 
