@@ -6,12 +6,12 @@
     <title>YES Ботаника | Жилой комплекс в Москве | Группа Интегра</title>
     <meta name="description" content="Жилой комплекс YES Ботаника в Москве с надежным покрытием сотовой связью от Группы Интегра. Современный проект у метро Ботанический сад.">
     <meta name="keywords" content="YES Ботаника, жилой комплекс Москва, сотовое покрытие, Группа Интегра, метро Ботанический сад, недвижимость Москва">
-    <meta property="og:url" content="https://groupintegra.ru/yes-botanica">
+    <meta property="og:url" content="https://groupintegra.ru/projects/yes-botanica.php">
     <meta property="og:title" content="YES Ботаника | Жилой комплекс в Москве | Группа Интегра">
     <meta property="og:description" content="Жилой комплекс YES Ботаника в Москве с надежным покрытием сотовой связью от Группы Интегра. Современный проект у метро Ботанический сад.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/yes-botanica.jpg">
-    <link rel="canonical" href="https://groupintegra.ru/yes-botanica">
+    <meta property="og:image" content="images/yes_botanica.jpg">
+    <link rel="canonical" href="https://groupintegra.ru/projects/yes-botanica.php">
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,7 +114,7 @@
             justify-content: center;
             color: var(--white);
             text-align: center;
-            background: url('images/yes-botanica.jpg') no-repeat center center/cover;
+            background: url('images/yes_botanica.jpg') no-repeat center center/cover;
         }
 
         .cover::before {
@@ -167,17 +167,17 @@
         .card-img {
             width: 100px;
             height: 100px;
-            background: url('images/team.png') no-repeat center center/cover;
+            background: url('images/expert.png') no-repeat center center/cover;
             border-radius: 50%;
             margin: 0 auto 20px;
         }
 
         .card-img.flat {
-            background-image: url('images/flat.png');
+            background-image: url('images/office.jpg');
         }
 
         .card-img.city {
-            background-image: url('images/city.png');
+            background-image: url('images/road.png');
         }
 
         .card-title {
@@ -205,7 +205,7 @@
 
         .full-image {
             height: 100vh;
-            background: url('images/yes-botanica-full.jpg') no-repeat center center/cover;
+            background: url('images/yes_botanica.jpg') no-repeat center center/cover;
             background-attachment: scroll;
         }
 
@@ -227,12 +227,12 @@
 
         .gallery-img {
             height: 460px;
-            background: url('images/yes-botanica-gallery1.jpg') no-repeat center center/cover;
+            background: url('images/office.jpg') no-repeat center center/cover;
             margin-bottom: 20px;
         }
 
         .gallery-img.second {
-            background-image: url('images/yes-botanica-gallery2.jpg');
+            background-image: url('images/office2.jpg');
         }
 
         .impact {
@@ -383,8 +383,8 @@
         "@type": "WebPage",
         "name": "YES Ботаника | Жилой комплекс в Москве | Группа Интегра",
         "description": "Жилой комплекс YES Ботаника в Москве с надежным покрытием сотовой связью от Группы Интегра. Современный проект у метро Ботанический сад.",
-        "url": "https://groupintegra.ru/yes-botanica",
-        "image": "https://groupintegra.ru/images/yes-botanica.jpg",
+        "url": "https://groupintegra.ru/projects/yes-botanica.php",
+        "image": "https://groupintegra.ru/images/yes_botanica.jpg",
         "publisher": {
             "@type": "Organization",
             "name": "Группа Интегра",
@@ -406,7 +406,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "name": "YES Ботаника",
-                    "item": "https://groupintegra.ru/yes-botanica"
+                    "item": "https://groupintegra.ru/projects/yes-botanica.php"
                 }
             ]
         }
