@@ -4,6 +4,7 @@ $is_gsm = ($current_page == 'gsm' || strpos($_SERVER['REQUEST_URI'], '/gsm') !==
 $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-current' || strpos($_SERVER['REQUEST_URI'], '/slabotchka') !== false);
 ?>
 <style>
+    @import url('/assets/integra-theme.css');
 .integra-header * { box-sizing:border-box !important; }
 .integra-header {
     position:sticky !important; top:0 !important; z-index:1000 !important;
