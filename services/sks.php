@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = $service = json_decode('{
     "title": "СКС — проектирование и монтаж структурированных кабельных систем | Группа Интегра",
     "name": "Структурированные кабельные системы (СКС)",
     "serviceType": "Проектирование и монтаж СКС",
@@ -98,5 +98,5 @@ $service = {
             "/services/lan.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
