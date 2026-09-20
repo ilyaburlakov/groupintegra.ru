@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_ARTICLE_PAGE', true);
-$article = {
+$article = json_decode('{
     "title": "Как проектируют СКС для бизнес-центра: этапы и требования | Группа Интегра",
     "description": "Основные этапы проектирования СКС для бизнес-центра: исходные данные, топология, кабельные трассы, телекоммуникационные узлы и исполнительная документация.",
     "h1": "Как проектируют СКС для бизнес-центра",
@@ -61,5 +61,5 @@ $article = {
             "url": "/services/low-current-installation.php"
         }
     ]
-};
+}', true);
 require __DIR__ . '/_article-template.php';
