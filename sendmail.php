@@ -68,9 +68,9 @@ $fields = [
 ];
 
 $message = "<!doctype html>
-<html lang="ru">
+<html lang=\"ru\">
 <head>
-<meta charset="utf-8">
+<meta charset=\"utf-8\">
 <title>Новая заявка</title>
 <style>
 table { border-collapse: collapse; width: 100%; }
