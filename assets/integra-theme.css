@@ -120,6 +120,16 @@ section{padding:92px 0!important}
  gap:20px!important;
 }
 .benefits-grid,.services-grid,.advantages-grid,.industries-grid,.audience-grid,.solutions-grid,.values-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+/* Ровная композиция для секций ровно из 4 карточек: 2×2 вместо 3+1 */
+.benefits-grid:has(> :nth-child(4):last-child),
+.services-grid:has(> :nth-child(4):last-child),
+.additional-services-grid:has(> :nth-child(4):last-child),
+.advantages-grid:has(> :nth-child(4):last-child),
+.industries-grid:has(> :nth-child(4):last-child),
+.audience-grid:has(> :nth-child(4):last-child),
+.solutions-grid:has(> :nth-child(4):last-child),
+.values-grid:has(> :nth-child(4):last-child),
+.cards-grid:has(> :nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))!important}
 .additional-services-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 .process-steps{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 .projects-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
