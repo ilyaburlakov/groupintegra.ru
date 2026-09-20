@@ -90,7 +90,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         <div class="footer-bottom">
             <p>&copy; 2007–2026 Группа Интегра. Все права защищены.</p>
             <div class="footer-social">
-                <a href="https://vk.com/integragroup" class="social-link" target="_blank" rel="noopener noreferrer">VK</a>
                 <a href="https://t.me/integragroup" class="social-link" target="_blank" rel="noopener noreferrer">TG</a>
                 <a href="mailto:info@groupintegra.ru" class="social-link">✉</a>
             </div>
