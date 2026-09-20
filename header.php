@@ -101,25 +101,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         flex-shrink: 0 !important;
     }
 
-    .integra-phone-link {
-        color: #1E3A8A !important;
-        text-decoration: none !important;
-        font-weight: 600 !important;
-        font-size: 0.95rem !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-        padding: 6px 12px !important;
-        border-radius: 6px !important;
-        transition: all 0.2s ease !important;
-        white-space: nowrap !important;
-    }
-
-    .integra-phone-link:hover {
-        background: #eff6ff !important;
-        text-decoration: none !important;
-    }
-
     .integra-btn-primary {
         background: #1E3A8A !important;
         color: white !important;
@@ -235,11 +216,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
             gap: 12px !important;
         }
 
-        .integra-phone-link {
-            font-size: 0.9rem !important;
-            padding: 5px 10px !important;
-        }
-
         .integra-btn-primary, .integra-btn-secondary {
             padding: 8px 16px !important;
             font-size: 0.85rem !important;
@@ -258,15 +234,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
 
         .integra-header-actions {
             gap: 8px !important;
-        }
-
-        .integra-phone-link {
-            font-size: 0.85rem !important;
-            padding: 4px 8px !important;
-        }
-
-        .integra-phone-link span {
-            display: none !important;
         }
 
         .integra-btn-primary, .integra-btn-secondary {
@@ -434,11 +401,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         </nav>
 
         <div class="integra-header-actions">
-            <a href="tel:88124430123" class="integra-phone-link">
-                <span>📞</span>
-                8-812-443-01-23
-            </a>
-            
+
             <?php if ($is_gsm): ?>
                 <a href="https://groupintegra.ru/slabotchka.php" class="integra-btn-secondary">Слаботочные системы</a>
             <?php elseif ($is_slabotochka): ?>
