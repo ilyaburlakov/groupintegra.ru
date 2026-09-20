@@ -55,6 +55,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                     <li><a href="/about.php">О компании</a></li>
                     <li><a href="/projects.php">Реализованные проекты</a></li>
                     <li><a href="/services.php">Аудит и консультации</a></li>
+                    <li><a href="/articles/">Полезные материалы</a></li>
                 </ul>
             </div>
 
@@ -81,7 +82,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                 <h3>Контакты</h3>
                 <div class="footer-contact-info">
                     <div class="contact-item"><span>✉</span><a href="mailto:info@groupintegra.ru">info@groupintegra.ru</a></div>
-                    <div class="contact-item"><span>⌂</span><span>Санкт-Петербург · Москва</span></div>
+                    <div class="contact-item"><span>⌂</span><span><a href="/spb.php">Санкт-Петербург</a> · <a href="/moscow.php">Москва</a></span></div>
                     <div class="contact-item"><span>◷</span><span>Пн–Пт: 9:00–18:00</span></div>
                 </div>
             </div>

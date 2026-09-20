@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Услуги - Группа Интегра | Слаботочные системы в Москве и СПб</title>
-    <meta name="description" content="Полный спектр услуг по проектированию и монтажу слаботочных систем: СКС, видеонаблюдение, СКУД, пожарная безопасность, умный дом. Профессиональное оборудование и гарантия качества.">
-    <meta name="keywords" content="услуги, слаботочные системы, СКС, видеонаблюдение, СКУД, пожарная сигнализация, умный дом, BMS, проектирование, монтаж">
+    <meta name="description" content="Полный спектр услуг по проектированию и монтажу слаботочных систем: СКС, видеонаблюдение, СКУД, пожарная безопасность, ЛВС и Wi‑Fi. Решения для строительных и коммерческих объектов.">
+    <meta name="keywords" content="услуги, слаботочные системы, СКС, видеонаблюдение, СКУД, пожарная сигнализация, СОУЭ, ЛВС, Wi-Fi, BMS, проектирование, монтаж">
     <meta property="og:title" content="Услуги - Группа Интегра | Профессиональные слаботочные системы">
     <meta property="og:description" content="Комплексные решения для современного бизнеса: от проектирования до технической поддержки">
     <meta property="og:type" content="website">
@@ -1067,6 +1067,24 @@
                 <h3>Пуско-наладка и сдача</h3>
                 <p>Настройка системы, тестирование, обучение персонала и передача документации</p>
             </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SEO-направления -->
+<section class="seo-service-links" aria-labelledby="seo-service-links-title" style="background:#F7F8FA;">
+    <div class="container">
+        <h2 class="section-title" id="seo-service-links-title">Основные направления</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;">
+            <a class="card" href="/services/sks.php" style="padding:26px;text-decoration:none;"><div class="card-title">СКС</div><div class="card-descr">Проектирование и монтаж структурированных кабельных систем.</div></a>
+            <a class="card" href="/services/video.php" style="padding:26px;text-decoration:none;"><div class="card-title">Видеонаблюдение</div><div class="card-descr">CCTV для зданий, территорий, паркингов и коммерческих объектов.</div></a>
+            <a class="card" href="/services/skud.php" style="padding:26px;text-decoration:none;"><div class="card-title">СКУД</div><div class="card-descr">Контроль доступа сотрудников, посетителей и сервисного персонала.</div></a>
+            <a class="card" href="/services/fire-alarm.php" style="padding:26px;text-decoration:none;"><div class="card-title">Пожарная сигнализация</div><div class="card-descr">Проектирование и монтаж систем пожарной сигнализации.</div></a>
+            <a class="card" href="/services/soue.php" style="padding:26px;text-decoration:none;"><div class="card-title">СОУЭ</div><div class="card-descr">Оповещение и управление эвакуацией по зонам объекта.</div></a>
+            <a class="card" href="/services/lan.php" style="padding:26px;text-decoration:none;"><div class="card-title">ЛВС</div><div class="card-descr">Локальные вычислительные сети и сетевые узлы объекта.</div></a>
+            <a class="card" href="/services/wifi.php" style="padding:26px;text-decoration:none;"><div class="card-title">Корпоративный Wi‑Fi</div><div class="card-descr">Проектирование беспроводной сети под планировку и нагрузку.</div></a>
+            <a class="card" href="/services/low-current-installation.php" style="padding:26px;text-decoration:none;"><div class="card-title">Монтаж слаботочных систем</div><div class="card-descr">Комплексная реализация инженерных систем на строительном объекте.</div></a>
         </div>
     </div>
 </section>
