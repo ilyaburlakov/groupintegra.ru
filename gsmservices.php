@@ -9,10 +9,10 @@
     <meta property="og:title" content="Услуги усиления сотовой связи - Группа Интегра">
     <meta property="og:description" content="Профессиональное усиление сотовой связи и интернета любой сложности с гарантией 5 лет">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://groupintegra.ru/gsm-services.php">
-    <meta property="og:image" content="/images/gsm-services-hero.jpg">
+    <meta property="og:url" content="https://groupintegra.ru/gsmservices.php">
+    <meta property="og:image" content="/images/gsmoffice.jpg">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://groupintegra.ru/gsm-services.php">
+    <link rel="canonical" href="https://groupintegra.ru/gsmservices.php">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
