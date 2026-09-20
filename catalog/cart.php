@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require_once 'includes/config.php';
 require_once 'includes/functions.php';
@@ -129,7 +126,7 @@ require_once 'includes/header.php';
                         <div class="mb-3 form-check">
                             <input type="checkbox" name="agree" id="agree" class="form-check-input" required>
                             <label for="agree" class="form-check-label">
-                                Я согласен с <a href="/privacy-policy.php" target="_blank">обработкой персональных данных</a>
+                                Я согласен с <a href="/#contact" target="_blank">обработкой персональных данных</a>
                             </label>
                         </div>
                         <button type="submit" name="checkout" class="btn btn-primary w-100">Оформить заказ</button>
