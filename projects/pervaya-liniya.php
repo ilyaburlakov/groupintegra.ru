@@ -6,12 +6,12 @@
     <title>Первая Линия Health Care Resort | Зеленогорск | Группа Интегра</title>
     <meta name="description" content="Первая Линия Health Care Resort в Зеленогорске с надежным покрытием сотовой связью от Группы Интегра. Оздоровительный комплекс на берегу Финского залива.">
     <meta name="keywords" content="Первая Линия, Health Care Resort Зеленогорск, сотовое покрытие, Группа Интегра, оздоровительный комплекс СПб, курорт Финский залив">
-    <meta property="og:url" content="https://groupintegra.ru/pervaya-liniya">
+    <meta property="og:url" content="https://groupintegra.ru/projects/pervaya-liniya.php">
     <meta property="og:title" content="Первая Линия Health Care Resort | Зеленогорск | Группа Интегра">
     <meta property="og:description" content="Первая Линия Health Care Resort в Зеленогорске с надежным покрытием сотовой связью от Группы Интегра. Оздоровительный комплекс на берегу Финского залива.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/pervaya-liniya.jpg">
-    <link rel="canonical" href="https://groupintegra.ru/pervaya-liniya">
+    <meta property="og:image" content="images/pevraya_linia.jpg">
+    <link rel="canonical" href="https://groupintegra.ru/projects/pervaya-liniya.php">
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,7 +114,7 @@
             justify-content: center;
             color: var(--white);
             text-align: center;
-            background: url('images/pervaya-liniya.jpg') no-repeat center center/cover;
+            background: url('images/pevraya_linia.jpg') no-repeat center center/cover;
         }
 
         .cover::before {
@@ -167,17 +167,17 @@
         .card-img {
             width: 100px;
             height: 100px;
-            background: url('images/team.png') no-repeat center center/cover;
+            background: url('images/expert.png') no-repeat center center/cover;
             border-radius: 50%;
             margin: 0 auto 20px;
         }
 
         .card-img.flat {
-            background-image: url('images/flat.png');
+            background-image: url('images/office.jpg');
         }
 
         .card-img.city {
-            background-image: url('images/city.png');
+            background-image: url('images/road.png');
         }
 
         .card-title {
@@ -205,7 +205,7 @@
 
         .full-image {
             height: 100vh;
-            background: url('images/pervaya-liniya-full.jpg') no-repeat center center/cover;
+            background: url('images/pevraya_linia.jpg') no-repeat center center/cover;
             background-attachment: scroll;
         }
 
@@ -227,12 +227,12 @@
 
         .gallery-img {
             height: 460px;
-            background: url('images/pervaya-liniya-gallery1.jpg') no-repeat center center/cover;
+            background: url('images/office.jpg') no-repeat center center/cover;
             margin-bottom: 20px;
         }
 
         .gallery-img.second {
-            background-image: url('images/pervaya-liniya-gallery2.jpg');
+            background-image: url('images/office2.jpg');
         }
 
         .impact {
@@ -383,8 +383,8 @@
         "@type": "WebPage",
         "name": "Первая Линия Health Care Resort | Зеленогорск | Группа Интегра",
         "description": "Первая Линия Health Care Resort в Зеленогорске с надежным покрытием сотовой связью от Группы Интегра. Оздоровительный комплекс на берегу Финского залива.",
-        "url": "https://groupintegra.ru/pervaya-liniya",
-        "image": "https://groupintegra.ru/images/pervaya-liniya.jpg",
+        "url": "https://groupintegra.ru/projects/pervaya-liniya.php",
+        "image": "https://groupintegra.ru/images/pevraya_linia.jpg",
         "publisher": {
             "@type": "Organization",
             "name": "Группа Интегра",
@@ -406,7 +406,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Первая Линия",
-                    "item": "https://groupintegra.ru/pervaya-liniya"
+                    "item": "https://groupintegra.ru/projects/pervaya-liniya.php"
                 }
             ]
         }
