@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "ЛВС — проектирование и монтаж локальных сетей | Группа Интегра",
     "name": "Локальные вычислительные сети (ЛВС)",
     "serviceType": "Проектирование и монтаж ЛВС",
@@ -98,5 +98,5 @@ $service = {
             "/services/video.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
