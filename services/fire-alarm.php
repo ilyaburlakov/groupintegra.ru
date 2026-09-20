@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "Пожарная сигнализация — проектирование и монтаж | Группа Интегра",
     "name": "Система пожарной сигнализации",
     "serviceType": "Проектирование и монтаж пожарной сигнализации",
@@ -98,5 +98,5 @@ $service = {
             "/services/low-current-installation.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
