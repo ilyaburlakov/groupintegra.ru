@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Группа Интегра | Бизнес-парк Останкино. Москва</title>
     <meta name="description" content="Покрытие сотовой связью всей площади мест общего пользования и технических помещений.">
-    <meta property="og:url" content="https://groupintegra.ru/ostankino">
+    <meta property="og:url" content="https://groupintegra.ru/projects/ostankino.php">
     <meta property="og:title" content="Группа Интегра | Бизнес-парк Останкино. Москва">
     <meta property="og:description" content="Покрытие сотовой связью всей площади паркинга и мест общего пользования">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/ostankino-business-p.jpg">
-    <link rel="canonical" href="https://groupintegra.ru/ostankino">
+    <meta property="og:image" content="images/ostankino.jpg">
+    <link rel="canonical" href="https://groupintegra.ru/projects/ostankino.php">
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -114,7 +114,7 @@
             justify-content: center;
             color: var(--white);
             text-align: center;
-            background: url('images/ostankino-business-p.jpg') no-repeat center center/cover;
+            background: url('images/ostankino.jpg') no-repeat center center/cover;
         }
 
         .cover::before {
@@ -168,17 +168,17 @@
         .card-img {
             width: 100px;
             height: 100px;
-            background: url('images/team.png') no-repeat center center/cover;
+            background: url('images/expert.png') no-repeat center center/cover;
             border-radius: 50%;
             margin: 0 auto 20px;
         }
 
         .card-img.flat {
-            background-image: url('images/flat.png');
+            background-image: url('images/office.jpg');
         }
 
         .card-img.city {
-            background-image: url('images/city.png');
+            background-image: url('images/road.png');
         }
 
         .card-title {
@@ -208,7 +208,7 @@
         /* Full Image Section */
         .full-image {
             height: 100vh;
-            background: url('images/181821.jpg') no-repeat center center/cover;
+            background: url('images/ostankino.jpg') no-repeat center center/cover;
             background-attachment: scroll;
         }
 
@@ -232,12 +232,12 @@
 
         .gallery-img {
             height: 460px;
-            background: url('images/XXXL_9.jpg') no-repeat center center/cover;
+            background: url('images/office.jpg') no-repeat center center/cover;
             margin-bottom: 20px;
         }
 
         .gallery-img.second {
-            background-image: url('images/XXXL_10.jpg');
+            background-image: url('images/office2.jpg');
         }
 
         /* Impact Section */
