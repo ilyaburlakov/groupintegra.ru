@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "Монтаж слаботочных систем под ключ | Группа Интегра",
     "name": "Монтаж слаботочных систем",
     "serviceType": "Комплексный монтаж слаботочных систем",
@@ -98,5 +98,5 @@ $service = {
             "/services/skud.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
