@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = $service = json_decode('{
+$service = json_decode('{
     "title": "Видеонаблюдение — проектирование и монтаж CCTV | Группа Интегра",
     "name": "Системы видеонаблюдения",
     "serviceType": "Проектирование и монтаж видеонаблюдения",
