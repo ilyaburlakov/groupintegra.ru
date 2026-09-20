@@ -379,8 +379,7 @@
             "logo": "https://groupintegra.ru/images/logo.png",
             "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+7-812-123-45-67",
-                "contactType": "Customer Service",
+                                "contactType": "Customer Service",
                 "email": "info@integragroup.ru",
                 "areaServed": "RU"
             },
