@@ -974,8 +974,7 @@
     ],
     "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+7-812-443-0123",
-        "contactType": "Customer Service",
+                "contactType": "Customer Service",
         "email": "info@groupintegra.ru",
         "areaServed": "RU"
     },
