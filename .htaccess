@@ -1,4 +1,11 @@
 RewriteEngine On
+
+# Совместимость со старыми/отсутствующими ссылками на ресурсы
+RewriteRule ^images/favicon\.ico$ /images/logo.png [L]
+RewriteRule ^images/pervaya_linia\.jpg$ /images/pevraya_linia.jpg [L]
+RewriteRule ^images/gsm-hero\.jpg$ /images/gsmoffice.jpg [L]
+
+# Маршрутизация PHP-страниц
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
