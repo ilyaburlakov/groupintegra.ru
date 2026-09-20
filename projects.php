@@ -9,12 +9,12 @@
     <meta property="og:title" content="Наши проекты | Группа Интегра">
     <meta property="og:description" content="Ознакомьтесь с нашими проектами по усилению сотовой связи: Останкино, YES Технопарк, YES Ботаника, YES Марата и другие в Москве, Санкт-Петербурге и России.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com/projects.php">
+    <meta property="og:url" content="https://groupintegra.ru/projects.php">
     <meta property="og:image" content="/images/projects-og.png">
     <meta property="og:locale" content="ru_RU">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Группа Интегра">
-    <link rel="canonical" href="https://example.com/projects.php">
+    <link rel="canonical" href="https://groupintegra.ru/projects.php">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -371,12 +371,12 @@
         "@type": "CollectionPage",
         "name": "Наши проекты",
         "description": "Портфолио выполненных проектов Группы Интегра по усилению сотовой связи в Москве, Санкт-Петербурге и по всей России.",
-        "url": "https://example.com/projects.php",
+        "url": "https://groupintegra.ru/projects.php",
         "publisher": {
             "@type": "Organization",
             "name": "Группа Интегра",
-            "url": "https://example.com",
-            "logo": "https://example.com/images/logo.png",
+            "url": "https://groupintegra.ru",
+            "logo": "https://groupintegra.ru/images/logo.png",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+7-812-123-45-67",
@@ -397,32 +397,32 @@
                 {
                     "@type": "CreativeWork",
                     "name": "Бизнес-парк Останкино, Москва",
-                    "url": "https://example.com/projects/ostankino.php",
-                    "image": "https://example.com/images/ostankino.jpg"
+                    "url": "https://groupintegra.ru/projects/ostankino.php",
+                    "image": "https://groupintegra.ru/images/ostankino.jpg"
                 },
                 {
                     "@type": "CreativeWork",
                     "name": "YES Технопарк, Москва",
-                    "url": "https://example.com/projects/yes-technopark.php",
-                    "image": "https://example.com/images/yes_technopark.jpg"
+                    "url": "https://groupintegra.ru/projects/yes-technopark.php",
+                    "image": "https://groupintegra.ru/images/yes_technopark.jpg"
                 },
                 {
                     "@type": "CreativeWork",
                     "name": "YES Ботаника, Москва",
-                    "url": "https://example.com/projects/yes-botanica.php",
-                    "image": "https://example.com/images/yes_botanica.jpg"
+                    "url": "https://groupintegra.ru/projects/yes-botanica.php",
+                    "image": "https://groupintegra.ru/images/yes_botanica.jpg"
                 },
                 {
                     "@type": "CreativeWork",
                     "name": "YES Марата, Санкт-Петербург",
-                    "url": "https://example.com/projects/yes-marata.php",
-                    "image": "https://example.com/images/yes_marata.jpg"
+                    "url": "https://groupintegra.ru/projects/yes-marata.php",
+                    "image": "https://groupintegra.ru/images/yes_marata.jpg"
                 },
                 {
                     "@type": "CreativeWork",
                     "name": "Первая Линия, Health Care Resort, Зеленогорск",
-                    "url": "https://example.com/projects/pervaya-liniya.php",
-                    "image": "https://example.com/images/pervaya_liniya.jpg"
+                    "url": "https://groupintegra.ru/projects/pervaya-liniya.php",
+                    "image": "https://groupintegra.ru/images/pervaya_liniya.jpg"
                 }
             ]
         },
@@ -433,13 +433,13 @@
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Главная",
-                    "item": "https://example.com"
+                    "item": "https://groupintegra.ru"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Проекты",
-                    "item": "https://example.com/projects.php"
+                    "item": "https://groupintegra.ru/projects.php"
                 }
             ]
         }
