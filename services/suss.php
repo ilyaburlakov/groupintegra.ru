@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "Усиление сотовой связи в зданиях — проектирование и монтаж СУСС | Группа Интегра",
     "name": "Система усиления сотовой связи (СУСС)",
     "serviceType": "Проектирование и монтаж систем усиления сотовой связи",
@@ -98,5 +98,5 @@ $service = {
             "/projects.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
