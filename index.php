@@ -28,15 +28,15 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Группа Интегра – Усиление связи, слаботочные системы и биржа проектов">
     <meta property="og:description" content="Цифровизация строительства, усиление сотовой связи (СУСС), монтаж слаботочных систем и биржа проектов для подрядчиков в Москве и Санкт-Петербурге с 2007 года.">
-    <meta property="og:image" content="https://integragroup.ru/images/logo.png">
-    <meta property="og:url" content="https://integragroup.ru">
+    <meta property="og:image" content="https://groupintegra.ru/images/logo.png">
+    <meta property="og:url" content="https://groupintegra.ru">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Группа Интегра – Усиление связи, слаботочные системы и биржа проектов">
     <meta name="twitter:description" content="Цифровизация строительства, слаботочные системы и биржа проектов в Москве и Санкт-Петербурге.">
-    <meta name="twitter:image" content="https://integragroup.ru/images/logo.png">
+    <meta name="twitter:image" content="https://groupintegra.ru/images/logo.png">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://integragroup.ru/">
+    <link rel="canonical" href="https://groupintegra.ru/">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.rel='stylesheet'">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Группа Интегра",
-      "url": "https://integragroup.ru",
-      "logo": "https://integragroup.ru/images/logo.png",
+      "url": "https://groupintegra.ru",
+      "logo": "https://groupintegra.ru/images/logo.png",
       "description": "Усиление сотовой связи (СУСС), проектирование и монтаж слаботочных систем, биржа проектов для подрядчиков в Москве и Санкт-Петербурге. Цифровизация строительства с онлайн-контролем с 2007 года.",
       "contactPoint": [{
         "@type": "ContactPoint",
@@ -639,7 +639,7 @@
                 <div class="section-desc" itemprop="description">
                     Платформа для поиска заказов и подрядчиков в сфере слаботочных систем и усиления связи. Найдите подходящие проекты или квалифицированных исполнителей для ваших задач. Прозрачность и безопасность сделок.
                 </div>
-                <a class="section-link" href="/404.php" itemprop="url">Подробнее</a>
+                <a class="section-link" href="/projects.php" itemprop="url">Подробнее</a>
             </div>
         </section>
     </main>
