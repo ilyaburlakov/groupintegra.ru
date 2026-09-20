@@ -1,364 +1,99 @@
 <?php
-// Определяем текущую страницу
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 $is_gsm = ($current_page == 'gsm' || strpos($_SERVER['REQUEST_URI'], '/gsm') !== false);
-$is_slabotochka = ($current_page == 'slabotochka' || $current_page == 'weak-current' || strpos($_SERVER['REQUEST_URI'], '/slabotochka') !== false);
+$is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-current' || strpos($_SERVER['REQUEST_URI'], '/slabotchka') !== false);
 ?>
-
 <style>
-    .footer {
-        background: linear-gradient(135deg, #1E3A8A 0%, #2A52BE 100%);
-        color: white;
-        padding: 60px 0 30px;
-        margin-top: auto;
-    }
-
-    .footer-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-        margin-bottom: 40px;
-    }
-
-    .footer-section h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #ffffff;
-    }
-
-    .footer-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .footer-section ul li {
-        margin-bottom: 12px;
-    }
-
-    .footer-section ul li a {
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .footer-section ul li a:hover {
-        color: #ffffff;
-        transform: translateX(5px);
-    }
-
-    .footer-contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.1rem;
-    }
-
-    .contact-item a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-    }
-
-    .contact-item a:hover {
-        color: #FFD700;
-        transform: scale(1.05);
-    }
-
-    .footer-cta {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 30px;
-        border-radius: 15px;
-        text-align: center;
-        margin-bottom: 40px;
-        backdrop-filter: blur(10px);
-    }
-
-    .footer-cta h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: #ffffff;
-    }
-
-    .footer-cta p {
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 20px;
-        font-size: 1.1rem;
-    }
-
-    .footer-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .btn-footer {
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        backdrop-filter: blur(10px);
-    }
-
-    .btn-footer:hover {
-        background: rgba(255, 255, 255, 0.3);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-footer.primary {
-        background: #E53935;
-        border-color: #E53935;
-    }
-
-    .btn-footer.primary:hover {
-        background: #c62828;
-        border-color: #c62828;
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        padding-top: 30px;
-        text-align: center;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .footer-bottom p {
-        color: rgba(255, 255, 255, 0.7);
-        margin: 0;
-    }
-
-    .footer-social {
-        display: flex;
-        gap: 15px;
-    }
-
-    .social-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-    }
-
-    .social-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-3px) scale(1.1);
-    }
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-        .footer {
-            padding: 40px 0 20px;
-        }
-
-        .footer-content {
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        .footer-cta {
-            padding: 20px;
-        }
-
-        .footer-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .btn-footer {
-            width: 100%;
-            max-width: 300px;
-            justify-content: center;
-        }
-
-        .footer-bottom {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .contact-item {
-            justify-content: center;
-            text-align: center;
-        }
-    }
+.footer {
+    background:#0B1220; color:#fff; padding:64px 0 24px; margin-top:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.footer-container { max-width:1240px; margin:0 auto; padding:0 20px; }
+.footer-content {
+    display:grid; grid-template-columns:1.2fr 1fr 1fr 1.2fr; gap:42px; padding-bottom:46px;
+}
+.footer-section h3 { margin:0 0 17px; font-size:1rem; font-weight:700; color:#fff; }
+.footer-section ul { list-style:none; padding:0; margin:0; }
+.footer-section ul li { margin-bottom:9px; }
+.footer-section ul li a {
+    color:#94A3B8; text-decoration:none; font-size:.92rem; transition:.18s ease;
+}
+.footer-section ul li a:hover { color:#fff; }
+.footer-contact-info { display:flex; flex-direction:column; gap:12px; }
+.contact-item { display:flex; align-items:flex-start; gap:10px; color:#94A3B8; font-size:.92rem; }
+.contact-item a { color:#E2E8F0; text-decoration:none; }
+.contact-item a:hover { color:#93C5FD; }
+.footer-bottom {
+    border-top:1px solid rgba(255,255,255,.1); padding-top:22px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.footer-bottom p { margin:0; color:#64748B; font-size:.82rem; }
+.footer-social { display:flex; gap:8px; }
+.social-link {
+    display:flex; align-items:center; justify-content:center; min-width:38px; height:38px;
+    padding:0 10px; border:1px solid rgba(255,255,255,.1); border-radius:8px;
+    color:#CBD5E1; text-decoration:none; font-size:.8rem; font-weight:700;
+}
+.social-link:hover { border-color:rgba(255,255,255,.24); color:#fff; background:rgba(255,255,255,.04); }
+@media (max-width:800px) {
+    .footer { padding:48px 0 20px; }
+    .footer-content { grid-template-columns:1fr 1fr; gap:30px 20px; }
+}
+@media (max-width:560px) {
+    .footer-container { padding:0 14px; }
+    .footer-content { grid-template-columns:1fr; }
+    .footer-bottom { flex-direction:column; align-items:flex-start; }
+}
 </style>
 
-<footer class="footer">
+<footer class="footer" id="contact">
     <div class="footer-container">
-        <!-- CTA секция -->
-        
-
         <div class="footer-content">
-            <!-- Услуги -->
             <div class="footer-section">
-                <h3>Наши услуги</h3>
+                <h3>Группа Интегра</h3>
                 <ul>
-                    <?php if ($is_gsm): ?>
-                        <!-- Меню для GSM раздела -->
-                        <li><a href="/gsm.php">→ Усиление сотовой связи</a></li>
-                        <li><a href="/catalog.php">→ Каталог оборудования</a></li>
-                        <li><a href="/slabotochka.php">→ Слаботочные системы</a></li>
-                        <li><a href="/projects.php">→ Наши проекты</a></li>
-                    
-                    <?php elseif ($is_slabotochka): ?>
-                        <!-- Меню для слаботочных систем -->
-                        <li><a href="/slabotochka.php">→ Слаботочные системы</a></li>
-                        <li><a href="/gsm.php">→ Усиление сотовой связи</a></li>
-                        <li><a href="/projects.php">→ Наши проекты</a></li>
-                        <li><a href="/services.php">→ Дополнительные услуги</a></li>
-                    
-                    <?php else: ?>
-                        <!-- Основное меню -->
-                        <li><a href="/gsm.php">→ Усиление сотовой связи</a></li>
-                        <li><a href="/slabotochka.php">→ Слаботочные системы</a></li>
-                        <li><a href="/catalog.php">→ Каталог оборудования</a></li>
-                        <li><a href="/projects.php">→ Наши проекты</a></li>
-                    <?php endif; ?>
+                    <li><a href="/about.php">О компании</a></li>
+                    <li><a href="/projects.php">Реализованные проекты</a></li>
+                    <li><a href="/services.php">Аудит и консультации</a></li>
                 </ul>
             </div>
 
-            <!-- Компания -->
             <div class="footer-section">
-                <h3>Компания</h3>
+                <h3>Направления</h3>
                 <ul>
-                    <li><a href="/about.php">→ О компании</a></li>
-                    <li><a href="/team.php">→ Наша команда</a></li>
-                    <li><a href="/certificates.php">→ Сертификаты</a></li>
-                    <li><a href="/career.php">→ Карьера</a></li>
-                    <li><a href="/news.php">→ Новости</a></li>
+                    <li><a href="/gsm.php">Усиление сотовой связи</a></li>
+                    <li><a href="/slabotchka.php">Слаботочные системы</a></li>
+                    <li><a href="/catalog/">Каталог оборудования</a></li>
+                    <li><a href="/projects.php">Проекты</a></li>
                 </ul>
             </div>
 
-            <!-- Поддержка -->
             <div class="footer-section">
-                <h3>Поддержка</h3>
+                <h3>Для работы с проектом</h3>
                 <ul>
-                    <li><a href="/support.php">→ Техподдержка 24/7</a></li>
-                    <li><a href="/faq.php">→ Часто задаваемые вопросы</a></li>
-                    <li><a href="/documentation.php">→ Документация</a></li>
-                    <li><a href="/warranty.php">→ Гарантийное обслуживание</a></li>
-                    <li><a href="/#contact">→ Контакты</a></li>
+                    <li><a href="/#contact">Контакты</a></li>
+                    <?php if ($is_gsm): ?><li><a href="/gsmservices.php">Услуги по усилению связи</a></li><?php endif; ?>
+                    <?php if ($is_slabotochka): ?><li><a href="/services.php">Дополнительные услуги</a></li><?php endif; ?>
                 </ul>
             </div>
 
-            <!-- Контакты -->
             <div class="footer-section">
-                <h3>Контактная информация</h3>
+                <h3>Контакты</h3>
                 <div class="footer-contact-info">
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <a href="mailto:info@groupintegra.ru">info@groupintegra.ru</a>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span>Санкт-Петербург, Москва</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>🕒</span>
-                        <span>Пн-Пт: 9:00-18:00</span>
-                    </div>
+                    <div class="contact-item"><span>✉</span><a href="mailto:info@groupintegra.ru">info@groupintegra.ru</a></div>
+                    <div class="contact-item"><span>⌂</span><span>Санкт-Петербург · Москва</span></div>
+                    <div class="contact-item"><span>◷</span><span>Пн–Пт: 9:00–18:00</span></div>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2007–2025 Группа Интегра. Все права защищены.</p>
+            <p>&copy; 2007–2026 Группа Интегра. Все права защищены.</p>
             <div class="footer-social">
-                <a href="https://vk.com/integragroup" class="social-link" target="_blank">
-                    <span>VK</span>
-                </a>
-                <a href="https://t.me/integragroup" class="social-link" target="_blank">
-                    <span>TG</span>
-                </a>
-                <a href="mailto:info@groupintegra.ru" class="social-link">
-                    <span>✉</span>
-                </a>
+                <a href="https://vk.com/integragroup" class="social-link" target="_blank" rel="noopener noreferrer">VK</a>
+                <a href="https://t.me/integragroup" class="social-link" target="_blank" rel="noopener noreferrer">TG</a>
+                <a href="mailto:info@groupintegra.ru" class="social-link">✉</a>
             </div>
         </div>
     </div>
-</footer>
-
-<script>
-    // Функции модального окна (если не определены в header.php)
-    if (typeof openModal === 'undefined') {
-        function openModal() {
-            const modal = document.getElementById('requestModal');
-            if (modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            } else {
-                // Если модальное окно не найдено, создаем его
-                createModal();
-            }
-        }
-
-        function createModal() {
-            const modalHTML = `
-                <div id="requestModal" style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center;">
-                    <div style="background: white; padding: 40px; border-radius: 15px; max-width: 500px; width: 90%; position: relative;">
-                        <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
-                        <h3 style="margin-bottom: 20px; color: #1E3A8A;">Отправить заявку</h3>
-                        <form id="requestForm">
-                            <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px;">
-                            <input type="tel" name="phone" placeholder="Ваш телефон" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px;">
-                            <input type="email" name="email" placeholder="Ваш email" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px;">
-                            <textarea name="message" placeholder="Сообщение" rows="4" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; resize: vertical;"></textarea>
-                            <button type="submit" class="btn-primary" style="width: 100%; background: #1E3A8A; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer;">Отправить</button>
-                        </form>
-                    </div>
-                </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('requestModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-    }
-</script>
 </footer>
