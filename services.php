@@ -1071,6 +1071,24 @@
     </div>
 </section>
 
+
+<!-- SEO-направления -->
+<section class="seo-service-links" aria-labelledby="seo-service-links-title" style="background:#F7F8FA;">
+    <div class="container">
+        <h2 class="section-title" id="seo-service-links-title">Основные направления</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;">
+            <a class="card" href="/services/sks.php" style="padding:26px;text-decoration:none;"><div class="card-title">СКС</div><div class="card-descr">Проектирование и монтаж структурированных кабельных систем.</div></a>
+            <a class="card" href="/services/video.php" style="padding:26px;text-decoration:none;"><div class="card-title">Видеонаблюдение</div><div class="card-descr">CCTV для зданий, территорий, паркингов и коммерческих объектов.</div></a>
+            <a class="card" href="/services/skud.php" style="padding:26px;text-decoration:none;"><div class="card-title">СКУД</div><div class="card-descr">Контроль доступа сотрудников, посетителей и сервисного персонала.</div></a>
+            <a class="card" href="/services/fire-alarm.php" style="padding:26px;text-decoration:none;"><div class="card-title">Пожарная сигнализация</div><div class="card-descr">Проектирование и монтаж систем пожарной сигнализации.</div></a>
+            <a class="card" href="/services/soue.php" style="padding:26px;text-decoration:none;"><div class="card-title">СОУЭ</div><div class="card-descr">Оповещение и управление эвакуацией по зонам объекта.</div></a>
+            <a class="card" href="/services/lan.php" style="padding:26px;text-decoration:none;"><div class="card-title">ЛВС</div><div class="card-descr">Локальные вычислительные сети и сетевые узлы объекта.</div></a>
+            <a class="card" href="/services/wifi.php" style="padding:26px;text-decoration:none;"><div class="card-title">Корпоративный Wi‑Fi</div><div class="card-descr">Проектирование беспроводной сети под планировку и нагрузку.</div></a>
+            <a class="card" href="/services/low-current-installation.php" style="padding:26px;text-decoration:none;"><div class="card-title">Монтаж слаботочных систем</div><div class="card-descr">Комплексная реализация инженерных систем на строительном объекте.</div></a>
+        </div>
+    </div>
+</section>
+
 <!-- CTA секция -->
 <section class="cta" id="contact">
     <div class="container">
