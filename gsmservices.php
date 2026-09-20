@@ -643,7 +643,7 @@
         <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%;">Основные услуги</h2>
         <div class="services-grid">
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="/images/signal-measurement.jpg" alt="Замеры сигнала сотовой связи" class="service-image">
+                <img src="/images/gsmuot.jpeg" alt="Замеры сигнала сотовой связи" class="service-image">
                 <h3>Замеры сигнала</h3>
                 <p>Профессиональные замеры качества сотовой связи с помощью специализированного оборудования для определения оптимальных решений усиления.</p>
                 <div class="service-features">
@@ -659,7 +659,7 @@
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="/images/gsm-design.jpg" alt="Проектирование систем усиления связи" class="service-image">
+                <img src="/images/gsmprom.jpg" alt="Проектирование систем усиления связи" class="service-image">
                 <h3>Проектирование систем</h3>
                 <p>Индивидуальное проектирование систем усиления сотовой связи с учетом архитектурных особенностей и требований объекта.</p>
                 <div class="service-features">
@@ -675,7 +675,7 @@
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <img src="/images/gsm-installation.jpg" alt="Монтаж репитеров GSM" class="service-image">
+                <img src="/images/gsmoffice.jpg" alt="Монтаж репитеров GSM" class="service-image">
                 <h3>Монтаж и настройка</h3>
                 <p>Профессиональный монтаж репитеров, усилителей и антенных систем с последующей настройкой для оптимальной работы.</p>
                 <div class="service-features">
@@ -691,7 +691,7 @@
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <img src="/images/gsm-audit.jpg" alt="Аудит систем связи" class="service-image">
+                <img src="/images/tc.jpg" alt="Аудит систем связи" class="service-image">
                 <h3>Аудит и оптимизация</h3>
                 <p>Комплексный аудит существующих систем усиления связи с выявлением проблем и предложением решений по оптимизации.</p>
                 <div class="service-features">
@@ -707,7 +707,7 @@
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                <img src="/images/gsm-adaptation.jpg" alt="Адаптация оборудования GSM" class="service-image">
+                <img src="/images/repiter.jpg" alt="Адаптация оборудования GSM" class="service-image">
                 <h3>Адаптация под интерьер</h3>
                 <p>Интеграция оборудования усиления связи в интерьер с учетом дизайна проекта и архитектурных требований.</p>
                 <div class="service-features">
@@ -723,7 +723,7 @@
             </div>
 
             <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                <img src="/images/gsm-maintenance.jpg" alt="Обслуживание систем GSM" class="service-image">
+                <img src="/images/das_system.jpg" alt="Обслуживание систем GSM" class="service-image">
                 <h3>Техническое обслуживание</h3>
                 <p>Регулярное техническое обслуживание систем усиления связи для поддержания оптимальных параметров работы.</p>
                 <div class="service-features">
