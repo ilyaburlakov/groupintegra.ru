@@ -428,7 +428,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                     <a href="/about.php" class="integra-nav-link">О компании</a>
                 </li>
                 <li class="integra-nav-item">
-                    <a href="/contacts.php" class="integra-nav-link">Контакты</a>
+                    <a href="/#contact" class="integra-nav-link">Контакты</a>
                 </li>
             </ul>
         </nav>
@@ -481,7 +481,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
 <script>
     // Объявляем глобальные функции
     window.integraOpenModal = function() {
-        console.log('Opening modal...'); // Для отладки
         
         // Определяем тип формы в зависимости от текущей страницы
         var formType = 'Общая заявка с сайта';
@@ -499,7 +498,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         var formTypeField = document.getElementById('integraFormType');
         if (formTypeField) {
             formTypeField.value = formType;
-            console.log('Form type set to:', formType); // Для отладки
         }
         
         var modal = document.getElementById('integraRequestModal');
@@ -588,10 +586,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                 })
                 .catch(function(error) {
                     console.error('Error:', error);
-                    // Fallback - показываем успешное сообщение
-                    alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
-                    form.reset();
-                    integraCloseModal();
+                    alert('Не удалось отправить заявку. Попробуйте ещё раз позже.');
                 })
                 .finally(function() {
                     submitBtn.disabled = false;
