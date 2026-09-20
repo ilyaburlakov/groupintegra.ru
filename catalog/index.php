@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 require_once 'includes/config.php';
 require_once 'includes/functions.php';
 
@@ -52,7 +49,7 @@ $cart_count = count($cart_items);
     <meta property="og:description" content="<?= $meta_description ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://groupintegra.ru/catalog/">
-    <meta property="og:image" content="/images/catalog-og.jpg">
+    <meta property="og:image" content="/images/gsmoffice.jpg">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://groupintegra.ru/catalog/">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
