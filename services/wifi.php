@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "Wi‑Fi для бизнеса — проектирование и монтаж беспроводной сети | Группа Интегра",
     "name": "Корпоративные Wi‑Fi сети",
     "serviceType": "Проектирование и монтаж корпоративных Wi-Fi сетей",
@@ -98,5 +98,5 @@ $service = {
             "/services/low-current-installation.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
