@@ -281,3 +281,11 @@ footer,.footer{background:var(--ig-navy)!important}
  .full-image{min-height:320px!important}
  .gallery-img{height:280px!important}
 }
+/* SEO-перелинковка коммерческих направлений */
+.seo-service-links > .container > div[style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media(max-width:1000px){
+ .seo-service-links > .container > div[style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ .seo-service-links > .container > div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr!important}
+}
