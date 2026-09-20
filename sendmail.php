@@ -57,7 +57,7 @@ if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(false, 'Укажите корректный email', 422);
 }
 
-$formType = str_replace(["\\r", "\\n"], ' ', $formType);
+$formType = str_replace([chr(13), chr(10)], ' ', $formType);
 $subject = 'Новая заявка с сайта: ' . $formType;
 
 $fields = [
