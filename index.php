@@ -50,7 +50,6 @@
         "availableLanguage": "Russian"
       }],
       "sameAs": [
-        "https://vk.com/integragroup",
         "https://t.me/integragroup"
       ]
     }
