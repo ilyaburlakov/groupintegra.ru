@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "DAS — проектирование и монтаж системы распределённой антенны | Группа Интегра",
     "name": "DAS — распределённая антенно-фидерная система",
     "serviceType": "Проектирование и монтаж DAS",
@@ -98,5 +98,5 @@ $service = {
             "/projects.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
