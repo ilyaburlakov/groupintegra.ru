@@ -1,6 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
-$service = {
+$service = json_decode('{
     "title": "СКУД — проектирование и монтаж систем контроля доступа | Группа Интегра",
     "name": "Системы контроля и управления доступом (СКУД)",
     "serviceType": "Проектирование и монтаж СКУД",
@@ -98,5 +98,5 @@ $service = {
             "/services/fire-alarm.php"
         ]
     ]
-};
+}', true);
 require __DIR__ . '/_service-template.php';
