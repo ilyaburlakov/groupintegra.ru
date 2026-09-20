@@ -630,6 +630,42 @@
         </div>
     </section>
 
+
+    <section class="home-section alt">
+        <div class="home-container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Экспертиза</div>
+                    <h2>Полезные материалы для заказчиков и проектировщиков</h2>
+                </div>
+                <p>Практические разборы по СКС, видеонаблюдению, усилению связи и монтажу инженерных систем.</p>
+            </div>
+            <div class="service-grid">
+                <a class="service-card" href="/articles/usilenie-sotovoi-svyazi-v-zdanii.php" style="text-decoration:none;">
+                    <div class="service-number">01 / СВЯЗЬ</div>
+                    <h3>Усиление сотовой связи в здании</h3>
+                    <p>Как проводят обследование, проектируют систему и проверяют результат после монтажа.</p>
+                    <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
+                </a>
+                <a class="service-card" href="/articles/proektirovanie-sks.php" style="text-decoration:none;">
+                    <div class="service-number">02 / СКС</div>
+                    <h3>Как проектируют СКС для бизнес-центра</h3>
+                    <p>Исходные данные, топология, линии, узлы, маркировка и приёмка.</p>
+                    <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
+                </a>
+                <a class="service-card" href="/articles/montazh-slabotochnykh-sistem.php" style="text-decoration:none;">
+                    <div class="service-number">03 / МОНТАЖ</div>
+                    <h3>Монтаж слаботочных систем на стройке</h3>
+                    <p>Подготовка, координация со смежными подрядчиками, контроль и документация.</p>
+                    <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
+                </a>
+            </div>
+            <div style="margin-top:24px;text-align:right;">
+                <a class="home-btn secondary" style="background:var(--navy);border-color:var(--navy);" href="/articles/">Все материалы</a>
+            </div>
+        </div>
+    </section>
+
     <section class="home-section alt" id="contact">
         <div class="home-container">
             <div class="cta-panel">
