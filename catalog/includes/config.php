@@ -1,22 +1,26 @@
 <?php
-// Настройки базы данных
-define('DB_HOST', 'mysql.fc1ec553d08a.hosting.myjino.ru'); // или 'localhost' если скрипт на том же сервере
-define('DB_NAME', 'j84911507_site');
-define('DB_USER', 'j84911507_site');
-define('DB_PASS', 'Integra2021');
-define('DB_PORT', 3306);
+// Публичный код не содержит реквизитов БД.
+// На Jino секретная конфигурация хранится вне web-каталога: ~/incs/groupintegra-catalog.php.
+// Для локальной разработки допускается catalog/includes/config.local.php (не попадает в Git).
+$serverConfig = __DIR__ . '/../../../../incs/groupintegra-catalog.php';
+$localConfig = __DIR__ . '/config.local.php';
 
-// Настройки сайта
+if (is_file($serverConfig)) {
+    require_once $serverConfig;
+} elseif (is_file($localConfig)) {
+    require_once $localConfig;
+} else {
+    http_response_code(500);
+    exit('Не настроена серверная конфигурация каталога.');
+}
+
 define('SITE_NAME', 'Каталог товаров');
-define('SITE_URL', 'http://groupintegra.ru'); // замените на ваш реальный домен
+define('SITE_URL', 'https://groupintegra.ru');
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
-
-// Настройки пагинации
 define('PRODUCTS_PER_PAGE', 12);
 
-// Старт сессии
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Подключение к БД
-require_once 'db.php';
-?>
+require_once __DIR__ . '/db.php';

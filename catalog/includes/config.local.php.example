@@ -1,0 +1,9 @@
+<?php
+// Заполните реальными значениями ТОЛЬКО на сервере.
+// Этот файл можно копировать в config.local.php, но config.local.php не должен попадать в Git.
+
+define('DB_HOST', 'mysql.example.myjino.ru');
+define('DB_NAME', 'database_name');
+define('DB_USER', 'database_user');
+define('DB_PASS', 'database_password');
+define('DB_PORT', 3306);
