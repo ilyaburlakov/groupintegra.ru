@@ -1,0 +1,70 @@
+name: Deploy to Jino
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: jino-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare SSH
+        env:
+          JINO_SSH_KEY: ${{ secrets.JINO_SSH_KEY }}
+          JINO_KNOWN_HOSTS: ${{ secrets.JINO_KNOWN_HOSTS }}
+        run: |
+          set -eu
+
+          test -n "$JINO_SSH_KEY"
+          test -n "$JINO_KNOWN_HOSTS"
+
+          install -m 700 -d "$HOME/.ssh"
+
+          printf '%s\n' "$JINO_SSH_KEY" > "$HOME/.ssh/id_ed25519"
+          chmod 600 "$HOME/.ssh/id_ed25519"
+
+          printf '%s\n' "$JINO_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+      - name: Deploy website
+        env:
+          JINO_HOST: ${{ secrets.JINO_HOST }}
+          JINO_USER: ${{ secrets.JINO_USER }}
+          JINO_PATH: ${{ secrets.JINO_PATH }}
+        run: |
+          set -eu
+
+          rsync -az --delete \
+            --exclude='catalog/uploads/' \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='logs/' \
+            --exclude='tmp/' \
+            -e "ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes" \
+            ./ "$JINO_USER@$JINO_HOST:$JINO_PATH/"
+
+      - name: Verify deployment
+        env:
+          JINO_HOST: ${{ secrets.JINO_HOST }}
+          JINO_USER: ${{ secrets.JINO_USER }}
+          JINO_PATH: ${{ secrets.JINO_PATH }}
+        run: |
+          set -eu
+
+          ssh -i "$HOME/.ssh/id_ed25519" \
+            -o IdentitiesOnly=yes \
+            "$JINO_USER@$JINO_HOST" \
+            "cd '$JINO_PATH' && git rev-parse --short HEAD"
