@@ -24,6 +24,8 @@ jobs:
       - name: Prepare deployment files
         run: |
           set -eu
+
+          rm -rf deploy
           mkdir -p deploy
 
           rsync -a \
@@ -37,35 +39,60 @@ jobs:
 
       - name: Prepare SSH
         run: |
+          set -eu
+
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
 
-          cat > ~/.ssh/jino_key <<'EOF'
-          ${{ secrets.JINO_SSH_KEY }}
-          EOF
-
+          printf '%s\n' '${{ secrets.JINO_SSH_KEY }}' > ~/.ssh/jino_key
           chmod 600 ~/.ssh/jino_key
 
           ssh-keyscan -p 2222 \
             "${{ secrets.JINO_HOST }}" \
             >> ~/.ssh/known_hosts
 
-      - name: Deploy via SFTP
+      - name: Create SFTP commands
+        env:
+          JINO_PATH: ${{ secrets.JINO_PATH }}
         run: |
           set -eu
 
-          cd deploy
-          rm -f sftp_commands.txt
+          python3 <<'PY'
+          import os
+          from pathlib import Path
 
-          find . -type d ! -path "." -print | sort | while IFS= read -r dir
-          do
-            echo "mkdir ${{ secrets.JINO_PATH }}/${dir#./}" >> sftp_commands.txt
-          done
+          root = Path("deploy")
+          remote_root = os.environ["JINO_PATH"].rstrip("/")
 
-          find . -type f -print | sort | while IFS= read -r file
-          do
-            echo "put $file ${{ secrets.JINO_PATH }}/${file#./}" >> sftp_commands.txt
-          done
+          commands = []
+
+          for path in sorted(root.rglob("*")):
+              if path.is_dir():
+                  relative = path.relative_to(root).as_posix()
+                  remote = f"{remote_root}/{relative}"
+                  commands.append(f'mkdir "{remote}"')
+
+          for path in sorted(root.rglob("*")):
+              if path.is_file():
+                  relative = path.relative_to(root).as_posix()
+                  local = path.as_posix()
+                  remote = f"{remote_root}/{relative}"
+                  commands.append(f'put "{local}" "{remote}"')
+
+          Path("sftp_commands.txt").write_text(
+              "\n".join(commands) + "\n",
+              encoding="utf-8"
+          )
+
+          print("SFTP commands created:", len(commands))
+          PY
+
+      - name: Deploy via SFTP
+        env:
+          JINO_USER: ${{ secrets.JINO_USER }}
+          JINO_HOST: ${{ secrets.JINO_HOST }}
+        run: |
+          set -eu
 
           sftp \
             -i ~/.ssh/jino_key \
@@ -73,7 +100,4 @@ jobs:
             -o PubkeyAcceptedAlgorithms=+ssh-rsa \
             -o StrictHostKeyChecking=yes \
             -b sftp_commands.txt \
-            "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" <<EOF
-          put "$file" "${{ secrets.JINO_PATH }}/$remote"
-          EOF
-          done
+            "$JINO_USER@$JINO_HOST"
