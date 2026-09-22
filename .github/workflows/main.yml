@@ -24,7 +24,6 @@ jobs:
       - name: Prepare deployment files
         run: |
           set -eu
-
           mkdir -p deploy
 
           rsync -a \
@@ -36,15 +35,50 @@ jobs:
             --exclude='tmp/' \
             ./ deploy/
 
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          cat > ~/.ssh/jino_key <<'EOF'
+          ${{ secrets.JINO_SSH_KEY }}
+          EOF
+
+          chmod 600 ~/.ssh/jino_key
+
+          ssh-keyscan -p 2222 \
+            "${{ secrets.JINO_HOST }}" \
+            >> ~/.ssh/known_hosts
+
       - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-        with:
-          username: ${{ secrets.JINO_USER }}
-          server: ${{ secrets.JINO_HOST }}
-          port: 2222
-          ssh_private_key: ${{ secrets.JINO_SSH_KEY }}
-          local_path: './deploy/*'
-          remote_path: ${{ secrets.JINO_PATH }}/
-          sftp_only: true
-          delete_remote_files: false
-          sftpArgs: '-o PubkeyAcceptedAlgorithms=+ssh-rsa'
+        run: |
+          set -eu
+
+          cd deploy
+
+          find . -type f -print0 | while IFS= read -r -d '' file
+          do
+            remote="${file#./}"
+            remote_dir=$(dirname "$remote")
+
+            echo "Uploading: $remote"
+
+            if [ "$remote_dir" != "." ]; then
+              ssh \
+                -i ~/.ssh/jino_key \
+                -p 2222 \
+                -o PubkeyAcceptedAlgorithms=+ssh-rsa \
+                -o StrictHostKeyChecking=yes \
+                "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" \
+                "mkdir -p '${{ secrets.JINO_PATH }}/$remote_dir'"
+            fi
+
+            sftp \
+              -i ~/.ssh/jino_key \
+              -P 2222 \
+              -o PubkeyAcceptedAlgorithms=+ssh-rsa \
+              -o StrictHostKeyChecking=yes \
+              "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" <<EOF
+          put "$file" "${{ secrets.JINO_PATH }}/$remote"
+          EOF
+          done
