@@ -55,17 +55,16 @@ jobs:
           set -eu
 
           cd deploy
-
-          > sftp_commands.txt
+          rm -f sftp_commands.txt
 
           find . -type d ! -path "." -print | sort | while IFS= read -r dir
           do
-            echo "mkdir \"${{ secrets.JINO_PATH }}/${dir#./}\"" >> sftp_commands.txt
+            echo "mkdir ${{ secrets.JINO_PATH }}/${dir#./}" >> sftp_commands.txt
           done
 
           find . -type f -print | sort | while IFS= read -r file
           do
-            echo "put \"$file\" \"${{ secrets.JINO_PATH }}/${file#./}\"" >> sftp_commands.txt
+            echo "put $file ${{ secrets.JINO_PATH }}/${file#./}" >> sftp_commands.txt
           done
 
           sftp \
@@ -74,7 +73,7 @@ jobs:
             -o PubkeyAcceptedAlgorithms=+ssh-rsa \
             -o StrictHostKeyChecking=yes \
             -b sftp_commands.txt \
-            "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}"" <<EOF
+            "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" <<EOF
           put "$file" "${{ secrets.JINO_PATH }}/$remote"
           EOF
           done
