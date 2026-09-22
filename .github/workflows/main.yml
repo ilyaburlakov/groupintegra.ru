@@ -20,22 +20,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-      - name: Prepare deployment files
+      - name: Find changed files
         run: |
           set -eu
 
-          rm -rf deploy
-          mkdir -p deploy
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
 
-          rsync -a \
-            --exclude='.git/' \
-            --exclude='catalog/uploads/' \
-            --exclude='.env' \
-            --exclude='.env.*' \
-            --exclude='logs/' \
-            --exclude='tmp/' \
-            ./ deploy/
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            BEFORE="$(git rev-parse "${AFTER}^")"
+          fi
+
+          git diff --name-only --diff-filter=ACMR "$BEFORE" "$AFTER" > changed_files.txt
+
+          echo "Changed files:"
+          cat changed_files.txt || true
 
       - name: Prepare SSH
         run: |
@@ -47,9 +49,7 @@ jobs:
           printf '%s\n' '${{ secrets.JINO_SSH_KEY }}' > ~/.ssh/jino_key
           chmod 600 ~/.ssh/jino_key
 
-          ssh-keyscan -p 2222 \
-            "${{ secrets.JINO_HOST }}" \
-            >> ~/.ssh/known_hosts
+          ssh-keyscan -p 2222             "${{ secrets.JINO_HOST }}"             >> ~/.ssh/known_hosts
 
       - name: Create SFTP commands
         env:
@@ -61,30 +61,57 @@ jobs:
           import os
           from pathlib import Path
 
-          root = Path("deploy")
           remote_root = os.environ["JINO_PATH"].rstrip("/")
+          excluded_prefixes = (
+              "catalog/uploads/",
+          )
+          excluded_files = (
+              ".env",
+          )
+
+          files = []
+          for line in Path("changed_files.txt").read_text(encoding="utf-8").splitlines():
+              path = line.strip()
+              if not path:
+                  continue
+              if path in excluded_files or path.startswith(".env."):
+                  continue
+              if path.startswith(excluded_prefixes):
+                  continue
+              if path.startswith("logs/") or path.startswith("tmp/"):
+                  continue
+              if Path(path).is_file():
+                  files.append(path)
 
           commands = []
+          directories = set()
 
-          for path in sorted(root.rglob("*")):
-              if path.is_dir():
-                  relative = path.relative_to(root).as_posix()
-                  remote = f"{remote_root}/{relative}"
-                  commands.append(f'-mkdir "{remote}"')
+          for relative in files:
+              parent = Path(relative).parent
+              if str(parent) != ".":
+                  parts = parent.parts
+                  current = remote_root
+                  for part in parts:
+                      current = f"{current}/{part}"
+                      directories.add(current)
 
-          for path in sorted(root.rglob("*")):
-              if path.is_file():
-                  relative = path.relative_to(root).as_posix()
-                  local = path.as_posix()
-                  remote = f"{remote_root}/{relative}"
-                  commands.append(f'put "{local}" "{remote}"')
+          for directory in sorted(directories, key=lambda x: (x.count("/"), x)):
+              commands.append(f'-mkdir "{directory}"')
+
+          for relative in files:
+              local = relative.replace("\\", "/")
+              remote = f"{remote_root}/{local}"
+              commands.append(f'put "{local}" "{remote}"')
 
           Path("sftp_commands.txt").write_text(
-              "\n".join(commands) + "\n",
+              "\n".join(commands) + ("\n" if commands else ""),
               encoding="utf-8"
           )
 
-          print("SFTP commands created:", len(commands))
+          print(f"Files to deploy: {len(files)}")
+          for path in files:
+              print(f"  {path}")
+          print(f"SFTP commands created: {len(commands)}")
           PY
 
       - name: Deploy via SFTP
@@ -94,10 +121,9 @@ jobs:
         run: |
           set -eu
 
-          sftp \
-            -i ~/.ssh/jino_key \
-            -P 2222 \
-            -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-            -o StrictHostKeyChecking=yes \
-            -b sftp_commands.txt \
-            "$JINO_USER@$JINO_HOST"
+          if [ ! -s sftp_commands.txt ]; then
+            echo "No deployable files changed."
+            exit 0
+          fi
+
+          sftp             -i ~/.ssh/jino_key             -P 2222             -o PubkeyAcceptedAlgorithms=+ssh-rsa             -o StrictHostKeyChecking=yes             -b sftp_commands.txt             "$JINO_USER@$JINO_HOST"
