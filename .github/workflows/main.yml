@@ -56,29 +56,25 @@ jobs:
 
           cd deploy
 
-          find . -type f -print0 | while IFS= read -r -d '' file
-          do
-            remote="${file#./}"
-            remote_dir=$(dirname "$remote")
+          {
+            find . -type d ! -path "." -print | sort | while read -r dir
+            do
+              echo "-mkdir \"${{ secrets.JINO_PATH }}/${dir#./}\""
+            done
 
-            echo "Uploading: $remote"
+            find . -type f -print | sort | while read -r file
+            do
+              echo "put \"$file\" \"${{ secrets.JINO_PATH }}/${file#./}\""
+            done
+          } > sftp_commands.txt
 
-            if [ "$remote_dir" != "." ]; then
-              ssh \
-                -i ~/.ssh/jino_key \
-                -p 2222 \
-                -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-                -o StrictHostKeyChecking=yes \
-                "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" \
-                "mkdir -p '${{ secrets.JINO_PATH }}/$remote_dir'"
-            fi
-
-            sftp \
-              -i ~/.ssh/jino_key \
-              -P 2222 \
-              -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-              -o StrictHostKeyChecking=yes \
-              "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" <<EOF
+          sftp \
+            -i ~/.ssh/jino_key \
+            -P 2222 \
+            -o PubkeyAcceptedAlgorithms=+ssh-rsa \
+            -o StrictHostKeyChecking=yes \
+            -b sftp_commands.txt \
+            "${{ secrets.JINO_USER }}@${{ secrets.JINO_HOST }}" <<EOF
           put "$file" "${{ secrets.JINO_PATH }}/$remote"
           EOF
           done
