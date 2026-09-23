@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Принудительный HTTPS для всего сайта, включая /catalog/
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
 # Совместимость со старыми/отсутствующими ссылками на ресурсы
 RewriteRule ^images/favicon\.ico$ /images/logo.png [L]
 RewriteRule ^images/pervaya_linia\.jpg$ /images/pevraya_linia.jpg [L]
