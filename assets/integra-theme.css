@@ -136,6 +136,10 @@ section{padding:92px 0!important}
 .partners-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 .stats-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 
+/* Фикс: карточки услуг не должны обрезать CTA-кнопки */
+.service-card{height:auto!important;min-height:600px!important;overflow:visible!important}
+.service-card .btn{margin-top:auto!important;flex-shrink:0!important}
+
 .benefit-card,.service-card,.additional-service-card,.advantage-card,.industry-card,.audience-card,.solution-card,.partner-card,.value-card,.stat-card,.card{
  background:#fff!important;
  border:1px solid var(--ig-line)!important;
@@ -268,6 +272,8 @@ footer,.footer{background:var(--ig-navy)!important}
  .story-content{grid-template-columns:1fr!important}
 }
 @media(max-width:700px){
+ .service-card{min-height:0!important;overflow:visible!important}
+ .service-card .btn{margin-top:24px!important}
  .container,.hero-content,.cover-content{width:min(100% - 28px,var(--ig-container))!important}
  section{padding:68px 0!important}
  .hero{min-height:520px!important}
