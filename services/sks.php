@@ -1,5 +1,6 @@
 <?php
 define('INTEGRA_SERVICE_PAGE', true);
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 // Customer-facing SKS service page.
 // Render verification: 2026-09-23.
 
