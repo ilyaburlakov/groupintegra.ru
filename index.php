@@ -548,6 +548,21 @@
         </div>
     </section>
 
+    <section class="home-section" style="background:#F7F8FA;">
+        <div class="home-container">
+            <div class="section-head">
+                <div><div class="section-kicker">Цифровизация объектов</div><h2>Каждый объект ведём в собственной онлайн-системе</h2></div>
+                <p>Это рабочая система Группы Интегра, а не формальная отчётность: заказчик видит ход работ и выполненные объёмы онлайн и получает ежедневные отчёты.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><span>01</span><h3>Объект онлайн</h3><p>Информация по реализации ведётся в одной системе на протяжении всего проекта.</p></div>
+                <div class="process-item"><span>02</span><h3>Факт работ</h3><p>Фиксируем выполненные объёмы и текущий статус работ на объекте.</p></div>
+                <div class="process-item"><span>03</span><h3>Ежедневный отчёт</h3><p>Заказчик получает регулярную информацию о фактическом ходе работ.</p></div>
+                <div class="process-item"><span>04</span><h3>Прозрачный контроль</h3><p>Документы, задачи и результаты собраны в едином цифровом контуре проекта.</p></div>
+            </div>
+        </div>
+    </section>
+
     <section class="home-section">
         <div class="home-container">
             <div class="section-head">
