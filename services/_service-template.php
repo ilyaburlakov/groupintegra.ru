@@ -94,6 +94,22 @@ $description = $service['description'];
         </div>
     </section>
 
+
+    <section class="digital-control" style="background:#F7F8FA;">
+        <div class="container">
+            <div style="max-width:900px;margin:0 auto;text-align:center;">
+                <div style="color:#2563EB;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">Цифровизация объекта · собственная система Группы Интегра</div>
+                <h2 class="section-title">Контроль объекта онлайн — на каждом нашем объекте</h2>
+                <p style="font-size:1.08rem;color:#64748B;max-width:820px;margin:0 auto 28px;">Ведём каждый объект в собственной онлайн-системе контроля и ведения работ. Заказчик видит ход реализации, выполненные объёмы и текущий статус работ, а также получает ежедневные отчёты по объекту.</p>
+                <div class="benefits-grid" style="text-align:left;">
+                    <article class="benefit-card" style="height:auto;"><h3>Ежедневные отчёты</h3><p style="height:auto;">Фиксируем результаты работ и передаём заказчику регулярный отчёт по объекту.</p></article>
+                    <article class="benefit-card" style="height:auto;"><h3>Онлайн-объёмы</h3><p style="height:auto;">В системе отражаются выполненные объёмы и ход работ, чтобы заказчик видел фактическое продвижение.</p></article>
+                    <article class="benefit-card" style="height:auto;"><h3>Прозрачный контроль</h3><p style="height:auto;">Информация по объекту собрана в одном месте: работы, документы, задачи и текущий статус.</p></article>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="target-industries">
         <div class="container">
             <div class="section-title">Для каких объектов</div>
