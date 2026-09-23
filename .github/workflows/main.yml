@@ -126,7 +126,7 @@ jobs:
           TOKEN="cache-reset-${{ github.run_id }}"
           cat > _cache_reset.php <<PHP
           <?php
-          if (!isset($_GET["token"]) || !hash_equals("$TOKEN", (string)$_GET["token"])) { http_response_code(404); exit; }
+          if (!isset(\$_GET["token"]) || !hash_equals("$TOKEN", (string)$_GET["token"])) { http_response_code(404); exit; }
           if (function_exists("opcache_reset")) { opcache_reset(); }
           header("Content-Type: text/plain; charset=utf-8");
           echo "OK";
