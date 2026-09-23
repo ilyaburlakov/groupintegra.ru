@@ -64,8 +64,8 @@ jobs:
           import os
           from pathlib import Path
           remote_root = os.environ["JINO_PATH"].rstrip("/")
-          excluded_prefixes = ("catalog/uploads/", ".git/", ".github/")
-          excluded_files = (".env", "catalog/includes/config.php")
+          excluded_prefixes = ("catalog/", ".git/", ".github/")
+          excluded_files = (".env", ".deploy-all", "catalog/includes/config.php")
           files = []
           for line in Path("changed_files.txt").read_text(encoding="utf-8").splitlines():
               path = line.strip()
@@ -184,7 +184,7 @@ jobs:
             echo "OK: marker found"
           }
           check_page "https://groupintegra.ru/about.php" "19 лет работы с 2007 года"
-          check_page "https://groupintegra.ru/about.php" "Следующий этап - развитие цифровых решений"
+          check_page "https://groupintegra.ru/about.php" "Следующий этап — развитие цифровых решений"
           check_page "https://groupintegra.ru/services.php" "Аудит проектов и технические консультации"
           check_page "https://groupintegra.ru/slabotchka.php" "19 лет работы с 2007 года"
           check_page "https://groupintegra.ru/gsm.php" "19 лет работы с 2007 года"
