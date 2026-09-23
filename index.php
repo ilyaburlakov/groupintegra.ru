@@ -659,9 +659,27 @@
                     <p>Подготовка, координация со смежными подрядчиками, контроль и документация.</p>
                     <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
                 </a>
+                <a class="service-card" href="/articles/das-chto-eto.php" style="text-decoration:none;">
+                    <div class="service-number">04 / DAS</div>
+                    <h3>DAS: что это и когда нужна система</h3>
+                    <p>Архитектура распределённой антенной системы для крупных объектов.</p>
+                    <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
+                </a>
+                <a class="service-card" href="/articles/videonablyudenie-dlya-biznes-centra.php" style="text-decoration:none;">
+                    <div class="service-number">05 / CCTV</div>
+                    <h3>Видеонаблюдение для бизнес-центра</h3>
+                    <p>Зоны наблюдения, архив, сеть и требования к проектированию CCTV.</p>
+                    <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
+                </a>
+                <a class="service-card" href="/articles/obsledovanie-sotovogo-signala.php" style="text-decoration:none;">
+                    <div class="service-number">06 / ОБСЛЕДОВАНИЕ</div>
+                    <h3>Обследование сотового сигнала</h3>
+                    <p>Как проводят измерения перед проектированием системы усиления связи.</p>
+                    <span style="color:var(--blue);font-weight:700;">Читать материал →</span>
+                </a>
             </div>
             <div style="margin-top:24px;text-align:right;">
-                <a class="home-btn secondary" style="background:var(--navy);border-color:var(--navy);" href="/articles/">Все материалы</a>
+                <a class="home-btn secondary" style="background:var(--navy);border-color:var(--navy);" href="/articles/index.php">Все материалы</a>
             </div>
         </div>
     </section>
