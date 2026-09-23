@@ -3,6 +3,11 @@
 require_once 'includes/config.php';
 require_once 'includes/functions.php';
 
+$page_title = 'Корзина — Группа Интегра';
+$meta_description = 'Корзина каталога оборудования Группы Интегра.';
+$canonical_url = SITE_URL . '/catalog/cart.php';
+$meta_robots = 'noindex, nofollow';
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
