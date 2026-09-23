@@ -80,6 +80,7 @@ jobs:
           )
           excluded_files = (
               ".env",
+              "catalog/includes/config.php",
           )
 
           files = []
@@ -150,14 +151,27 @@ jobs:
         run: |
           set -eu
 
-          for url in \
-            "https://groupintegra.ru/about.php" \
-            "https://groupintegra.ru/services.php" \
-            "https://groupintegra.ru/slabotchka.php" \
-            "https://groupintegra.ru/gsm.php" \
-            "https://groupintegra.ru/privacy.php"; do
-            echo "Checking $url"
-            curl --fail --silent --show-error --location --max-time 20 "$url" > /dev/null
-          done
+          check_page() {
+            url="$1"
+            marker="$2"
 
-          echo "Production HTTP checks passed."
+            echo "Checking $url"
+            body="$(curl --fail --silent --show-error --location --max-time 20 "$url")"
+
+            if ! printf '%s' "$body" | grep -Fq "$marker"; then
+              echo "ERROR: expected production marker was not found on $url"
+              echo "Expected: $marker"
+              exit 1
+            fi
+
+            echo "OK: marker found"
+          }
+
+          check_page "https://groupintegra.ru/about.php" "19 лет работы с 2007 года"
+          check_page "https://groupintegra.ru/about.php" "Следующий этап - развитие цифровых решений"
+          check_page "https://groupintegra.ru/services.php" "Аудит проектов и технические консультации"
+          check_page "https://groupintegra.ru/slabotchka.php" "19 лет работы с 2007 года"
+          check_page "https://groupintegra.ru/gsm.php" "19 лет работы с 2007 года"
+          check_page "https://groupintegra.ru/privacy.php" "Политика обработки персональных данных"
+
+          echo "Production content checks passed."
