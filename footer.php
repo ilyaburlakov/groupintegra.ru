@@ -97,3 +97,4 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         </div>
     </div>
 </footer>
+<!-- Deployment sync: explicit articles index link -->

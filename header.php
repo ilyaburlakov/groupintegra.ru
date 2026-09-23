@@ -273,3 +273,4 @@ if (document.readyState === 'loading') {
     initializeIntegra();
 }
 </script>
+<!-- Deployment sync: articles navigation and shared header -->

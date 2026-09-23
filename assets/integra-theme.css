@@ -295,3 +295,5 @@ footer,.footer{background:var(--ig-navy)!important}
 @media(max-width:600px){
  .seo-service-links > .container > div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr!important}
 }
+
+/* Deployment sync: prevent service CTA buttons from being clipped */
