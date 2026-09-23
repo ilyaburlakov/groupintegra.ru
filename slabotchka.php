@@ -6,7 +6,7 @@
     <meta name="description" content="Профессиональное проектирование и монтаж слаботочных систем: СКС, видеонаблюдение, СКУД, Wi-Fi, пожарная сигнализация. Комплексные решения от Группы Интегра с 2007 года.">
     <meta name="keywords" content="слаботочные системы, СКС, видеонаблюдение, СКУД, пожарная сигнализация, автоматизация зданий, проектирование, монтаж, Москва, Санкт-Петербург">
     <meta property="og:title" content="Слаботочные системы - Комплексные решения | Группа Интегра">
-    <meta property="og:description" content="Профессиональное проектирование и монтаж слаботочных систем любой сложности с гарантией 5 лет">
+    <meta property="og:description" content="Профессиональное проектирование и монтаж слаботочных систем любой сложности с условиями договора и спецификацией проекта">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://groupintegra.ru/slabotchka.php">
     <meta property="og:image" content="/images/weak-current-hero.jpg">
@@ -993,7 +993,7 @@
                     </svg>
                 </div>
                 <h3>Гарантийные обязательства</h3>
-                <p>Предоставляем расширенную гарантию на все виды работ и оборудование</p>
+                <p>Гарантийные обязательства определяются договором и спецификацией проекта</p>
             </div>
 
             <div class="advantage-card" data-aos="fade-up" data-aos-delay="400">
@@ -1032,7 +1032,7 @@
             <div class="process-step" data-aos="fade-up" data-aos-delay="300">
                 <div class="step-number">3</div>
                 <h3>Монтажные работы</h3>
-                <p>Профессиональный монтаж системы нашими сертифицированными специалистами</p>
+                <p>Профессиональный монтаж системы квалифицированными специалистами</p>
             </div>
 
             <div class="process-step" data-aos="fade-up" data-aos-delay="400">
