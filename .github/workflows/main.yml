@@ -155,14 +155,11 @@ jobs:
         run: |
           set -eu
 
-          # Временный endpoint очищает OPcache после SFTP-загрузки.
-          # Токен генерируется только внутри текущего запуска Actions.
           TOKEN="$(openssl rand -hex 16)"
-          trap 'rm -f _cache_reset.php cache_reset_sftp.txt cache_reset_remove_sftp.txt' EXIT
 
-          cat > _cache_reset.php <<'PHP'
+          cat > _cache_reset.php <<PHP
 <?php
-if (!isset($_GET["token"]) || !hash_equals("TOKEN_PLACEHOLDER", (string)$_GET["token"])) {
+if (!isset(\$_GET["token"]) || !hash_equals("$TOKEN", (string)\$_GET["token"])) {
     http_response_code(404);
     exit;
 }
@@ -172,7 +169,6 @@ if (function_exists("opcache_reset")) {
 header("Content-Type: text/plain; charset=utf-8");
 echo "OK";
 PHP
-          sed -i "s/TOKEN_PLACEHOLDER/${TOKEN}/" _cache_reset.php
 
           printf 'put "_cache_reset.php" "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_sftp.txt
           sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=yes -b cache_reset_sftp.txt "$JINO_USER@$JINO_HOST"
@@ -181,6 +177,8 @@ PHP
 
           printf 'rm "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_remove_sftp.txt
           sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=yes -b cache_reset_remove_sftp.txt "$JINO_USER@$JINO_HOST"
+
+          rm -f _cache_reset.php cache_reset_sftp.txt cache_reset_remove_sftp.txt
 
       - name: Verify production
         run: |
