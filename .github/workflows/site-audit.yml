@@ -26,7 +26,8 @@ jobs:
           BASE = "https://groupintegra.ru"
           HOSTS = {"groupintegra.ru", "www.groupintegra.ru"}
           UA = "GroupIntegra-SEO-Audit/1.0"
-          TIMEOUT = 15
+          TIMEOUT = 20
+          RETRIES = 3
           MAX_PAGES = 300
           MAX_CHECKS = 1000
 
@@ -65,15 +66,18 @@ jobs:
               return urllib.parse.urlunsplit(("https","groupintegra.ru",p.path or "/",p.query,""))
 
           def fetch(url, method="GET"):
-              req = urllib.request.Request(url, method=method, headers={"User-Agent": UA})
-              try:
-                  with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                      data = r.read(2500000) if method == "GET" else b""
-                      return r.status, r.geturl(), r.headers.get("Content-Type",""), data, None
-              except urllib.error.HTTPError as e:
-                  return e.code, e.geturl(), e.headers.get("Content-Type",""), b"", str(e)
-              except Exception as e:
-                  return 0, url, "", b"", str(e)
+              last_err = None
+              for attempt in range(RETRIES):
+                  req = urllib.request.Request(url, method=method, headers={"User-Agent": UA})
+                  try:
+                      with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                          data = r.read(2500000) if method == "GET" else b""
+                          return r.status, r.geturl(), r.headers.get("Content-Type",""), data, None
+                  except urllib.error.HTTPError as e:
+                      return e.code, e.geturl(), e.headers.get("Content-Type",""), b"", str(e)
+                  except Exception as e:
+                      last_err = e
+              return 0, url, "", b"", "after %d attempts: %s" % (RETRIES, last_err)
 
           errors, warnings, urls = [], [], []
           seo_pages = {}
