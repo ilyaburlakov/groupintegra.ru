@@ -38,6 +38,18 @@ jobs:
                   a = dict(attrs)
                   if a.get("href"): self.links.append(a["href"])
                   if a.get("src"): self.assets.append(a["src"])
+                  if tag == "title": self._in_title = True
+                  if tag == "meta":
+                      name = (a.get("name") or "").lower()
+                      if name == "description": self.description = a.get("content") or ""
+                      if name == "robots": self.robots = a.get("content") or ""
+                  if tag == "link" and (a.get("rel") or "").lower() == "canonical":
+                      self.canonical = a.get("href") or ""
+                  if tag == "h1": self.h1_count += 1
+              def handle_endtag(self, tag):
+                  if tag == "title": self._in_title = False
+              def handle_data(self, data):
+                  if self._in_title: self.title += data.strip()
 
           def normalize(raw, base):
               raw = (raw or "").strip()
@@ -61,6 +73,7 @@ jobs:
                   return 0, url, "", b"", str(e)
 
           errors, warnings, urls = [], [], []
+          seo_pages = {}
           sitemap = BASE + "/sitemap.xml"
           status, final, ctype, data, err = fetch(sitemap)
           if status != 200:
@@ -91,6 +104,23 @@ jobs:
               if "text/html" not in ctype.lower(): continue
               parser = Parser()
               parser.feed(body.decode("utf-8", errors="replace"))
+              seo_pages[url] = parser
+              if not parser.title:
+                  warnings.append("SEO: missing <title>: %s" % url)
+              elif len(parser.title) > 65:
+                  warnings.append("SEO: title >65 chars (%d): %s" % (len(parser.title), url))
+              if not parser.description:
+                  warnings.append("SEO: missing meta description: %s" % url)
+              elif len(parser.description) > 170:
+                  warnings.append("SEO: meta description >170 chars (%d): %s" % (len(parser.description), url))
+              if parser.h1_count != 1:
+                  warnings.append("SEO: H1 count=%d: %s" % (parser.h1_count, url))
+              if not parser.canonical:
+                  errors.append("SEO: missing canonical: %s" % url)
+              elif normalize(parser.canonical, final) != url:
+                  warnings.append("SEO: canonical differs from crawl URL: %s -> %s" % (url, parser.canonical))
+              if "noindex" in parser.robots.lower():
+                  errors.append("SEO: noindex found: %s" % url)
               for raw in parser.links + parser.assets:
                   u = normalize(raw, final)
                   if not u: continue
@@ -119,6 +149,9 @@ jobs:
               f.write("- URLs/resources checked: **%d**\n" % len(checked))
               f.write("- Errors: **%d**\n" % len(errors))
               f.write("- Warnings: **%d**\n\n" % len(warnings))
+              if warnings:
+                  f.write("## SEO warnings\n\n")
+                  f.write("\n".join("- "+x for x in warnings)+"\n\n")
               if errors:
                   f.write("## Errors\n\n")
                   f.write("\n".join("- "+x for x in errors)+"\n\n")
@@ -135,6 +168,10 @@ jobs:
               f.write("- HTML pages crawled: **%d**\n" % len(seen_pages))
               f.write("- URLs/resources checked: **%d**\n" % len(checked))
               f.write("- Errors: **%d**\n" % len(errors))
+              f.write("- SEO warnings: **%d**\n" % len(warnings))
+              if warnings:
+                  f.write("\n### SEO warnings\n")
+                  f.write("\n".join("- "+x for x in warnings[:100])+"\n")
               if errors:
                   f.write("\n### Broken URLs / resources\n")
                   f.write("\n".join("- "+x for x in errors[:100])+"\n")
