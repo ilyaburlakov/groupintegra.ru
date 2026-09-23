@@ -160,12 +160,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/repiter.jpg') no-repeat center center/cover;
+            background: linear-gradient(90deg, rgba(8,28,48,.72), rgba(8,28,48,.38), rgba(8,28,48,.62)), url('/images/repiter.jpg') center/cover no-repeat;
             filter: brightness(0.4);
-            z-index: -1;
+            z-index: 0;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 1;
             width: 100%;
             padding: 20px;
             text-align: left;
