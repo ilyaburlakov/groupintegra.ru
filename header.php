@@ -161,6 +161,10 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
             <textarea name="message" placeholder="Кратко опишите задачу" rows="3"></textarea>
+            <label style="display:flex;align-items:flex-start;gap:8px;margin:2px 0 14px;color:#64748B;font-size:.8rem;line-height:1.4;">
+                <input type="checkbox" name="privacy_consent" value="1" required style="margin-top:3px;width:auto;">
+                <span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span>
+            </label>
             <input type="hidden" name="form_type" id="integraFormType" value="">
             <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
             <button type="submit">Отправить заявку</button>
