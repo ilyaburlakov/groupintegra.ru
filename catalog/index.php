@@ -12,12 +12,21 @@ $filters = [
 ];
 
 // SEO настройки
-$page_title = "Усиление сотовой связи | Каталог товаров";
-$meta_description = "Купить оборудование для усиления сотовой связи - характеристики, описание, цена. Доставка по всей России.";
+$page_title = "Каталог оборудования для усиления связи";
+$meta_description = "Оборудование для усиления сотовой связи: характеристики, описание и цены. Подбор решений для объектов.";
 
 // Пагинация
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $per_page = 12;
+
+// Канонический URL: поисковые и ценовые фильтры не индексируем как отдельные страницы.
+$canonical_params = [];
+if ($filters['category_id']) { $canonical_params['category'] = $filters['category_id']; }
+if ($page > 1) { $canonical_params['page'] = $page; }
+$canonical_url = SITE_URL . '/catalog/' . ($canonical_params ? '?' . http_build_query($canonical_params) : '');
+$meta_robots = ($filters['search'] || $filters['min_price'] !== null || $filters['max_price'] !== null || $filters['sort'] !== 'name_asc')
+    ? 'noindex, follow'
+    : 'index, follow';
 
 // Получаем данные
 $products = getFilteredProducts($filters, $page, $per_page);
@@ -42,7 +51,7 @@ $cart_count = count($cart_items);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $page_title ?> - Группа Интегра</title>
+    <title><?= htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8') ?></title>
     <meta name="description" content="<?= $meta_description ?>">
     <meta name="keywords" content="усиление сотовой связи, каталог товаров, GSM репитеры, оборудование связи, Группа Интегра">
     <meta property="og:title" content="<?= $page_title ?> - Группа Интегра">
@@ -50,8 +59,8 @@ $cart_count = count($cart_items);
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://groupintegra.ru/catalog/">
     <meta property="og:image" content="/images/gsmoffice.jpg">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://groupintegra.ru/catalog/">
+    <meta name="robots" content="<?= htmlspecialchars($meta_robots, ENT_QUOTES, 'UTF-8') ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8') ?>">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
