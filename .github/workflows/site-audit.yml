@@ -1,0 +1,155 @@
+name: SEO Site Audit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Crawl live site
+        run: |
+          set -eu
+          python3 <<'PY'
+          import html.parser, sys, urllib.parse, urllib.request, urllib.error
+          import xml.etree.ElementTree as ET
+          from collections import deque
+
+          BASE = "https://groupintegra.ru"
+          HOSTS = {"groupintegra.ru", "www.groupintegra.ru"}
+          UA = "GroupIntegra-SEO-Audit/1.0"
+          TIMEOUT = 15
+          MAX_PAGES = 300
+          MAX_CHECKS = 1000
+
+          class Parser(html.parser.HTMLParser):
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.links, self.assets = [], []
+              def handle_starttag(self, tag, attrs):
+                  a = dict(attrs)
+                  if a.get("href"): self.links.append(a["href"])
+                  if a.get("src"): self.assets.append(a["src"])
+
+          def normalize(raw, base):
+              raw = (raw or "").strip()
+              if not raw or raw.startswith(("#","mailto:","tel:","javascript:","data:","blob:")):
+                  return None
+              u = urllib.parse.urljoin(base, raw)
+              p = urllib.parse.urlsplit(u)
+              if p.scheme not in ("http","https") or p.hostname not in HOSTS:
+                  return None
+              return urllib.parse.urlunsplit(("https","groupintegra.ru",p.path or "/",p.query,""))
+
+          def fetch(url, method="GET"):
+              req = urllib.request.Request(url, method=method, headers={"User-Agent": UA})
+              try:
+                  with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                      data = r.read(2500000) if method == "GET" else b""
+                      return r.status, r.geturl(), r.headers.get("Content-Type",""), data, None
+              except urllib.error.HTTPError as e:
+                  return e.code, e.geturl(), e.headers.get("Content-Type",""), b"", str(e)
+              except Exception as e:
+                  return 0, url, "", b"", str(e)
+
+          errors, warnings, urls = [], [], []
+          sitemap = BASE + "/sitemap.xml"
+          status, final, ctype, data, err = fetch(sitemap)
+          if status != 200:
+              errors.append("Sitemap: HTTP %s %s %s" % (status, sitemap, err or ""))
+          else:
+              try:
+                  root = ET.fromstring(data)
+                  for loc in root.iter():
+                      if loc.tag.endswith("loc") and loc.text:
+                          u = normalize(loc.text, sitemap)
+                          if u: urls.append(u)
+              except Exception as e:
+                  errors.append("Sitemap XML parse error: %s" % e)
+
+          urls = list(dict.fromkeys(urls))
+          queue = deque(urls or [BASE + "/"])
+          seen_pages, checked, discovered = set(), {}, set()
+
+          while queue and len(seen_pages) < MAX_PAGES:
+              url = queue.popleft()
+              if url in seen_pages: continue
+              seen_pages.add(url)
+              status, final, ctype, body, err = fetch(url)
+              checked[url] = (status, final, ctype, err)
+              if status >= 400 or status == 0:
+                  errors.append("PAGE %s: %s %s" % (status, url, err or ""))
+                  continue
+              if "text/html" not in ctype.lower(): continue
+              parser = Parser()
+              parser.feed(body.decode("utf-8", errors="replace"))
+              for raw in parser.links + parser.assets:
+                  u = normalize(raw, final)
+                  if not u: continue
+                  discovered.add(u)
+                  path = urllib.parse.urlsplit(u).path.lower()
+                  if raw in parser.links and (path.endswith((".php",".html",".htm")) or path == "/" or path.endswith("/")):
+                      if u not in seen_pages and len(seen_pages)+len(queue) < MAX_PAGES:
+                          queue.append(u)
+
+          for url in sorted(discovered):
+              if url in checked or len(checked) >= MAX_CHECKS: continue
+              status, final, ctype, body, err = fetch(url, "HEAD")
+              if status in (405,501): status, final, ctype, body, err = fetch(url)
+              checked[url] = (status, final, ctype, err)
+              if status >= 400 or status == 0:
+                  errors.append("RESOURCE %s: %s %s" % (status, url, err or ""))
+
+          redirects = [(u,v[1]) for u,v in checked.items() if v[0] in (301,302,303,307,308) and u != v[1]]
+          sitemap_set = set(urls)
+          missing = sorted(u for u in seen_pages if u not in sitemap_set and u != BASE+"/")
+
+          with open("site-audit-report.md","w",encoding="utf-8") as f:
+              f.write("# Group Integra — SEO audit\n\n")
+              f.write("- Sitemap URLs: **%d**\n" % len(urls))
+              f.write("- HTML pages crawled: **%d**\n" % len(seen_pages))
+              f.write("- URLs/resources checked: **%d**\n" % len(checked))
+              f.write("- Errors: **%d**\n" % len(errors))
+              f.write("- Warnings: **%d**\n\n" % len(warnings))
+              if errors:
+                  f.write("## Errors\n\n")
+                  f.write("\n".join("- "+x for x in errors)+"\n\n")
+              if redirects:
+                  f.write("## Redirects\n\n")
+                  f.write("\n".join("- %s -> %s" % x for x in redirects)+"\n\n")
+              if missing:
+                  f.write("## Crawled pages not in sitemap\n\n")
+                  f.write("\n".join("- "+x for x in missing)+"\n\n")
+
+          with open("summary.md","w",encoding="utf-8") as f:
+              f.write("## Group Integra — SEO audit\n")
+              f.write("- Sitemap URLs: **%d**\n" % len(urls))
+              f.write("- HTML pages crawled: **%d**\n" % len(seen_pages))
+              f.write("- URLs/resources checked: **%d**\n" % len(checked))
+              f.write("- Errors: **%d**\n" % len(errors))
+              if errors:
+                  f.write("\n### Broken URLs / resources\n")
+                  f.write("\n".join("- "+x for x in errors[:100])+"\n")
+
+          if errors:
+              sys.exit(1)
+          PY
+
+      - name: Publish audit summary
+        if: always()
+        run: cat summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-site-audit
+          path: site-audit-report.md
