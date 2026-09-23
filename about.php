@@ -805,23 +805,23 @@
 <!-- Статистика -->
 <section class="stats" id="stats">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%; color: white;">Наши достижения в цифрах</h2>
+        <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%; color: white;">О компании в цифрах</h2>
         <div class="stats-grid">
             <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
                 <span class="stat-number">2007</span>
                 <span class="stat-label">год начала работы</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                <span class="stat-number">2007</span>
-                <span class="stat-label">год начала работы</span>
+                <span class="stat-number">19</span>
+                <span class="stat-label">лет работы</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                <span class="stat-number">2007</span>
-                <span class="stat-label">год начала работы</span>
+                <span class="stat-number">30+</span>
+                <span class="stat-label">партнёрских организаций</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                <span class="stat-number">2007</span>
-                <span class="stat-label">год начала работы</span>
+                <span class="stat-number">365</span>
+                <span class="stat-label">дней в году на связи и поддержке</span>
             </div>
         </div>
     </div>
