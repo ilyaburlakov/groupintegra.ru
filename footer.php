@@ -64,7 +64,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                 <ul>
                     <li><a href="/gsm.php">Усиление сотовой связи</a></li>
                     <li><a href="/slabotchka.php">Слаботочные системы</a></li>
-                    <li><a href="/catalog/">Каталог оборудования</a></li>
                     <li><a href="/projects.php">Проекты</a></li>
                 </ul>
             </div>
