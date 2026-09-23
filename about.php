@@ -962,27 +962,6 @@
     "logo": "https://groupintegra.ru/images/logo.png",
     "description": "Группа Интегра — проектирование, монтаж и цифровой контроль слаботочных систем и усиления связи с 2007 года",
     "foundingDate": "2007",
-    "founder": {
-        "@type": "Person",
-        "name": "Александр Петров"
-    },
-    "employee": [
-        {
-            "@type": "Person",
-            "name": "Александр Петров",
-            "jobTitle": "Генеральный директор"
-        },
-        {
-            "@type": "Person", 
-            "name": "Михаил Сидоров",
-            "jobTitle": "Технический директор"
-        },
-        {
-            "@type": "Person",
-            "name": "Елена Иванова", 
-            "jobTitle": "Руководитель проектов"
-        }
-    ],
     "address": [
         {
             "@type": "PostalAddress",
@@ -1001,9 +980,6 @@
         "email": "info@groupintegra.ru",
         "areaServed": "RU"
     },
-    "sameAs": [
-        "https://groupintegra.ru/about.php"
-    ]
 }
 </script>
 
