@@ -717,7 +717,7 @@
 </main>
 
 <div class="cookie-modal" id="cookieModal" style="display:none;">
-    <p>Мы используем файлы cookie для улучшения работы сайта.</p>
+    <p>Мы используем файлы cookie для улучшения работы сайта. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика cookie</a></p>
     <button id="acceptCookies" class="cookie-button" type="button">Принять</button>
 </div>
 
