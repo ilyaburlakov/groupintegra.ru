@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Полезные материалы о слаботочных системах и усилении связи | Группа Интегра</title>
+<title>Статьи об усилении связи и слаботочных системах | Группа Интегра</title>
 <meta name="description" content="Практические материалы Группы Интегра о СКС, видеонаблюдении, СКУД, усилении сотовой связи, DAS и монтаже инженерных систем.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://groupintegra.ru/articles/">
