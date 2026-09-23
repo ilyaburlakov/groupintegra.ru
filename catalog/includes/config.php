@@ -8,7 +8,7 @@ define('DB_PORT', 3306);
 
 // Настройки сайта
 define('SITE_NAME', 'Каталог товаров');
-define('SITE_URL', 'http://groupintegra.ru'); // замените на ваш реальный домен
+define('SITE_URL', 'https://groupintegra.ru'); // замените на ваш реальный домен
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
 
 // Настройки пагинации
