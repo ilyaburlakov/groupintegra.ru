@@ -291,6 +291,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            align-items: start;
         }
         .service-card {
             padding: 30px;
