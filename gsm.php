@@ -1159,6 +1159,7 @@
         <div class="hero-content">
             <h1 data-aos="fade-up">Построение профессиональных DAS систем усиления связи для среднего и крупного бизнеса</h1>
             <p data-aos="fade-up" data-aos-delay="100">Для объектов различного назначения</p>
+            <p data-aos="fade-up" data-aos-delay="150">19 лет работы с 2007 года • проектирование, монтаж и сопровождение</p>
             <p data-aos="fade-up" data-aos-delay="100">Санкт-Петербург | Москва | Россия</p>
             <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
                 <button class="btn btn-primary" onclick="openModal('Заказать консультацию')">Заказать консультацию</button>
