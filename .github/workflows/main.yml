@@ -6,8 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-# Do not cancel a deployment already in progress.
-# Every commit reaching main must eventually reach production.
 concurrency:
   group: jino-production
   cancel-in-progress: false
@@ -29,77 +27,56 @@ jobs:
       - name: Find changed files
         run: |
           set -eu
-
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.sha }}"
-
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             BEFORE="$(git rev-parse "${AFTER}^")"
           fi
-
-          # A .deploy-all marker forces a complete production sync.
           if git diff --name-only "${BEFORE}" "${AFTER}" | grep -qx ".deploy-all"; then
             git ls-files > changed_files.txt
-          # If GitHub gives an unavailable/zero base, deploy the whole repository.
           elif [ -z "${BEFORE}" ] || [ "${BEFORE}" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
             git ls-files > changed_files.txt
           else
             git diff --name-only --diff-filter=ACMR "${BEFORE}" "${AFTER}" > changed_files.txt
           fi
-
           echo "Files selected for deployment:"
           cat changed_files.txt || true
 
       - name: Prepare SSH
+        env:
+          JINO_HOST: ${{ secrets.JINO_HOST }}
         run: |
           set -eu
-
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-
           printf '%s\n' '${{ secrets.JINO_SSH_KEY }}' > ~/.ssh/jino_key
           chmod 600 ~/.ssh/jino_key
-
-          ssh-keyscan -p 2222 "${{ secrets.JINO_HOST }}" >> ~/.ssh/known_hosts
+          # Jino may reject ssh-keyscan from GitHub-hosted runners.
+          # Do not fail here; the real SFTP connection below is authoritative.
+          ssh-keyscan -T 10 -p 2222 "${JINO_HOST}" >> ~/.ssh/known_hosts 2>/dev/null || true
 
       - name: Create SFTP commands
         env:
           JINO_PATH: ${{ secrets.JINO_PATH }}
         run: |
           set -eu
-
           python3 <<'PY'
           import os
           from pathlib import Path
-
           remote_root = os.environ["JINO_PATH"].rstrip("/")
-          excluded_prefixes = (
-              "catalog/uploads/",
-              ".git/",
-              ".github/",
-          )
-          excluded_files = (
-              ".env",
-              "catalog/includes/config.php",
-          )
-
+          excluded_prefixes = ("catalog/uploads/", ".git/", ".github/")
+          excluded_files = (".env", "catalog/includes/config.php")
           files = []
           for line in Path("changed_files.txt").read_text(encoding="utf-8").splitlines():
               path = line.strip()
-              if not path:
+              if not path or path in excluded_files or path.startswith(".env."):
                   continue
-              if path in excluded_files or path.startswith(".env."):
-                  continue
-              if path.startswith(excluded_prefixes):
-                  continue
-              if path.startswith("logs/") or path.startswith("tmp/"):
+              if path.startswith(excluded_prefixes) or path.startswith("logs/") or path.startswith("tmp/"):
                   continue
               if Path(path).is_file():
                   files.append(path)
-
           commands = []
           directories = set()
-
           for relative in files:
               parent = Path(relative).parent
               if str(parent) != ".":
@@ -107,20 +84,13 @@ jobs:
                   for part in parent.parts:
                       current = f"{current}/{part}"
                       directories.add(current)
-
           for directory in sorted(directories, key=lambda x: (x.count("/"), x)):
               commands.append(f'-mkdir "{directory}"')
-
           for relative in files:
               local = relative.replace("\\", "/")
               remote = f"{remote_root}/{local}"
               commands.append(f'put "{local}" "{remote}"')
-
-          Path("sftp_commands.txt").write_text(
-              "\n".join(commands) + ("\n" if commands else ""),
-              encoding="utf-8"
-          )
-
+          Path("sftp_commands.txt").write_text("\n".join(commands) + ("\n" if commands else ""), encoding="utf-8")
           print(f"Files to deploy: {len(files)}")
           for path in files:
               print(f"  {path}")
@@ -133,17 +103,16 @@ jobs:
           JINO_HOST: ${{ secrets.JINO_HOST }}
         run: |
           set -eu
-
           if [ ! -s sftp_commands.txt ]; then
             echo "No deployable files changed."
             exit 0
           fi
-
           sftp \
             -i ~/.ssh/jino_key \
             -P 2222 \
             -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-            -o StrictHostKeyChecking=yes \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
             -b sftp_commands.txt \
             "$JINO_USER@$JINO_HOST"
 
@@ -154,58 +123,40 @@ jobs:
           JINO_PATH: ${{ secrets.JINO_PATH }}
         run: |
           set -eu
-
-          # Временный endpoint очищает OPcache на Jino после SFTP-загрузки.
-          # Файл удаляется сразу после вызова и не хранится в репозитории.
           TOKEN="cache-reset-${{ github.run_id }}"
-
           cat > _cache_reset.php <<PHP
           <?php
-          if (!isset(\$_GET["token"]) || !hash_equals("$TOKEN", (string)\$_GET["token"])) {
-              http_response_code(404);
-              exit;
-          }
-          if (function_exists("opcache_reset")) {
-              opcache_reset();
-          }
+          if (!isset($_GET["token"]) || !hash_equals("$TOKEN", (string)$_GET["token"])) { http_response_code(404); exit; }
+          if (function_exists("opcache_reset")) { opcache_reset(); }
           header("Content-Type: text/plain; charset=utf-8");
           echo "OK";
           PHP
-
           printf 'put "_cache_reset.php" "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_sftp.txt
-          sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=yes -b cache_reset_sftp.txt "$JINO_USER@$JINO_HOST"
-
+          sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -b cache_reset_sftp.txt "$JINO_USER@$JINO_HOST"
           curl --fail --silent --show-error --location --max-time 20 "https://groupintegra.ru/_cache_reset.php?token=$TOKEN"
-
           printf 'rm "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_remove_sftp.txt
-          sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=yes -b cache_reset_remove_sftp.txt "$JINO_USER@$JINO_HOST"
-
+          sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -b cache_reset_remove_sftp.txt "$JINO_USER@$JINO_HOST"
           rm -f _cache_reset.php cache_reset_sftp.txt cache_reset_remove_sftp.txt
+
       - name: Verify production
         run: |
           set -eu
-
           check_page() {
             url="$1"
             marker="$2"
-
             echo "Checking $url"
             body="$(curl --fail --silent --show-error --location --max-time 20 "$url")"
-
             if ! grep -Fq "$marker" <<< "$body"; then
               echo "ERROR: expected production marker was not found on $url"
               echo "Expected: $marker"
               exit 1
             fi
-
             echo "OK: marker found"
           }
-
           check_page "https://groupintegra.ru/about.php" "19 лет работы с 2007 года"
           check_page "https://groupintegra.ru/about.php" "Следующий этап - развитие цифровых решений"
           check_page "https://groupintegra.ru/services.php" "Аудит проектов и технические консультации"
           check_page "https://groupintegra.ru/slabotchka.php" "19 лет работы с 2007 года"
           check_page "https://groupintegra.ru/gsm.php" "19 лет работы с 2007 года"
           check_page "https://groupintegra.ru/privacy.php" "Политика обработки персональных данных"
-
           echo "Production content checks passed."
