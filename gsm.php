@@ -7,6 +7,7 @@
     <meta name="keywords" content="усиление сотовой связи, СУСС, усиление сигнала, сотовая связь в зданиях, Санкт-Петербург, Москва, Россия, цифровизация связи, монтаж СУСС">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://groupintegra.ru/gsm.php">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
