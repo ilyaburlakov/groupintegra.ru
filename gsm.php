@@ -1231,12 +1231,12 @@
                 </div>
                 <div class="benefit-stats">
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">100%</span>
-                        <span class="benefit-stat-label">интеграция</span>
+                        <span class="benefit-stat-number">365</span>
+                        <span class="benefit-stat-label">дней в году поддержка</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">0</span>
-                        <span class="benefit-stat-label">видимых антенн</span>
+                        <span class="benefit-stat-number">Онлайн</span>
+                        <span class="benefit-stat-label">контроль работ</span>
                     </div>
                 </div>
                 <a href="/services/adaptation.php" class="btn btn-outline">Подробнее</a>
@@ -1293,12 +1293,12 @@
                 </div>
                 <div class="benefit-stats">
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">5</span>
-                        <span class="benefit-stat-label">лет гарантии</span>
+                        <span class="benefit-stat-number">По договору</span>
+                        <span class="benefit-stat-label">гарантийные обязательства</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">100%</span>
-                        <span class="benefit-stat-label">надежность</span>
+                        <span class="benefit-stat-number">365</span>
+                        <span class="benefit-stat-label">дней в году поддержка</span>
                     </div>
                 </div>
                 <a href="/services/support.php" class="btn btn-outline">Подробнее</a>
@@ -1323,12 +1323,12 @@
                 </div>
                 <div class="benefit-stats">
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">100+</span>
-                        <span class="benefit-stat-label">аудитов</span>
+                        <span class="benefit-stat-number">Онлайн</span>
+                        <span class="benefit-stat-label">контроль результатов</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">100%</span>
-                        <span class="benefit-stat-label">улучшений</span>
+                        <span class="benefit-stat-number">По проекту</span>
+                        <span class="benefit-stat-label">рекомендации по улучшению</span>
                     </div>
                 </div>
                 <a href="/services/audit.php" class="btn btn-outline">Подробнее</a>
