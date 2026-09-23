@@ -1,4 +1,5 @@
 <?php
+// Service data is stored as numeric arrays: [title, text] and [title, text, url].
 if (!defined('INTEGRA_SERVICE_PAGE') || empty($service)) {
     http_response_code(404);
     exit;
