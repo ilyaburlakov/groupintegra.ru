@@ -34,6 +34,9 @@ jobs:
               def __init__(self):
                   super().__init__(convert_charrefs=True)
                   self.links, self.assets = [], []
+                  self.title = self.description = self.robots = self.canonical = ""
+                  self.h1_count = 0
+                  self._in_title = False
               def handle_starttag(self, tag, attrs):
                   a = dict(attrs)
                   if a.get("href"): self.links.append(a["href"])
