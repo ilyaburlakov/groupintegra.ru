@@ -167,10 +167,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                    url('/images/gsm-hero.jpg') no-repeat center center/cover;
-            filter: brightness(0.3) contrast(1.1);
-            z-index: -1;
+            background: linear-gradient(90deg, rgba(8,28,48,.72), rgba(8,28,48,.38), rgba(8,28,48,.62)), url('/images/repiter.jpg') center/cover no-repeat;
+            filter: brightness(0.9) contrast(1.05);
+            z-index: 0;
         }
 
         .hero-content {
