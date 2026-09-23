@@ -1353,12 +1353,12 @@
                 </div>
                 <div class="benefit-stats">
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">2ч</span>
-                        <span class="benefit-stat-label">время отклика</span>
+                        <span class="benefit-stat-number">365</span>
+                        <span class="benefit-stat-label">дней в году на связи и поддержке</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">10+</span>
-                        <span class="benefit-stat-label">лет поддержки</span>
+                        <span class="benefit-stat-number">19</span>
+                        <span class="benefit-stat-label">лет работы с 2007 года</span>
                     </div>
                 </div>
                 <a href="/services/support.php" class="btn btn-outline">Подробнее</a>
