@@ -1195,12 +1195,12 @@
                 </div>
                 <div class="benefit-stats">
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">500+</span>
-                        <span class="benefit-stat-label">проектов</span>
+                        <span class="benefit-stat-number">19</span>
+                        <span class="benefit-stat-label">лет работы с 2007 года</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">15</span>
-                        <span class="benefit-stat-label">лет опыта</span>
+                        <span class="benefit-stat-number">365</span>
+                        <span class="benefit-stat-label">дней в году на связи и поддержке</span>
                     </div>
                 </div>
                 <a href="/services/design.php" class="btn btn-outline">Подробнее</a>
@@ -1261,12 +1261,12 @@
                 </div>
                 <div class="benefit-stats">
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">50+</span>
-                        <span class="benefit-stat-label">специалистов</span>
+                        <span class="benefit-stat-number">30+</span>
+                        <span class="benefit-stat-label">партнёрских организаций</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">24/7</span>
-                        <span class="benefit-stat-label">поддержка</span>
+                        <span class="benefit-stat-number">365</span>
+                        <span class="benefit-stat-label">дней в году поддержка</span>
                     </div>
                 </div>
                 <a href="/services/installation.php" class="btn btn-outline">Подробнее</a>
@@ -1297,7 +1297,7 @@
                         <span class="benefit-stat-label">лет гарантии</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">99%</span>
+                        <span class="benefit-stat-number">100%</span>
                         <span class="benefit-stat-label">надежность</span>
                     </div>
                 </div>
@@ -1327,7 +1327,7 @@
                         <span class="benefit-stat-label">аудитов</span>
                     </div>
                     <div class="benefit-stat">
-                        <span class="benefit-stat-number">95%</span>
+                        <span class="benefit-stat-number">100%</span>
                         <span class="benefit-stat-label">улучшений</span>
                     </div>
                 </div>
