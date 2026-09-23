@@ -85,8 +85,8 @@ $description = $service['description'];
             <div class="benefits-grid">
                 <?php foreach ($service['components'] as $item): ?>
                     <article class="benefit-card">
-                        <h3><?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?></h3>
-                        <p><?= htmlspecialchars($item['text'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <h3><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></h3>
+                        <p><?= htmlspecialchars($item[1], ENT_QUOTES, 'UTF-8') ?></p>
                     </article>
                 <?php endforeach; ?>
             </div>
@@ -100,8 +100,8 @@ $description = $service['description'];
                 <?php foreach ($service['objects'] as $item): ?>
                     <article class="industry-card">
                         <div class="industry-content">
-                            <h3 class="industry-title"><?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?></h3>
-                            <p class="industry-description"><?= htmlspecialchars($item['text'], ENT_QUOTES, 'UTF-8') ?></p>
+                            <h3 class="industry-title"><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></h3>
+                            <p class="industry-description"><?= htmlspecialchars($item[1], ENT_QUOTES, 'UTF-8') ?></p>
                         </div>
                     </article>
                 <?php endforeach; ?>
@@ -116,8 +116,8 @@ $description = $service['description'];
                 <?php foreach ($service['steps'] as $index => $item): ?>
                     <div class="process-step">
                         <span class="step-number"><?= str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
-                        <h3><?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?></h3>
-                        <p><?= htmlspecialchars($item['text'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <h3><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></h3>
+                        <p><?= htmlspecialchars($item[1], ENT_QUOTES, 'UTF-8') ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -130,8 +130,8 @@ $description = $service['description'];
             <div class="benefits-grid">
                 <?php foreach ($service['results'] as $item): ?>
                     <article class="benefit-card">
-                        <h3><?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?></h3>
-                        <p><?= htmlspecialchars($item['text'], ENT_QUOTES, 'UTF-8') ?></p>
+                        <h3><?= htmlspecialchars($item[0], ENT_QUOTES, 'UTF-8') ?></h3>
+                        <p><?= htmlspecialchars($item[1], ENT_QUOTES, 'UTF-8') ?></p>
                     </article>
                 <?php endforeach; ?>
             </div>
@@ -143,9 +143,9 @@ $description = $service['description'];
             <div class="section-title">Связанные направления</div>
             <div class="cards-grid">
                 <?php foreach ($service['links'] as $link): ?>
-                    <a class="card" href="<?= htmlspecialchars($link['url'], ENT_QUOTES, 'UTF-8') ?>" style="padding:26px;text-decoration:none;">
-                        <div class="card-title"><?= htmlspecialchars($link['title'], ENT_QUOTES, 'UTF-8') ?></div>
-                        <div class="card-descr"><?= htmlspecialchars($link['text'], ENT_QUOTES, 'UTF-8') ?></div>
+                    <a class="card" href="<?= htmlspecialchars($link[2], ENT_QUOTES, 'UTF-8') ?>" style="padding:26px;text-decoration:none;">
+                        <div class="card-title"><?= htmlspecialchars($link[0], ENT_QUOTES, 'UTF-8') ?></div>
+                        <div class="card-descr"><?= htmlspecialchars($link[1], ENT_QUOTES, 'UTF-8') ?></div>
                     </a>
                 <?php endforeach; ?>
             </div>
