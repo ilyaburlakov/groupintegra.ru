@@ -119,4 +119,4 @@ $service = json_decode('{
     ]
 }', true);
 
-require __DIR__ . '/_service-template.php';
+require __DIR__ . '/_service-template-v2.php';
