@@ -408,9 +408,9 @@
             background: var(--light);
         }
 
-        .values-grid {
+         .values-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin-top: 40px;
         }
@@ -840,7 +840,7 @@
                     </svg>
                 </div>
                 <h3>Надежность</h3>
-                <p>Мы гарантируем стабильную работу всех систем и техническую поддержку и сопровождение 365 дней в году.</p>
+                <p>Стабильная работа систем, качественный монтаж и техническое сопровождение 365 дней в году.</p>
             </div>
             <div class="value-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="value-icon">
@@ -849,18 +849,30 @@
                     </svg>
                 </div>
                 <h3>Инновации</h3>
-                <p>Постоянно внедряем передовые технологии и разрабатываем собственные цифровые решения.</p>
+                <p>Используем современные технологии и создаем собственные решения для контроля и управления объектами.</p>
             </div>
             <div class="value-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="value-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0 4 4v2"></path>
                         <circle cx="9" cy="7" r="4"></circle>
                         <path d="m22 21-3-3m0 0a5.5 5.5 0 1 0-7.78-7.78 5.5 5.5 0 0 0 7.78 7.78Z"></path>
                     </svg>
                 </div>
                 <h3>Профессионализм</h3>
-                <p>Наша команда состоит исключительно из сертифицированных специалистов высокого уровня.</p>
+                <p>Опытная команда и выстроенные процессы проектирования, монтажа, контроля и сдачи работ.</p>
+            </div>
+            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="value-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+                        <line x1="8" y1="20" x2="16" y2="20"></line>
+                        <line x1="9" y1="8" x2="15" y2="8"></line>
+                        <line x1="9" y1="11" x2="13" y2="11"></line>
+                    </svg>
+                </div>
+                <h3>Цифровизация</h3>
+                <p>Переводим контроль и ведение объектов в цифровой формат: онлайн-отчеты, выполненные объемы и прозрачность работ для заказчика.</p>
             </div>
         </div>
     </div>
