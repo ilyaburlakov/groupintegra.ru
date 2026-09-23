@@ -816,12 +816,12 @@
                 <span class="stat-label">лет работы с 2007 года</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                <span class="stat-number">500+</span>
-                <span class="stat-label">реализованных проектов</span>
+                <span class="stat-number">30+</span>
+                <span class="stat-label">партнёрских организаций</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">контроль и поддержка</span>
+                <span class="stat-number">365</span>
+                <span class="stat-label">дней в году на связи и поддержке</span>
             </div>
         </div>
     </div>
@@ -840,7 +840,7 @@
                     </svg>
                 </div>
                 <h3>Надежность</h3>
-                <p>Мы гарантируем стабильную работу всех систем и оперативную техническую поддержку 24/7.</p>
+                <p>Мы гарантируем стабильную работу всех систем и техническую поддержку и сопровождение 365 дней в году.</p>
             </div>
             <div class="value-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="value-icon">
