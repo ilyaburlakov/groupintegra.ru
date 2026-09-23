@@ -12,7 +12,16 @@ $cart_count = array_sum(array_column($cart_items, 'quantity'));
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= isset($page_title) ? escape($page_title) . ' - Группа Интегра' : 'Каталог - Группа Интегра' ?></title>
+<title><?= isset($page_title) ? escape($page_title) : 'Каталог товаров' ?></title>
+<?php if (isset($meta_description)): ?>
+<meta name="description" content="<?= escape($meta_description) ?>">
+<?php endif; ?>
+<?php if (isset($canonical_url)): ?>
+<link rel="canonical" href="<?= escape($canonical_url) ?>">
+<?php endif; ?>
+<?php if (isset($meta_robots)): ?>
+<meta name="robots" content="<?= escape($meta_robots) ?>">
+<?php endif; ?>
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
