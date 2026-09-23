@@ -1,7 +1,10 @@
 RewriteEngine On
 
-# Принудительный HTTPS для всего сайта, включая /catalog/
+# Принудительный HTTPS для всего сайта, включая /catalog/.
+# Учитываем X-Forwarded-Proto, чтобы не создавать цикл редиректов
+# на сервере/прокси, который завершает TLS до Apache.
 RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
 
 # Совместимость со старыми/отсутствующими ссылками на ресурсы
