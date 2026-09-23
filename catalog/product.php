@@ -15,7 +15,7 @@ if (!$product) {
 }
 
 // Формируем SEO-заголовок
-$page_title = "Усиление сотовой связи | " . $product['name'];
+$page_title = $product['name'] . " — купить в Группе Интегра";
 
 // Формируем SEO-описание
 $meta_description = "Купить " . $product['name'] . " по выгодной цене. " 
@@ -23,6 +23,8 @@ $meta_description = "Купить " . $product['name'] . " по выгодной
 
 // Формируем ключевые слова
 $meta_keywords = "усиление сотовой связи, " . $product['name'] . ", купить, цена, характеристики";
+$canonical_url = SITE_URL . "/catalog/product.php?id=" . (int)$product['id'];
+$meta_robots = "index, follow";
 
 $similar_products = [];
 if (!empty($product['categories'])) {
