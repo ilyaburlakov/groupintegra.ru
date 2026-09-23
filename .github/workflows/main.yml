@@ -6,9 +6,11 @@ on:
       - main
   workflow_dispatch:
 
+# Do not cancel a deployment already in progress.
+# Every commit reaching main must eventually reach production.
 concurrency:
   group: jino-production
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -16,6 +18,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -34,9 +37,16 @@ jobs:
             BEFORE="$(git rev-parse "${AFTER}^")"
           fi
 
-          git diff --name-only --diff-filter=ACMR "$BEFORE" "$AFTER" > changed_files.txt
+          # If GitHub gives an unavailable/zero base (for example after a
+          # history rewrite), deploy the whole repository instead of silently
+          # deploying nothing.
+          if [ -z "${BEFORE}" ] || [ "${BEFORE}" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            git ls-files > changed_files.txt
+          else
+            git diff --name-only --diff-filter=ACMR "${BEFORE}" "${AFTER}" > changed_files.txt
+          fi
 
-          echo "Changed files:"
+          echo "Files selected for deployment:"
           cat changed_files.txt || true
 
       - name: Prepare SSH
@@ -49,7 +59,7 @@ jobs:
           printf '%s\n' '${{ secrets.JINO_SSH_KEY }}' > ~/.ssh/jino_key
           chmod 600 ~/.ssh/jino_key
 
-          ssh-keyscan -p 2222             "${{ secrets.JINO_HOST }}"             >> ~/.ssh/known_hosts
+          ssh-keyscan -p 2222 "${{ secrets.JINO_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Create SFTP commands
         env:
@@ -64,6 +74,8 @@ jobs:
           remote_root = os.environ["JINO_PATH"].rstrip("/")
           excluded_prefixes = (
               "catalog/uploads/",
+              ".git/",
+              ".github/",
           )
           excluded_files = (
               ".env",
@@ -89,9 +101,8 @@ jobs:
           for relative in files:
               parent = Path(relative).parent
               if str(parent) != ".":
-                  parts = parent.parts
                   current = remote_root
-                  for part in parts:
+                  for part in parent.parts:
                       current = f"{current}/{part}"
                       directories.add(current)
 
@@ -126,4 +137,26 @@ jobs:
             exit 0
           fi
 
-          sftp             -i ~/.ssh/jino_key             -P 2222             -o PubkeyAcceptedAlgorithms=+ssh-rsa             -o StrictHostKeyChecking=yes             -b sftp_commands.txt             "$JINO_USER@$JINO_HOST"
+          sftp \
+            -i ~/.ssh/jino_key \
+            -P 2222 \
+            -o PubkeyAcceptedAlgorithms=+ssh-rsa \
+            -o StrictHostKeyChecking=yes \
+            -b sftp_commands.txt \
+            "$JINO_USER@$JINO_HOST"
+
+      - name: Verify production
+        run: |
+          set -eu
+
+          for url in \
+            "https://groupintegra.ru/about.php" \
+            "https://groupintegra.ru/services.php" \
+            "https://groupintegra.ru/slabotchka.php" \
+            "https://groupintegra.ru/gsm.php" \
+            "https://groupintegra.ru/privacy.php"; do
+            echo "Checking $url"
+            curl --fail --silent --show-error --location --max-time 20 "$url" > /dev/null
+          done
+
+          echo "Production HTTP checks passed."
