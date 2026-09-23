@@ -6,8 +6,8 @@
     <title>О компании - Группа Интегра | История развития с 2007 года</title>
     <meta name="description" content="История развития Группы Интегра с 2007 года: от основания до цифровизации строительства и онлайн-контроля работ. Профессиональные слаботочные системы в Москве и СПб.">
     <meta name="keywords" content="о компании, Группа Интегра, история компании, цифровизация строительства, слаботочные системы, развитие, инновации">
-    <meta property="og:title" content="О компании - Группа Интегра | 15+ лет на рынке">
-    <meta property="og:description" content="Узнайте историю развития Группы Интегра: от небольшой команды до лидера в области цифровизации строительства">
+    <meta property="og:title" content="О компании - Группа Интегра | 19 лет работы с 2007 года">
+    <meta property="og:description" content="История Группы Интегра с 2007 года: слаботочные системы, усиление связи и цифровой контроль строительных объектов.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://groupintegra.ru/about.php">
     <meta property="og:image" content="/images/about-hero.jpeg">
@@ -728,9 +728,9 @@
                     <p>Успешная адаптация к пандемийным условиям. Развитие удаленных технологий контроля и мониторинга объектов.</p>
                     <div class="timeline-achievements">
                         <ul>
-                            <li>Внедрение удаленного мониторинга</li>
-                            <li>Разработка мобильных приложений</li>
-                            <li>Рост онлайн-продаж на 200%</li>
+                            <li>Развитие удалённого мониторинга</li>
+                            <li>Автоматизация контроля объектов</li>
+                            <li>Переход к цифровым рабочим процессам</li>
                         </ul>
                     </div>
                 </div>
@@ -754,7 +754,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-year">2022</div>
+                <div class="timeline-year">2026</div>
             </div>
 
             <div class="timeline-item" data-aos="fade-left" data-aos-delay="800">
@@ -765,17 +765,17 @@
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                         </svg>
                     </div>
-                    <h3>2025 - Сегодня</h3>
-                    <p>Более 500 успешных проектов, команда из 50+ специалистов, инновационные решения.</p>
+                    <h3>2026 - Сегодня</h3>
+                    <p>Развиваем собственную систему цифрового контроля объектов и используем её для прозрачного ведения проектов.</p>
                     <div class="timeline-achievements">
                         <ul>
-                            <li>500+ завершенных проектов</li>
-                            <li>Команда из 50+ профессионалов</li>
+                            <li>Собственная система контроля объектов</li>
+                            <li>Онлайн-отчётность и контроль выполненных объёмов</li>
                             <li>Собственная платформа контроля объектов</li>
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-year">2024</div>
+                <div class="timeline-year">2026</div>
             </div>
 
             <div class="timeline-item" data-aos="fade-right" data-aos-delay="900">
@@ -785,17 +785,17 @@
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                         </svg>
                     </div>
-                    <h3>20.. - Будущее уже здесь</h3>
-                    <p>Планы на будущее: внедрение ИИ в проектирование, развитие AR/VR технологий, экспансия в регионы России.</p>
+                    <h3>Следующий этап - развитие цифровых решений</h3>
+                    <p>Развиваем цифровые инструменты для проектирования, контроля и управления строительными объектами.</p>
                     <div class="timeline-achievements">
                         <ul>
-                            <li>Интеграция искусственного интеллекта</li>
-                            <li>AR/VR решения для проектирования</li>
-                            <li>Открытие 5 новых региональных офисов</li>
+                            <li>Развитие цифрового контроля объектов</li>
+                            <li>Автоматизация работы с проектными данными</li>
+                            <li>Развитие собственных цифровых решений</li>
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-year">2025</div>
+                <div class="timeline-year">→</div>
             </div>
 
         </div>
@@ -808,20 +808,20 @@
         <h2 class="section-title" data-aos="fade-up" style="text-align: center; width: 100%; color: white;">Наши достижения в цифрах</h2>
         <div class="stats-grid">
             <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-                <span class="stat-number">500+</span>
-                <span class="stat-label">реализованных проектов</span>
+                <span class="stat-number">2007</span>
+                <span class="stat-label">год начала работы</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                <span class="stat-number">19</span>
-                <span class="stat-label">лет работы с 2007 года</span>
+                <span class="stat-number">2007</span>
+                <span class="stat-label">год начала работы</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                <span class="stat-number">30+</span>
-                <span class="stat-label">партнёрских организаций</span>
+                <span class="stat-number">2007</span>
+                <span class="stat-label">год начала работы</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                <span class="stat-number">365</span>
-                <span class="stat-label">дней в году на связи и поддержке</span>
+                <span class="stat-number">2007</span>
+                <span class="stat-label">год начала работы</span>
             </div>
         </div>
     </div>
@@ -960,7 +960,7 @@
     "name": "Группа Интегра",
     "url": "https://groupintegra.ru",
     "logo": "https://groupintegra.ru/images/logo.png",
-    "description": "Группа Интегра - лидер в области слаботочных систем и цифровизации строительства с 15-летним опытом работы",
+    "description": "Группа Интегра — проектирование, монтаж и цифровой контроль слаботочных систем и усиления связи с 2007 года",
     "foundingDate": "2007",
     "founder": {
         "@type": "Person",
