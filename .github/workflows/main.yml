@@ -147,6 +147,40 @@ jobs:
             -b sftp_commands.txt \
             "$JINO_USER@$JINO_HOST"
 
+      - name: Reset PHP OPcache
+        env:
+          JINO_USER: ${{ secrets.JINO_USER }}
+          JINO_HOST: ${{ secrets.JINO_HOST }}
+          JINO_PATH: ${{ secrets.JINO_PATH }}
+        run: |
+          set -eu
+
+          # Временный endpoint очищает OPcache на Jino после SFTP-загрузки.
+          # Файл удаляется сразу после вызова и не хранится в репозитории.
+          TOKEN="oL2xF0Dng0iFLty6pSBAWXDu08caH5nj"
+
+          cat > _cache_reset.php <<PHP
+          <?php
+          if (!isset($_GET["token"]) || !hash_equals("$TOKEN", (string)$_GET["token"])) {
+              http_response_code(404);
+              exit;
+          }
+          if (function_exists("opcache_reset")) {
+              opcache_reset();
+          }
+          header("Content-Type: text/plain; charset=utf-8");
+          echo "OK";
+          PHP
+
+          printf 'put "_cache_reset.php" "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_sftp.txt
+          sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=yes -b cache_reset_sftp.txt "$JINO_USER@$JINO_HOST"
+
+          curl --fail --silent --show-error --location --max-time 20 "https://groupintegra.ru/_cache_reset.php?token=$TOKEN"
+
+          printf 'rm "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_remove_sftp.txt
+          sftp -i ~/.ssh/jino_key -P 2222 -o PubkeyAcceptedAlgorithms=+ssh-rsa -o StrictHostKeyChecking=yes -b cache_reset_remove_sftp.txt "$JINO_USER@$JINO_HOST"
+
+          rm -f _cache_reset.php cache_reset_sftp.txt cache_reset_remove_sftp.txt
       - name: Verify production
         run: |
           set -eu
@@ -158,7 +192,7 @@ jobs:
             echo "Checking $url"
             body="$(curl --fail --silent --show-error --location --max-time 20 "$url")"
 
-            if ! printf '%s' "$body" | grep -Fq "$marker"; then
+            if ! grep -Fq "$marker" <<< "$body"; then
               echo "ERROR: expected production marker was not found on $url"
               echo "Expected: $marker"
               exit 1
