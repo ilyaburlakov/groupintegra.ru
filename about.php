@@ -28,7 +28,6 @@
 </style>
 </head>
 <body class="loading">
-<header></header>
 <?php include 'header.php'; ?>
 <section class="hero" id="hero"><div class="container"><div class="hero-content"><h1>Группа Интегра</h1><p>С 2007 года создаём и внедряем слаботочные системы и цифровые решения для строительства</p></div></div></section>
 <section class="story" id="story"><div class="container"><h2 class="section-title" style="text-align:center;width:100%;">Наша история</h2><div class="story-content"><div class="story-text"><h3>Развитие компетенций и цифровых решений</h3><p>С 2007 года компания развивает компетенции в области слаботочных систем, усиления связи и цифрового контроля строительных объектов.</p><p>За годы работы сформированы практические компетенции проектирования, монтажа, пусконаладки и сопровождения инженерных систем.</p><p><strong>Для контроля объектов используется собственная цифровая система:</strong> заказчик может получать ежедневные отчёты, видеть выполненные объёмы и ход работ онлайн.</p></div><div><img src="/images/office.jpg" alt="Группа Интегра" class="story-image"></div></div></div></section>
