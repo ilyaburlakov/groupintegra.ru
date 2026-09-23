@@ -164,14 +164,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
-            url('https://groupintegra.ru/images/office.jpg') no-repeat center center/cover;
-
-    z-index: -1;
+    background: linear-gradient(90deg, rgba(8,28,48,.74), rgba(8,28,48,.40), rgba(8,28,48,.64)), url('/images/office.jpg') center/cover no-repeat;
+    z-index: 0;
 }
 
 
         .hero-content {
+            position: relative;
+            z-index: 1;
             width: 100%;
             padding: 20px;
             text-align: left;
