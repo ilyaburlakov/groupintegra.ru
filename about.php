@@ -10,7 +10,7 @@
     <meta property="og:description" content="Узнайте историю развития Группы Интегра: от небольшой команды до лидера в области цифровизации строительства">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://groupintegra.ru/about.php">
-    <meta property="og:image" content="/images/about-hero.jpg">
+    <meta property="og:image" content="/images/about-hero.jpeg">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://groupintegra.ru/about.php">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
@@ -143,8 +143,9 @@
             justify-content: center;
             color: var(--light);
             overflow: hidden;
-            background: none;
+            background: #18324f;
             text-align: center;
+            isolation: isolate;
         }
 
         .hero::before {
@@ -154,9 +155,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/images/slabotok.png') no-repeat center center/cover;
-            filter: brightness(0.4);
-            z-index: -1;
+            background: linear-gradient(90deg, rgba(10,31,52,.78), rgba(10,31,52,.48), rgba(10,31,52,.68)), url('/images/about-hero.jpeg') center/cover no-repeat;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 40px 20px;
         }
 
         .hero-content h1 {
@@ -371,7 +378,11 @@
 
         .stat-card {
             text-align: center;
-            padding: 30px 20px;
+            padding: 34px 20px 30px;
+            border: 1px solid rgba(255,255,255,.22);
+            border-radius: 14px;
+            background: rgba(255,255,255,.08);
+            box-shadow: 0 12px 30px rgba(0,0,0,.12);
         }
 
         .stat-number {
@@ -379,10 +390,10 @@
             font-weight: 700;
             display: block;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            background: none !important;
+            text-shadow: 0 3px 12px rgba(0,0,0,.22);
         }
 
         .stat-label {
@@ -575,7 +586,7 @@
     <div class="container">
         <div class="hero-content">
             <h1 data-aos="fade-up">Группа Интегра</h1>
-            <p data-aos="fade-up" data-aos-delay="100">15+ лет инноваций в области слаботочных систем и цифровизации строительства</p>
+            <p data-aos="fade-up" data-aos-delay="100">С 2007 года создаём и внедряем слаботочные системы и цифровые решения для строительства</p>
         </div>
     </div>
 </section>
@@ -798,19 +809,19 @@
         <div class="stats-grid">
             <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
                 <span class="stat-number">500+</span>
-                <span class="stat-label">Завершенных проектов</span>
+                <span class="stat-label">реализованных проектов</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                <span class="stat-number">15</span>
-                <span class="stat-label">Лет на рынке</span>
+                <span class="stat-number">19</span>
+                <span class="stat-label">лет работы с 2007 года</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Сертифицированных специалистов</span>
+                <span class="stat-number">500+</span>
+                <span class="stat-label">реализованных проектов</span>
             </div>
             <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
                 <span class="stat-number">24/7</span>
-                <span class="stat-label">Техническая поддержка</span>
+                <span class="stat-label">контроль и поддержка</span>
             </div>
         </div>
     </div>
