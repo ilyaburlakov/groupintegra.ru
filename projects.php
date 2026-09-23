@@ -107,7 +107,7 @@
         </a>
 
         <a class="project-card" href="/projects/pervaya-liniya.php">
-            <img class="project-image" src="/images/pervaya_liniya.jpg" alt="Первая Линия Health Care Resort, Зеленогорск" loading="lazy">
+            <img class="project-image" src="/images/pevraya_linia.jpg" alt="Первая Линия Health Care Resort, Зеленогорск" loading="lazy">
             <div class="project-content">
                 <div class="project-meta">Зеленогорск</div>
                 <h2>Первая Линия Health Care Resort</h2>
@@ -144,7 +144,7 @@
       {"@type":"CreativeWork","position":2,"name":"YES Технопарк, Москва","url":"https://groupintegra.ru/projects/yes-technopark.php","image":"https://groupintegra.ru/images/yes_technopark.jpg"},
       {"@type":"CreativeWork","position":3,"name":"YES Ботаника, Москва","url":"https://groupintegra.ru/projects/yes-botanica.php","image":"https://groupintegra.ru/images/yes_botanica.jpg"},
       {"@type":"CreativeWork","position":4,"name":"YES Марата, Санкт-Петербург","url":"https://groupintegra.ru/projects/yes-marata.php","image":"https://groupintegra.ru/images/yes_marata.jpg"},
-      {"@type":"CreativeWork","position":5,"name":"Первая Линия Health Care Resort, Зеленогорск","url":"https://groupintegra.ru/projects/pervaya-liniya.php","image":"https://groupintegra.ru/images/pervaya_liniya.jpg"}
+      {"@type":"CreativeWork","position":5,"name":"Первая Линия Health Care Resort, Зеленогорск","url":"https://groupintegra.ru/projects/pervaya-liniya.php","image":"https://groupintegra.ru/images/pevraya_linia.jpg"}
     ]
   }
 }
