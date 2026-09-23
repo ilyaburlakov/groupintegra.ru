@@ -37,10 +37,11 @@ jobs:
             BEFORE="$(git rev-parse "${AFTER}^")"
           fi
 
-          # If GitHub gives an unavailable/zero base (for example after a
-          # history rewrite), deploy the whole repository instead of silently
-          # deploying nothing.
-          if [ -z "${BEFORE}" ] || [ "${BEFORE}" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+          # A .deploy-all marker forces a complete production sync.
+          if git diff --name-only "${BEFORE}" "${AFTER}" | grep -qx ".deploy-all"; then
+            git ls-files > changed_files.txt
+          # If GitHub gives an unavailable/zero base, deploy the whole repository.
+          elif [ -z "${BEFORE}" ] || [ "${BEFORE}" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
             git ls-files > changed_files.txt
           else
             git diff --name-only --diff-filter=ACMR "${BEFORE}" "${AFTER}" > changed_files.txt
