@@ -1,22 +1,21 @@
 <?php
-// Настройки базы данных
-define('DB_HOST', 'mysql.fc1ec553d08a.hosting.myjino.ru'); // или 'localhost' если скрипт на том же сервере
-define('DB_NAME', 'j84911507_site');
-define('DB_USER', 'j84911507_site');
-define('DB_PASS', 'Integra2021');
-define('DB_PORT', 3306);
+// Конфигурация каталога.
+// Секреты не хранятся в Git. На сервере этот файл должен быть настроен
+// отдельно от репозитория либо заменён серверным конфигурационным файлом.
 
-// Настройки сайта
+define('DB_HOST', getenv('INTEGRA_DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('INTEGRA_DB_NAME') ?: '');
+define('DB_USER', getenv('INTEGRA_DB_USER') ?: '');
+define('DB_PASS', getenv('INTEGRA_DB_PASS') ?: '');
+define('DB_PORT', (int)(getenv('INTEGRA_DB_PORT') ?: 3306));
+
 define('SITE_NAME', 'Каталог товаров');
-define('SITE_URL', 'https://groupintegra.ru'); // замените на ваш реальный домен
+define('SITE_URL', 'https://groupintegra.ru');
 define('UPLOAD_DIR', __DIR__ . '/../uploads/');
 
-// Настройки пагинации
 define('PRODUCTS_PER_PAGE', 12);
 
-// Старт сессии
 session_start();
 
-// Подключение к БД
 require_once 'db.php';
 ?>
