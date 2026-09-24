@@ -19,7 +19,7 @@ jobs:
         run: |
           set -eu
           python3 <<'PY'
-          import html.parser, sys, urllib.parse, urllib.request, urllib.error
+          import html.parser, sys, urllib.parse, urllib.request, urllib.error, subprocess, tempfile, os
           import xml.etree.ElementTree as ET
           from collections import deque
 
@@ -68,13 +68,34 @@ jobs:
           def fetch(url, method="GET"):
               last_err = None
               for attempt in range(RETRIES):
-                  req = urllib.request.Request(url, method=method, headers={"User-Agent": UA})
                   try:
-                      with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                          data = r.read(2500000) if method == "GET" else b""
-                          return r.status, r.geturl(), r.headers.get("Content-Type",""), data, None
-                  except urllib.error.HTTPError as e:
-                      return e.code, e.geturl(), e.headers.get("Content-Type",""), b"", str(e)
+                      with tempfile.TemporaryDirectory() as td:
+                          hdr = os.path.join(td, "headers.txt")
+                          body = os.path.join(td, "body.bin")
+                          cmd = [
+                              "curl", "-sS", "-L", "--compressed",
+                              "--connect-timeout", "10", "--max-time", str(TIMEOUT),
+                              "-A", UA, "-D", hdr, "-o", body,
+                              "-X", method, url
+                          ]
+                          p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                          if p.returncode != 0:
+                              last_err = p.stderr.strip() or "curl exit %d" % p.returncode
+                              continue
+                          raw_headers = open(hdr, "rb").read().decode("iso-8859-1", errors="replace")
+                          blocks = [b for b in raw_headers.split("\\r\\n\\r\\n") if b.strip()]
+                          block = blocks[-1] if blocks else raw_headers
+                          lines = block.splitlines()
+                          status = 0
+                          ctype = ""
+                          for line in lines:
+                              if line.startswith("HTTP/"):
+                                  try: status = int(line.split()[1])
+                                  except Exception: pass
+                              elif line.lower().startswith("content-type:"):
+                                  ctype = line.split(":",1)[1].strip()
+                          data = open(body, "rb").read(2500000) if method == "GET" else b""
+                          return status, url, ctype, data, None
                   except Exception as e:
                       last_err = e
               return 0, url, "", b"", "after %d attempts: %s" % (RETRIES, last_err)
