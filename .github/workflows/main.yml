@@ -175,7 +175,7 @@ jobs:
             url="$1"
             marker="$2"
             echo "Checking $url"
-            body="$(curl --fail --silent --show-error --location --max-time 20 "$url")"
+            body="$(curl -4 --fail --silent --show-error --location --max-time 20 -A "Mozilla/5.0 (compatible; GroupIntegra-Deploy-Check/1.0)" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: ru-RU,ru;q=0.9,en;q=0.8" "$url")"
             if ! grep -Fq "$marker" <<< "$body"; then
               echo "ERROR: expected production marker was not found on $url"
               echo "Expected: $marker"
