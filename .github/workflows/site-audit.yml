@@ -55,6 +55,9 @@ jobs:
               def handle_data(self, data):
                   if self._in_title: self.title += data.strip()
 
+          def is_ignored(url):
+              return urllib.parse.urlsplit(url).path.lower().startswith("/catalog/")
+
           def normalize(raw, base):
               raw = (raw or "").strip()
               if not raw or raw.startswith(("#","mailto:","tel:","javascript:","data:","blob:")):
@@ -112,7 +115,7 @@ jobs:
                   for loc in root.iter():
                       if loc.tag.endswith("loc") and loc.text:
                           u = normalize(loc.text, sitemap)
-                          if u: urls.append(u)
+                          if u and not is_ignored(u): urls.append(u)
               except Exception as e:
                   errors.append("Sitemap XML parse error: %s" % e)
 
@@ -122,6 +125,7 @@ jobs:
 
           while queue and len(seen_pages) < MAX_PAGES:
               url = queue.popleft()
+              if is_ignored(url): continue
               if url in seen_pages: continue
               seen_pages.add(url)
               status, final, ctype, body, err = fetch(url)
@@ -151,7 +155,7 @@ jobs:
                   errors.append("SEO: noindex found: %s" % url)
               for raw in parser.links + parser.assets:
                   u = normalize(raw, final)
-                  if not u: continue
+                  if not u or is_ignored(u): continue
                   discovered.add(u)
                   path = urllib.parse.urlsplit(u).path.lower()
                   if raw in parser.links and (path.endswith((".php",".html",".htm")) or path == "/" or path.endswith("/")):
