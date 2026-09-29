@@ -81,8 +81,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
             <div class="footer-section">
                 <h3>Контакты</h3>
                 <div class="footer-contact-info">
-                    <div class="contact-item"><span>☎</span><a href="tel:+78124430123">8 (812) 443-01-23</a></div>
-                    <div class="contact-item"><span>✉</span><a href="mailto:info@groupintegra.ru">info@groupintegra.ru</a></div>
+                            <div class="contact-item"><span>✉</span><a href="mailto:info@groupintegra.ru">info@groupintegra.ru</a></div>
                     <div class="contact-item"><span>⌂</span><span><a href="/spb.php">Санкт-Петербург</a> · <a href="/moscow.php">Москва</a></span></div>
                     <div class="contact-item"><span>◷</span><span>Пн–Пт: 9:00–18:00</span></div>
                 </div>
