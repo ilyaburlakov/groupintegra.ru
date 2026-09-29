@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-Disallow: /catalog/admin/
-Disallow: /catalog/includes/
+Disallow: /catalog/
+
 Disallow: /vendor/
 Disallow: /PHPMailer/
 
