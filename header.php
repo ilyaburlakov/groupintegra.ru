@@ -46,18 +46,8 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
     cursor:pointer !important; text-decoration:none !important; white-space:nowrap !important; transition:.18s ease !important;
 }
 .integra-btn-primary:hover { background:#1D4ED8 !important; color:#fff !important; transform:translateY(-1px) !important; }
-.integra-btn-secondary {
-    display:inline-flex !important; align-items:center !important; justify-content:center !important;
-    min-height:44px !important; padding:0 16px !important; border:1px solid #FCA5A5 !important;
-    border-radius:9px !important; background:#FEF2F2 !important; color:#B91C1C !important;
-    font-size:.88rem !important; font-weight:700 !important; text-decoration:none !important; white-space:nowrap !important;
-}
-.integra-btn-secondary:hover { background:#FEE2E2 !important; color:#991B1B !important; }
-.integra-mobile-toggle {
-    display:none !important; margin-left:auto !important; width:42px !important; height:42px !important;
-    border:1px solid #CBD5E1 !important; background:#fff !important; border-radius:9px !important;
-    color:#334155 !important; font-size:1.15rem !important; cursor:pointer !important;
-}
+
+
 
 .integra-modal {
     display:none !important; position:fixed !important; inset:0 !important; z-index:99999 !important;
@@ -117,7 +107,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
     .integra-nav-menu.integra-active { transform:translateY(0) !important; opacity:1 !important; pointer-events:auto !important; }
     .integra-nav-link { padding:13px 14px !important; }
     .integra-header-actions { margin-left:auto !important; }
-    .integra-btn-secondary { display:none !important; }
     .integra-mobile-toggle { display:block !important; }
 }
 @media (max-width: 520px) {
@@ -145,7 +134,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         </nav>
 
         <div class="integra-header-actions">
-            <a class="integra-btn-secondary" href="tel:+78124430123">8 (812) 443-01-23</a>
             <button class="integra-btn-primary" onclick="integraOpenModal(); return false;">Обсудить проект</button>
         </div>
 
