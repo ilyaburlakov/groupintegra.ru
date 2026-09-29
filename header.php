@@ -145,6 +145,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         </nav>
 
         <div class="integra-header-actions">
+            <a class="integra-btn-secondary" href="tel:+78124430123">8 (812) 443-01-23</a>
             <button class="integra-btn-primary" onclick="integraOpenModal(); return false;">Обсудить проект</button>
         </div>
 
