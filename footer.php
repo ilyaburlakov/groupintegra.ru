@@ -72,6 +72,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                 <h3>Для работы с проектом</h3>
                 <ul>
                     <li><a href="/#contact">Контакты</a></li>
+                    <li><a href="/privacy.php">Политика ПДн и cookie</a></li>
                     <?php if ($is_gsm): ?><li><a href="/gsmservices.php">Услуги по усилению связи</a></li><?php endif; ?>
                     <?php if ($is_slabotochka): ?><li><a href="/services.php">Дополнительные услуги</a></li><?php endif; ?>
                 </ul>
@@ -80,6 +81,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
             <div class="footer-section">
                 <h3>Контакты</h3>
                 <div class="footer-contact-info">
+                    <div class="contact-item"><span>☎</span><a href="tel:+78124430123">8 (812) 443-01-23</a></div>
                     <div class="contact-item"><span>✉</span><a href="mailto:info@groupintegra.ru">info@groupintegra.ru</a></div>
                     <div class="contact-item"><span>⌂</span><span><a href="/spb.php">Санкт-Петербург</a> · <a href="/moscow.php">Москва</a></span></div>
                     <div class="contact-item"><span>◷</span><span>Пн–Пт: 9:00–18:00</span></div>
