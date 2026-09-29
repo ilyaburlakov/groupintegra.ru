@@ -204,7 +204,7 @@ jobs:
             echo "OK: marker found"
           }
           check_page "https://groupintegra.ru/about.php" "19 лет работы с 2007 года"
-          check_page "https://groupintegra.ru/about.php" "Следующий этап — развитие цифровых решений"
+          check_page "https://groupintegra.ru/about.php" "2026 — Сегодня"
           check_page "https://groupintegra.ru/services.php" "Аудит проектов и технические консультации"
           check_page "https://groupintegra.ru/slabotchka.php" "19 лет работы с 2007 года"
           check_page "https://groupintegra.ru/gsm.php" "19 лет работы с 2007 года"
