@@ -1,4 +1,4 @@
-name: Deploy to Jino
+name: Repository deployment check
 
 on:
   push:
@@ -6,211 +6,37 @@ on:
       - main
   workflow_dispatch:
 
-concurrency:
-  group: jino-production
-  cancel-in-progress: false
-
 permissions:
   contents: read
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
-      - name: Find changed files
+      - name: Validate VPS deployment script
         run: |
           set -eu
-          BEFORE="${{ github.event.before }}"
-          AFTER="${{ github.sha }}"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            BEFORE="$(git rev-parse "${AFTER}^")"
-          fi
-          if git diff --name-only "${BEFORE}" "${AFTER}" | grep -qx ".deploy-all"; then
-            git ls-files > changed_files.txt
-          elif [ -z "${BEFORE}" ] || [ "${BEFORE}" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
-            git ls-files > changed_files.txt
-          else
-            git diff --name-only --diff-filter=ACMR "${BEFORE}" "${AFTER}" > changed_files.txt
-          fi
-          echo "Files selected for deployment:"
-          cat changed_files.txt || true
+          bash -n deploy/vps-pull.sh
+          command -v git >/dev/null
+          command -v rsync >/dev/null
+          echo "VPS pull deployment script syntax: OK"
+          echo "Production deployment is pulled by the Jino VPS from origin/main."
 
-      - name: Prepare SSH
-        env:
-          JINO_HOST: ${{ secrets.JINO_HOST }}
+      - name: Validate required production files
         run: |
           set -eu
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          printf '%s\n' '${{ secrets.JINO_SSH_KEY }}' > ~/.ssh/jino_key
-          chmod 600 ~/.ssh/jino_key
-          # Jino may reject ssh-keyscan from GitHub-hosted runners.
-          # Do not fail here; the real SFTP connection below is authoritative.
-          ssh-keyscan -T 10 -p 2222 "${JINO_HOST}" >> ~/.ssh/known_hosts 2>/dev/null || true
-
-      - name: Create SFTP commands
-        env:
-          JINO_PATH: ${{ secrets.JINO_PATH }}
-        run: |
-          set -eu
-          python3 <<'PY'
-          import os
-          from pathlib import Path
-          remote_root = os.environ["JINO_PATH"].rstrip("/")
-          excluded_prefixes = ("catalog/", ".git/", ".github/")
-          excluded_files = (".env", ".deploy-all", "catalog/includes/config.php")
-          files = []
-          for line in Path("changed_files.txt").read_text(encoding="utf-8").splitlines():
-              path = line.strip()
-              if not path or path in excluded_files or path.startswith(".env."):
-                  continue
-              if path.startswith(excluded_prefixes) or path.startswith("logs/") or path.startswith("tmp/"):
-                  continue
-              if Path(path).is_file():
-                  files.append(path)
-          commands = []
-          directories = set()
-          for relative in files:
-              parent = Path(relative).parent
-              if str(parent) != ".":
-                  current = remote_root
-                  for part in parent.parts:
-                      current = f"{current}/{part}"
-                      directories.add(current)
-          for directory in sorted(directories, key=lambda x: (x.count("/"), x)):
-              commands.append(f'-mkdir "{directory}"')
-          for relative in files:
-              local = relative.replace("\\", "/")
-              remote = f"{remote_root}/{local}"
-              commands.append(f'put "{local}" "{remote}"')
-          Path("sftp_commands.txt").write_text("\n".join(commands) + ("\n" if commands else ""), encoding="utf-8")
-          print(f"Files to deploy: {len(files)}")
-          for path in files:
-              print(f"  {path}")
-          print(f"SFTP commands created: {len(commands)}")
-          PY
-
-      - name: Deploy via SFTP
-        env:
-          JINO_USER: ${{ secrets.JINO_USER }}
-          JINO_HOST: ${{ secrets.JINO_HOST }}
-        run: |
-          set -eu
-          if [ ! -s sftp_commands.txt ]; then
-            echo "No deployable files changed."
-            exit 0
-          fi
-          # This site is on a Jino VPS. Try the VPS SSH/SFTP port first,
-          # then the hosting SFTP port as a fallback.
-          deployed=0
-          for port in 22 2222; do
-            echo "SFTP deploy via port ${port}"
-            for attempt in 1 2 3; do
-              echo "SFTP attempt ${attempt}/3 on port ${port}"
-              if sftp \
-                -i ~/.ssh/jino_key \
-                -P "${port}" \
-                -o ConnectTimeout=15 \
-                -o ConnectionAttempts=1 \
-                -o ServerAliveInterval=15 \
-                -o ServerAliveCountMax=3 \
-                -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-                -o StrictHostKeyChecking=no \
-                -o UserKnownHostsFile=/dev/null \
-                -b sftp_commands.txt \
-                "$JINO_USER@$JINO_HOST"; then
-                echo "SFTP deploy completed on port ${port}."
-                deployed=1
-                break 2
-              fi
-              sleep 5
-            done
-          done
-          if [ "$deployed" -ne 1 ]; then
-            echo "ERROR: SFTP deploy failed on all supported Jino ports."
-            exit 1
-          fi
-
-          done
-
-      - name: Reset PHP OPcache (best effort)
-        env:
-          JINO_USER: ${{ secrets.JINO_USER }}
-          JINO_HOST: ${{ secrets.JINO_HOST }}
-          JINO_PATH: ${{ secrets.JINO_PATH }}
-        run: |
-          set -u
-          TOKEN="cache-reset-${{ github.run_id }}"
-          cleanup() {
-            printf 'rm "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_remove_sftp.txt
-            sftp -i ~/.ssh/jino_key -P 2222 \
-              -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-              -o StrictHostKeyChecking=no \
-              -o UserKnownHostsFile=/dev/null \
-              -b cache_reset_remove_sftp.txt \
-              "$JINO_USER@$JINO_HOST" >/dev/null 2>&1 || true
-            rm -f _cache_reset.php cache_reset_sftp.txt cache_reset_remove_sftp.txt
-          }
-          trap cleanup EXIT
-
-          cat > _cache_reset.php <<'PHP'
-          <?php
-          if (!isset($_GET["token"]) || $_GET["token"] !== '__TOKEN__') {
-              http_response_code(404);
-              exit;
-          }
-          if (function_exists('opcache_reset')) {
-              opcache_reset();
-          }
-          header('Content-Type: text/plain; charset=utf-8');
-          echo 'OK';
-          PHP
-          sed -i "s/__TOKEN__/${TOKEN}/" _cache_reset.php
-
-          printf 'put "_cache_reset.php" "%s/_cache_reset.php"\n' "$JINO_PATH" > cache_reset_sftp.txt
-          if ! sftp -i ~/.ssh/jino_key -P 2222 \
-              -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-              -o StrictHostKeyChecking=no \
-              -o UserKnownHostsFile=/dev/null \
-              -b cache_reset_sftp.txt \
-              "$JINO_USER@$JINO_HOST"; then
-            echo "WARNING: OPcache reset helper upload failed; continuing."
-            exit 0
-          fi
-
-          if ! curl --fail --silent --show-error --location --max-time 20 \
-              "https://groupintegra.ru/_cache_reset.php?token=$TOKEN"; then
-            echo "WARNING: OPcache reset request failed; continuing."
-            exit 0
-          fi
-          echo "OPcache reset request completed."
-
-      - name: Verify production
-        run: |
-          set -eu
-          check_page() {
-            url="$1"
-            marker="$2"
-            echo "Checking $url"
-            body="$(curl -4 --fail --silent --show-error --location --max-time 20 -A "Mozilla/5.0 (compatible; GroupIntegra-Deploy-Check/1.0)" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -H "Accept-Language: ru-RU,ru;q=0.9,en;q=0.8" "$url")"
-            if ! grep -Fq "$marker" <<< "$body"; then
-              echo "ERROR: expected production marker was not found on $url"
-              echo "Expected: $marker"
-              exit 1
-            fi
-            echo "OK: marker found"
-          }
-          check_page "https://groupintegra.ru/about.php" "19 лет работы с 2007 года"
-          check_page "https://groupintegra.ru/about.php" "2026 — Сегодня"
-          check_page "https://groupintegra.ru/services.php" "Аудит проектов и технические консультации"
-          check_page "https://groupintegra.ru/slabotchka.php" "19 лет работы с 2007 года"
-          check_page "https://groupintegra.ru/gsm.php" "19 лет работы с 2007 года"
-          check_page "https://groupintegra.ru/privacy.php" "Политика обработки персональных данных"
-          echo "Production content checks passed."
+          test -f .htaccess
+          test -f robots.txt
+          test -f sitemap.xml
+          test -f about.php
+          test -f services.php
+          test -f projects.php
+          test -f privacy.php
+          test -f deploy/vps-pull.sh
+          echo "Required production files: OK"
