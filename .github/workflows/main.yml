@@ -107,33 +107,37 @@ jobs:
             echo "No deployable files changed."
             exit 0
           fi
-          # GitHub-hosted runners can occasionally lose the TCP route to Jino:2222.
-          # Retry the complete SFTP batch several times before declaring the deploy failed.
-          max_attempts=5
-          attempt=1
-          while true; do
-            echo "SFTP deploy attempt ${attempt}/${max_attempts}"
-            if sftp \
-              -i ~/.ssh/jino_key \
-              -P 2222 \
-              -o ConnectTimeout=20 \
-              -o ConnectionAttempts=1 \
-              -o ServerAliveInterval=15 \
-              -o ServerAliveCountMax=3 \
-              -o PubkeyAcceptedAlgorithms=+ssh-rsa \
-              -o StrictHostKeyChecking=no \
-              -o UserKnownHostsFile=/dev/null \
-              -b sftp_commands.txt \
-              "$JINO_USER@$JINO_HOST"; then
-              echo "SFTP deploy completed."
-              break
-            fi
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "ERROR: SFTP deploy failed after ${max_attempts} attempts."
-              exit 1
-            fi
-            attempt=$((attempt + 1))
-            sleep 10
+          # This site is on a Jino VPS. Try the VPS SSH/SFTP port first,
+          # then the hosting SFTP port as a fallback.
+          deployed=0
+          for port in 22 2222; do
+            echo "SFTP deploy via port ${port}"
+            for attempt in 1 2 3; do
+              echo "SFTP attempt ${attempt}/3 on port ${port}"
+              if sftp \
+                -i ~/.ssh/jino_key \
+                -P "${port}" \
+                -o ConnectTimeout=15 \
+                -o ConnectionAttempts=1 \
+                -o ServerAliveInterval=15 \
+                -o ServerAliveCountMax=3 \
+                -o PubkeyAcceptedAlgorithms=+ssh-rsa \
+                -o StrictHostKeyChecking=no \
+                -o UserKnownHostsFile=/dev/null \
+                -b sftp_commands.txt \
+                "$JINO_USER@$JINO_HOST"; then
+                echo "SFTP deploy completed on port ${port}."
+                deployed=1
+                break 2
+              fi
+              sleep 5
+            done
+          done
+          if [ "$deployed" -ne 1 ]; then
+            echo "ERROR: SFTP deploy failed on all supported Jino ports."
+            exit 1
+          fi
+
           done
 
       - name: Reset PHP OPcache (best effort)
