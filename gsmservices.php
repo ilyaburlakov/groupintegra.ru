@@ -927,6 +927,7 @@
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
             <textarea name="message" placeholder="Опишите ваш объект и проблемы со связью"></textarea>
+            <label style="display:flex;align-items:flex-start;gap:8px;font-size:.82rem;line-height:1.4;color:#64748B;"><input type="checkbox" name="privacy_consent" value="1" required style="width:auto;margin-top:3px;"><span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span></label>
             <input type="hidden" name="form_type" id="modalFormType">
             <input type="text" name="website" style="display: none;">
             <button type="submit" class="btn">Отправить заявку</button>
