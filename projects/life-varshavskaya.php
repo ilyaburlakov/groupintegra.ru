@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квартал Life Варшавская | Жилой комплекс в Москве | Группа Интегра</title>
+    <title>Life Варшавская: усиление связи | Группа Интегра</title>
     <meta name="description" content="Жилой комплекс Квартал Life Варшавская в Москве с устойчивым покрытием сотовой связью от Группы Интегра. Современный проект у метро Варшавская.">
     <meta name="keywords" content="Квартал Life Варшавская, жилой комплекс Москва, сотовое покрытие, Группа Интегра, метро Варшавская, недвижимость Москва">
     <meta property="og:url" content="https://groupintegra.ru/projects/life-varshavskaya.php">
