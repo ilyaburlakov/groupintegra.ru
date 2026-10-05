@@ -695,7 +695,7 @@
                 </a>
             </div>
             <div style="margin-top:24px;text-align:right;">
-                <a class="home-btn secondary" style="background:var(--navy);border-color:var(--navy);" href="/articles/index.php">Все материалы</a>
+                <a class="home-btn secondary" style="background:var(--navy);border-color:var(--navy);" href="/articles/">Все материалы</a>
             </div>
         </div>
     </section>
