@@ -127,7 +127,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                 <li class="integra-nav-item"><a href="/gsm.php" class="integra-nav-link">Усиление связи</a></li>
                 <li class="integra-nav-item"><a href="/slabotchka.php" class="integra-nav-link">Слаботочные системы</a></li>
                 <li class="integra-nav-item"><a href="/projects.php" class="integra-nav-link">Проекты</a></li>
-                <li class="integra-nav-item"><a href="/articles/index.php" class="integra-nav-link">Статьи</a></li>
+                <li class="integra-nav-item"><a href="/articles/" class="integra-nav-link">Статьи</a></li>
                 <li class="integra-nav-item"><a href="/about.php" class="integra-nav-link">О компании</a></li>
                 <li class="integra-nav-item"><a href="/#contact" class="integra-nav-link">Контакты</a></li>
             </ul>
