@@ -10,6 +10,9 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
 
+# Канонический URL раздела статей: исключаем дубль /articles/index.php.
+RewriteRule ^articles/index\.php$ /articles/ [R=301,L]
+
 # Совместимость со старыми/отсутствующими ссылками на ресурсы
 RewriteRule ^images/favicon\.ico$ /images/logo.png [L]
 RewriteRule ^images/pervaya_linia\.jpg$ /images/pevraya_linia.jpg [L]
