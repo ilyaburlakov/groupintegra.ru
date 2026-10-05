@@ -943,6 +943,12 @@
             font-size: 1rem;
         }
 
+        .privacy-consent { display:flex; align-items:flex-start; gap:8px; font-size:.82rem; line-height:1.4; text-align:left; }
+        .privacy-consent input { width:auto; margin:3px 0 0; padding:0; }
+        .privacy-consent a { color:inherit; text-decoration:underline; }
+        .cta-form .privacy-consent { grid-column:1 / -1; color:rgba(255,255,255,.92); }
+        .modal-form .privacy-consent { color:var(--gray); }
+
         /* Стили для секции партнеров */
         .partners {
             background: var(--bg-color);
@@ -1680,6 +1686,7 @@
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="text" name="website" style="display: none;">
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
+            <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="1" required><span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span></label>
             <button type="submit" class="btn btn-secondary">Отправить заявку</button>
             <input type="hidden" name="form_type" value="CTA Form">
         </form>
@@ -1699,6 +1706,7 @@
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
             <textarea name="message" placeholder="Опишите ваш объект (площадь, этажность, материалы стен и т.д.)"></textarea>
+            <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="1" required><span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span></label>
             <input type="hidden" name="form_type" id="modalFormType">
             <input type="text" name="website" style="display: none;">
             <button type="submit" class="btn">Отправить заявку</button>
