@@ -39,4 +39,8 @@ jobs:
           test -f projects.php
           test -f privacy.php
           test -f deploy/vps-pull.sh
-          echo "Required production files: OK"
+          test -f footer.php
+          grep -Fq 'href="/privacy.php">Политика ПДн и cookie</a>' footer.php
+          grep -Fq "<?php include 'footer.php'; ?>" slabotchka.php
+          grep -Fq "<?php include 'footer.php'; ?>" services.php
+          echo "Required production files and shared privacy footer: OK"
