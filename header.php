@@ -54,6 +54,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
     background:rgba(11,18,32,.72) !important; padding:20px !important; overflow:auto !important;
 }
 .integra-modal.integra-show { display:flex !important; align-items:center !important; justify-content:center !important; }
+.integra-modal-content, .integra-modal-content * { box-sizing:border-box !important; }
 .integra-modal-content {
     position:relative !important; width:min(470px,100%) !important; margin:auto !important;
     padding:32px !important; border-radius:18px !important; background:#fff !important;
