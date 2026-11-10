@@ -1687,7 +1687,7 @@
             <input type="text" name="website" style="display: none;">
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <?php include __DIR__ . '/includes/consent.php'; ?>
-            <button type="submit" class="btn btn-secondary">Отправить заявку</button>
+            <button type="submit" class="btn btn-primary">Отправить заявку</button>
             <input type="hidden" name="form_type" value="CTA Form">
         </form>
     </div>
@@ -1812,7 +1812,9 @@
         const modalTitle = document.getElementById('modalTitle');
         const formType = document.getElementById('modalFormType');
         
-        modalTitle.textContent = 'Подобрать оборудование для ' + objectType;
+        modalTitle.textContent = objectType.indexOf('Для ') === 0
+            ? 'Подобрать оборудование для ' + objectType.slice(4)
+            : objectType;
         formType.value = 'Modal Form: ' + objectType;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
