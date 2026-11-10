@@ -6,10 +6,10 @@
     <meta name="description" content="Профессиональное проектирование и монтаж слаботочных систем: СКС, видеонаблюдение, СКУД, Wi-Fi, пожарная сигнализация. Комплексные решения от Группы Интегра с 2007 года.">
     <meta name="keywords" content="слаботочные системы, СКС, видеонаблюдение, СКУД, пожарная сигнализация, автоматизация зданий, проектирование, монтаж, Москва, Санкт-Петербург">
     <meta property="og:title" content="Слаботочные системы - Комплексные решения | Группа Интегра">
-    <meta property="og:description" content="Профессиональное проектирование и монтаж слаботочных систем любой сложности с условиями договора и спецификацией проекта">
+    <meta property="og:description" content="Профессиональное проектирование и монтаж слаботочных систем любой сложности: СКС, видеонаблюдение, СКУД, пожарная сигнализация, Wi-Fi.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://groupintegra.ru/slabotchka.php">
-    <meta property="og:image" content="/images/weak-current-hero.jpg">
+    <meta property="og:image" content="https://groupintegra.ru/images/low-current-bg.jpg">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://groupintegra.ru/slabotchka.php">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
@@ -790,7 +790,6 @@
                         <li>Монтаж медных и оптических линий</li>
                         <li>Сертификационные измерения</li>
                         <li>Гарантия — в соответствии с договором и спецификацией проекта</li>
-                        <li>Медные и оптические линии — в соответствии с требованиями проекта</li>
                     </ul>
                 </div>
                 <button class="btn btn-secondary" onclick="openModal('СКС - Структурированные кабельные системы')">Заказать расчет</button>
@@ -1086,7 +1085,7 @@
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
             <textarea name="message" placeholder="Опишите ваш проект (тип объекта, площадь, требования)"></textarea>
-            <label style="display:flex;align-items:flex-start;gap:8px;font-size:.82rem;line-height:1.4;color:#64748B;"><input type="checkbox" name="privacy_consent" value="1" required style="width:auto;margin-top:3px;"><span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span></label>
+            <?php include __DIR__ . '/includes/consent.php'; ?>
             <input type="hidden" name="form_type" id="modalFormType">
             <input type="text" name="website" style="display: none;">
             <button type="submit" class="btn">Отправить заявку</button>

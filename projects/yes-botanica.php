@@ -291,7 +291,7 @@
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include __DIR__ . '/../header.php'; ?>
 
     <section class="cover" id="cover">
         <div class="cover-content" data-aos="fade-up">
@@ -357,7 +357,7 @@
         </div>
     </section>
 
-    <?php include 'footer.php'; ?>
+    <?php include __DIR__ . '/../footer.php'; ?>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

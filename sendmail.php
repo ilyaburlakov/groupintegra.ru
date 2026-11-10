@@ -39,6 +39,10 @@ foreach (['name', 'phone', 'form_type'] as $field) {
     }
 }
 
+if (($data['privacy_consent'] ?? '') !== '1') {
+    respond(false, 'Для отправки заявки необходимо согласие на обработку персональных данных.', 422);
+}
+
 $name = mb_substr($data['name'], 0, 120);
 $phone = mb_substr($data['phone'], 0, 40);
 $formType = mb_substr($data['form_type'], 0, 120);

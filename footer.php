@@ -1,8 +1,3 @@
-<?php
-$current_page = basename($_SERVER['PHP_SELF'], '.php');
-$is_gsm = ($current_page == 'gsm' || strpos($_SERVER['REQUEST_URI'], '/gsm') !== false);
-$is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-current' || strpos($_SERVER['REQUEST_URI'], '/slabotchka') !== false);
-?>
 <style>
 .footer {
     background:#0B1220; color:#fff; padding:64px 0 24px; margin-top:0;
@@ -73,8 +68,6 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
                 <ul>
                     <li><a href="/#contact">Контакты</a></li>
                     <li><a href="/privacy.php">Политика ПДн и cookie</a></li>
-                    <?php if ($is_gsm): ?><li><a href="/gsmservices.php">Услуги по усилению связи</a></li><?php endif; ?>
-                    <?php if ($is_slabotochka): ?><li><a href="/services.php">Дополнительные услуги</a></li><?php endif; ?>
                 </ul>
             </div>
 
@@ -97,4 +90,5 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
         </div>
     </div>
 </footer>
+<?php include __DIR__ . '/includes/cookie-banner.php'; ?>
 <!-- Deployment sync: explicit articles index link -->

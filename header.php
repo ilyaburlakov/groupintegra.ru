@@ -87,6 +87,16 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
 .integra-modal-form button:hover:not(:disabled) { background:#1D4ED8 !important; }
 .integra-modal-form button:disabled { opacity:.55 !important; cursor:not-allowed !important; }
 
+.privacy-consent {
+    display:flex; align-items:flex-start; gap:8px; margin:2px 0 14px;
+    color:#64748B; font-size:.82rem; line-height:1.4; text-align:left;
+}
+.privacy-consent input[type="checkbox"] { flex:0 0 auto; width:auto; padding:0; margin:3px 0 0; }
+.privacy-consent a { color:inherit; text-decoration:underline; }
+.integra-modal-form .privacy-consent input[type="checkbox"] {
+    width:auto !important; padding:0 !important; margin:3px 0 0 !important;
+}
+
 @media (max-width: 980px) {
     .integra-header-container { gap:16px !important; }
     .integra-nav-menu { gap:0 !important; }
@@ -150,10 +160,7 @@ $is_slabotochka = ($current_page == 'slabotchka' || $current_page == 'weak-curre
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
             <textarea name="message" placeholder="Кратко опишите задачу" rows="3"></textarea>
-            <label style="display:flex;align-items:flex-start;gap:8px;margin:2px 0 14px;color:#64748B;font-size:.8rem;line-height:1.4;">
-                <input type="checkbox" name="privacy_consent" value="1" required style="margin-top:3px;width:auto;">
-                <span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span>
-            </label>
+            <?php include __DIR__ . '/includes/consent.php'; ?>
             <input type="hidden" name="form_type" id="integraFormType" value="">
             <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
             <button type="submit">Отправить заявку</button>

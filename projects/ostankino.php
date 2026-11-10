@@ -299,7 +299,7 @@
 </head>
 <body>
     <!-- Подключаем хедер -->
-    <?php include 'header.php'; ?>
+    <?php include __DIR__ . '/../header.php'; ?>
 
     <!-- Cover Section -->
     <section class="cover" id="cover">
@@ -372,7 +372,7 @@
     </section>
 
     <!-- Подключаем футер -->
-    <?php include 'footer.php'; ?>
+    <?php include __DIR__ . '/../footer.php'; ?>
 
     <!-- Скрипты -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

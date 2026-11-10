@@ -1686,7 +1686,7 @@
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="text" name="website" style="display: none;">
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
-            <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="1" required><span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span></label>
+            <?php include __DIR__ . '/includes/consent.php'; ?>
             <button type="submit" class="btn btn-secondary">Отправить заявку</button>
             <input type="hidden" name="form_type" value="CTA Form">
         </form>
@@ -1706,7 +1706,7 @@
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
             <input type="email" name="email" placeholder="Ваш email">
             <textarea name="message" placeholder="Опишите ваш объект (площадь, этажность, материалы стен и т.д.)"></textarea>
-            <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="1" required><span>Согласен(на) на обработку персональных данных. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика обработки ПДн и cookie</a></span></label>
+            <?php include __DIR__ . '/includes/consent.php'; ?>
             <input type="hidden" name="form_type" id="modalFormType">
             <input type="text" name="website" style="display: none;">
             <button type="submit" class="btn">Отправить заявку</button>

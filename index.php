@@ -437,34 +437,6 @@
             z-index: 1;
         }
 
-        .cookie-modal {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 10000;
-            width: min(400px, calc(100% - 32px));
-            padding: 20px;
-            background: var(--white);
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(15,23,42,.16);
-        }
-        .cookie-modal p {
-            color: var(--muted);
-            font-size: .9rem;
-            margin: 0 0 14px;
-        }
-        .cookie-button {
-            min-height: 42px;
-            padding: 0 18px;
-            border: 0;
-            border-radius: 9px;
-            background: var(--navy);
-            color: var(--white);
-            font-weight: 700;
-            cursor: pointer;
-        }
-
         @media (max-width: 1000px) {
             .hero-inner { grid-template-columns: 1fr; padding-top: 52px; }
             .hero-visual { min-height: 380px; }
@@ -716,30 +688,7 @@
     </section>
 </main>
 
-<div class="cookie-modal" id="cookieModal" style="display:none;">
-    <p>Мы используем файлы cookie для улучшения работы сайта. <a href="/privacy.php" target="_blank" rel="noopener noreferrer">Политика cookie</a></p>
-    <button id="acceptCookies" class="cookie-button" type="button">Принять</button>
-</div>
-
 <?php include 'footer.php'; ?>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var cookieModal = document.getElementById('cookieModal');
-    var acceptCookiesButton = document.getElementById('acceptCookies');
-
-    if (!localStorage.getItem('cookiesAccepted')) {
-        setTimeout(function () {
-            cookieModal.style.display = 'block';
-        }, 1200);
-    }
-
-    acceptCookiesButton.addEventListener('click', function () {
-        localStorage.setItem('cookiesAccepted', 'true');
-        cookieModal.style.display = 'none';
-    });
-});
-</script>
 
 </body>
 </html>
